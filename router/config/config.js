@@ -18,5 +18,6 @@ config.ELASTIC_HOST                  = 'http://<user>:<password><IP>:<Port>'
 config.ELASTIC_INDEX_NAME            = 'indx_name'
 config.ELASTIC_INDEX_TYPE            = 'indx_type'
 
+config.REDIS_PORT					 = 6379
 
 module.exports = config;

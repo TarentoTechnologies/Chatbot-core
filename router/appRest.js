@@ -4,6 +4,7 @@ const cors             = require('cors')
 var https              = require('https');
 var http               = require('http');
 var fs                 = require('fs');
+var redis 			   = require('redis');
 var origins            = require('./config/corsList')
 var LOG                = require('./log/logger')
 var literals           = require('./config/literals')
@@ -11,6 +12,11 @@ var config             = require('./config/config')
 var RasaCoreController = require('./controllers/rasaCoreController')
 var EDB                = require('./api/elastic/connection')
 const appBot     = express()
+
+//configure redis client on port 6379
+const port_redis = config.REDIS_PORT || 6379;
+const redis_client = redis.createClient(port_redis);
+
 //// IVR is best done outside the bot...as no NLU interpretation is required
 
 
@@ -37,6 +43,10 @@ appBot.post('/bot', function (req, res) {
 	//persisting incoming data to EDB
 	dataPersist = {'message': body, 'channel' : 'rest'}
 	//EDB.saveToEDB(dataPersist, 'user', sessionID,(err,response)=>{})
+	
+	if (req.body.From) {
+		redis_client.setx(req.body.From, 3600, req.body.From);
+	}
 
 	if (body == '0') {
 		memory = {}
@@ -173,4 +183,3 @@ if (config.HTTPS_PATH_KEY) {
 	});
 
 }
-
