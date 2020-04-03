@@ -25,6 +25,8 @@ appBot.use(bodyParser.urlencoded({ extended: false }))
 
 // this object tracks session. It needs to be moved to Redis
 var memory = {}
+var userData = {}; //  TODO Add interface for the data that is stored in the redis session
+
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
 	const body = req.body.Body
@@ -43,15 +45,17 @@ appBot.post('/bot', function (req, res) {
 
 	if (body == '0') {
 		memory = {}
+		userData = {};
 	}
 
 	if (req.body.From) {
-		userData = {};
 		redis_client.get(req.body.From, (err, data) => {
 			if (data != null) {
+				// Key is already exist and hence assiging data which is already there at the posted key
 				 userData = data;
 			} else {
 			 obj = { sessionId: req.body.From, role: '', educationLvl: '',  board: '', boardType: ''};
+			 // Adding data in redis for the key
 			 setRedisKeyValue(redis_client, req.body.From, JSON.stringify(obj), 3600);
 			}
 		});		
@@ -145,7 +149,6 @@ appBot.post('/bot', function (req, res) {
 		else {
 			LOG.info('setting up role:' + req.body.Body)
 			memory[sessionID]['role'] = req.body.Body
-			//setRedisKeyValue();
 			obj = { sessionId: req.body.From, role: req.body.Body, educationLvl: '',  board: '', boardType: ''};
 			setRedisKeyValue(redis_client, req.body.From, JSON.stringify(obj), 3600);
 			emitToUser(sessionID, res, literals.message.EDUCATION_LEVEL)
@@ -154,7 +157,6 @@ appBot.post('/bot', function (req, res) {
 		memory[sessionID] = {}
 		obj = { };
 		setRedisKeyValue(redis_client, req.body.From, JSON.stringify(obj), 3600);
-		// setRedisKeyValue(redis_client, req.body.From, {}, 3600);
 		emitToUser(sessionID, res, literals.message.MENU)
 	}
 })
