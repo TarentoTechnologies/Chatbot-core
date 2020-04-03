@@ -8,6 +8,7 @@ config.SOCKET_HTTP_PORT              = 4005
 config.REST_HTTP_PORT                = 4000
 config.SOCKET_HTTPS_PORT             = 4001
 config.REST_HTTPS_PORT               = 8443
+config.TELEGRAM_HTTPS_PORT           = 4009
 
 config.HTTPS_PATH_KEY                = ''
 config.HTTPS_PATH_CERT               = ''
