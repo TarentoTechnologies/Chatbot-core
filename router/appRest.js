@@ -59,9 +59,20 @@ appBot.post('/bot', function (req, res) {
 					})
 				} else {
 					var currentFlowStep = userData.currentFlowStep;
-					var respVarName = chatflowConfig[currentFlowStep].responseVariable;
-					userData[respVarName] = body;
-					currentFlowStep += '_' + body;
+					var possibleFlow = currentFlowStep + '_' + body;
+					if (chatflowConfig[possibleFlow]) {
+						var respVarName = chatflowConfig[currentFlowStep].responseVariable;
+						if (respVarName) {
+							userData[respVarName] = body;
+						}
+						currentFlowStep = possibleFlow;
+					} else if (body === '0') {
+						currentFlowStep = 'step1'
+					} else if (body === '9') {
+						if (currentFlowStep.lastIndexOf("_") > 0) {
+							currentFlowStep = currentFlowStep.substring (0, currentFlowStep.lastIndexOf("_"))
+						}
+					} 
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
 					sendResponse(sessionID, res, literals.message[chatflowConfig[currentFlowStep].messageKey]);
