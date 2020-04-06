@@ -2,6 +2,8 @@ var message                       = {}
 
 message.START = "<span>Hi, I’m TARA, your DIKSHA assistant. How may I help you today? <br> Select from one of the following options <ol> <li> To find and play content </li> <li> To download/update the DIKSHA mobile app </li><li> Other Queries</li></ol></span>"
 
+message.START_whatsapp = "Hi, I’m TARA, your DIKSHA assistant. How may I help you today? \n Select from one of the following options \n 1. To find and play content \n 2. To download/update the DIKSHA mobile app \n 3. Other Queries"
+
 message.CHOOSE_BOARD = "<span> Tell me which of the following board you belong to, so that I can assist you better: <ol> <li> CBSE  </li><li> State Board </li> </ol> </span>"
 
 message.CBSE_MESSAGE = "<span> Please visit (<a href='https://diksha.gov.in/CBSE/explore'>diksha.gov.in/CBSE/explore</a>) to access eResources, videos, DFs and practice sheets from the topics in your syllabus. <br> Press 9 to go back to the previous menu or 0 to the main menu </span>"

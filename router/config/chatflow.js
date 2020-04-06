@@ -31,10 +31,6 @@ var chatflow = {
         messageKey: "UP_BOARD",
         responseVariable: ""
     },
-    step1_1_2_unknown: {
-        messageKey: "CHOOSE_STATE_BOARD_UNKNOWN",
-        responseVariable: ""
-    },
     step1_2: {
         messageKey: "PLAYSTORE",
         responseVariable: ""

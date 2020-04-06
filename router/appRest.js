@@ -5,7 +5,6 @@ var https = require('https');
 var http = require('http');
 var fs = require('fs');
 var redis = require('redis');
-var origins = require('./config/corsList')
 var LOG = require('./log/logger')
 var literals = require('./config/literals')
 var config = require('./config/config')
@@ -14,19 +13,26 @@ var RasaCoreController = require('./controllers/rasaCoreController')
 var EDB = require('./api/elastic/connection')
 
 const appBot = express()
-
 //cors handling
 appBot.use(cors());
-
 //body parsers for requests
 appBot.use(bodyParser.json());
 appBot.use(bodyParser.urlencoded({ extended: false }))
 
-// this object tracks session. It needs to be moved to Redis
+// Redis is used as the session tracking store
 const redis_client = redis.createClient(config.REDIS_PORT, config.REDIS_HOST);
 const chatflowConfig = chatflow.chatflow;
+
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
+	handler(req, res, 'botclient')
+})
+
+appBot.post('/bot/whatsapp', function (req, res) {
+	handler(req, res, 'whatsapp')
+})
+
+function handler(req, res, channel) {
 	var body = req.body.Body
 	var sessionID = req.body.From;
 	var userData = {};
@@ -49,7 +55,7 @@ appBot.post('/bot', function (req, res) {
 					///Bot interaction flow
 					RasaCoreController.processUserData(data, sessionID, (err, resp) => {
 						if (err) {
-							sendResponse(sessionID, res, literals.message.SORRY)
+							sendChannelResponse(sessionID, res, 'SORRY')
 						} else {
 							let responses = resp.res;
 							for (var i = 0; i < responses.length; i++) {
@@ -75,18 +81,46 @@ appBot.post('/bot', function (req, res) {
 					} 
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
-					sendResponse(sessionID, res, literals.message[chatflowConfig[currentFlowStep].messageKey]);
+					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey);
 				}
 
 			} else {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
 				userData = { sessionId: sessionID, currentFlowStep: 'step1' };
 				setRedisKeyValue(sessionID, userData);
-				sendResponse(sessionID, res, literals.message.START);
+				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
 	}
-})
+}
+
+function setRedisKeyValue(key, value) {
+	const expiryInterval = 3600;
+	redis_client.setex(key, expiryInterval, JSON.stringify(value));
+}
+
+function delRedisKey(key) {
+	redis_client.del(key);
+}
+
+//send data to user
+function sendResponse(sessionID, response, responseBody, responseCode) {
+	response.set('Content-Type', 'text/plain')
+	if (responseCode) response.status(responseCode)
+	response.send(responseBody)
+}
+
+function sendChannelResponse(sessionID, response, responseKey, channel, responseCode) {
+	response.set('Content-Type', 'text/plain')
+	var tmp = literals.message
+	if (responseCode) response.status(responseCode)
+	var channelResponse = literals.message[responseKey + '_' + channel];
+	if (channelResponse) {
+		response.send(channelResponse)	
+	} else {
+		response.send(literals.message[responseKey])	
+	} 
+}
 
 //http endpoint
 http.createServer(appBot).listen(config.REST_HTTP_PORT, function (err) {
@@ -114,24 +148,4 @@ if (config.HTTPS_PATH_KEY) {
 		LOG.info('Server started on port ' + config.REST_HTTPS_PORT)
 	});
 
-}
-
-function setRedisKeyValue(key, value) {
-	const expiryInterval = 3600;
-	redis_client.setex(key, expiryInterval, JSON.stringify(value));
-}
-
-function delRedisKey(key) {
-	redis_client.del(key);
-}
-
-//send data to user
-function sendResponse(sessionID, response, responseBody, responseCode) {
-	//persisting outgoing data to EDB
-	//dataPersist = {'message': responseBody, 'channel' : 'rest'}
-	//EDB.saveToEDB(dataPersist, 'bot', sessionID,(err,response)=>{})
-	//emit to client
-	response.set('Content-Type', 'text/plain')
-	if (responseCode) response.status(responseCode)
-	response.send(responseBody)
 }
