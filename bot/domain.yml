@@ -6,51 +6,77 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - student
-  - teacher
+  - find_and_play_content
+  - download_update_diska_app
+  - other_queries
+  - how_to_scan_using_qr_code
+  - not_able_to_login
+  - other
   - cbse
   - state_board
-  - nios
-  - higher_edu
+  - state_board_link
   - board_menu
 
 responses:
   utter_greet:
-  - text: "Namaste, Welcome to Dikshavani. You can ask me questions you have about education, learning and how to stay safe. I can help you with how you can study from home.  Please choose from the following options"
+  - text: "Hi, I’m TARA, your DIKSHA assistant. How may I help you today? Select from one of the following options"
     buttons:
-    - title: "Student/Parent"
-      payload: "student"
-    - title: "Teacher"
-      payload: "teacher"
+    - title: "Find and play content"
+      payload: "find and play content"
+    - title: "Download/update the DIKSHA mobile app"
+      payload: "download update the DIKSHA mobile app"
+    - title: "Other Queries"
+      payload: "other queries"
 
   utter_board:
-  - text: "We understand that, as a student, you may have a lot of questions. Which Board do you study in ?Please choose from the following options"
+  - text: "Tell me which of the following board you belong to, so that I can assist you better:"
     buttons:
     - title: "CBSE"
       payload: "cbse"
     - title: "State Board"
-      payload: "state_board"
-    - title: "National Institute of Open Schooling (NIOS)"
-      payload: "nios"
-    - title: "Higher Education"
-      payload: "higher_edu"
+      payload: "state board"
     - title: "Go Back to Menu"
       payload: "main_menu"
 
-  utter_teacher:
-  - text: "Thank you so much!"
+  utter_download_update_diska_app:
+  - text: "To download/update the DIKSHA mobile app Please visit ( https://play.google.com/store/apps/details?id=in.gov.diksha.app&hl=en_IN​ ) Tip : Press 9 to go back to the previous menu or 0 to the main menu."
+
+  utter_other_queries:
+  - text: "Please select from the following options"
+    buttons:
+    - title: "How to scan using qr code"
+      payload: "how to scan using qr code"
+    - title: "Not able to Login"
+      payload: "not able to login"
+    - title: "Other"
+      payload: "other"
+
+  utter_how_to_scan_using_qr_code:
+  - text: "Please visit: https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html​ . Press 9 to go back to the previous menu or 0 to the main"
+
+  utter_not_able_to_login:
+  - text: "Please visit:https://diksha.gov.in/help/getting-started/sign-in/index.html​ . Press 9 to go back to the previous menu or 0 to the main menu."
+
+  utter_other:
+  - text: "Please visit:https://diksha.gov.in/help/getting-started/explore-diksha/index.html​ . Press 9 to go back to the previous menu or 0 to the main menu."
 
   utter_cbse:
-  - text: "I have a lot of content available for CBSE students. You can find it <a href='https://bit.ly/dk-cbse'>here</a>, To go to the previous menu send type 'Board Menu' and hit Enter"
+  - text: "Please visit (diksha.gov.in/CBSE/explore) to access eResources, videos, PDFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu"
 
   utter_state_board:
-  - text: "The Diksha app offers content for many state boards. You can explore the same <a href='https://bit.ly/dk-state'>here</a>, To go to the previous menu send type 'Board Menu' and hit Enter"
+  - text: "Which of the following state boards you belong to"
+    buttons:
+    - title: "Tamil Nadu"
+      payload: "tn"
+    - title:  "Karnataka"
+      payload: "kr"
+    - title: "Gujarat"
+      payload: "gj"
+    - title: "Uttar Pradesh"
+      payload: "up"
 
-  utter_nios:
-  - text: "You can find content for the National Institute of Open Schooling (NIOS) <a href='https://bit.ly/dk-nios'>here</a>, To go to the previous menu send type 'Board Menu' and hit Enter"
-
-  utter_higher_edu:
-  - text: "Swayam is the go to platform for higher education content available <a href='https://bit.ly/dkswayam'>here</a>, To go to the previous menu send type 'Board Menu' and hit Enter"
+  utter_state_board_link:
+  - text : "Please visit (link to state board) to access eResources, videos, PDFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"

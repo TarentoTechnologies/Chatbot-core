@@ -1,35 +1,36 @@
-## happy path
+## menu 1 path
 * greet
   - utter_greet
-* student
+* find_and_play_content
   - utter_board
 * cbse
   - utter_cbse
 * state_board
   - utter_state_board
-* nios
-  - utter_nios
-* higher_edu
-  - utter_higher_edu
+* state_board_link
+  - utter_state_board_link
 * board_menu
   - utter_board
 * mood_great
   - utter_happy
 
-## sad path 1
+## menu 2 path
 * greet
   - utter_greet
-* teacher
-  - utter_teacher
+* download_update_diska_app
+  - utter_download_update_diska_app
 
-## sad path 2
+## menu 3 path
 * greet
   - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* affirm
-  - utter_happy
+* other_queries
+  - utter_other_queries
+* how_to_scan_using_qr_code
+  - utter_how_to_scan_using_qr_code
+* not_able_to_login
+  - utter_not_able_to_login
+* other
+  - utter_other
 
 ## sad path 3
 * greet

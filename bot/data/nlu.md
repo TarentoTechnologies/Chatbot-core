@@ -6,17 +6,27 @@
 - good evening
 - hey there
 
-##intent: student
-- student
-- Student
+##intent: find_and_play_content
+- find and play content
+- Find and play content
 
-##intent: teacher
-- teacher
-- Teacher
+##intent: download_update_diska_app
+- download update the DIKSHA mobile app
+- Download/update the DIKSHA mobile app
+
+##intent: other_queries
+- other queries
+- Other Queries
 
 ##intent: board_menu
 - Board Menu
 - board menu
+
+##intent: state_board_link
+- tn
+- kr
+- gj
+- up
 
 ##intent: cbse
 - CBSE
@@ -26,13 +36,17 @@
 - State Board
 - state board
 
-##intent: nios
-- National Institute of Open Schooling (NIOS)
-- nios
+##intent: how_to_scan_using_qr_code
+- how to scan using qr code
+- How to scan using qr code
 
-##intent: higher_edu
-- Higher Education
-- higher education
+##intent: not_able_to_login
+- not able to login
+- Not able to login
+
+##intent: other
+- other
+- Other
 
 ## intent:goodbye
 - bye
