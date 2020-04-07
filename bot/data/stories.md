@@ -1,14 +1,44 @@
-## greet user
+## happy path
 * greet
   - utter_greet
+* student
+  - utter_board
+* cbse
+  - utter_cbse
+* state_board
+  - utter_state_board
+* nios
+  - utter_nios
+* higher_edu
+  - utter_higher_edu
+* board_menu
+  - utter_board
+* mood_great
+  - utter_happy
 
-## how_you
-* how_you
-  - utter_how_you
+## sad path 1
+* greet
+  - utter_greet
+* teacher
+  - utter_teacher
 
-## get started
-* get_started
-  - utter_get_started
+## sad path 2
+* greet
+  - utter_greet
+* mood_unhappy
+  - utter_cheer_up
+  - utter_did_that_help
+* affirm
+  - utter_happy
+
+## sad path 3
+* greet
+  - utter_greet
+* mood_unhappy
+  - utter_cheer_up
+  - utter_did_that_help
+* deny
+  - utter_goodbye
 
 ## say goodbye
 * goodbye
@@ -17,31 +47,3 @@
 ## bot challenge
 * bot_challenge
   - utter_iamabot
-
-# course_mentor
-* course_mentor
-  - utter_course_mentor
-
-# flag_reviewer
-* flag_reviewer
-  - utter_flag_reviewer
-
-# content_customization
-* content_customization
-  - utter_content_customization
-
-# content_suggestions
-* content_suggestions
-  - utter_content_suggestions
-
-# language_support
-* language_support
-  - utter_language_support
-
-# author_credit
-* author_credit
-  - utter_author_credit
-
-# worksheet
-* worksheet
-  - utter_worksheet
