@@ -1,137 +1,98 @@
 intents:
   - greet
   - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
   - bot_challenge
-  - get_started
-  - how_you
-  - worksheet
-  - course_mentor
-  - flag_reviewer
-  - language_support
-  - content_customization
-  - author_credit
-  - find_content
-  - content_suggestions
-
-entities:
-  - board
-  - grade
-  - medium
-  - subject
-
-actions:
-- utter_greet
-- utter_goodbye
-- utter_iamabot
-- fallback_action
-- utter_out_of_scope
-- utter_how_you
-- utter_low_confidence
-- utter_course_mentor
-- utter_flag_reviewer
-- utter_content_customization
-- utter_language_support
-- utter_author_credit
-- utter_worksheet
-- utter_content_suggestions
+  - find_and_play_content
+  - download_update_diska_app
+  - other_queries
+  - how_to_scan_using_qr_code
+  - not_able_to_login
+  - other
+  - cbse
+  - state_board
+  - state_board_link
+  - board_menu
 
 responses:
   utter_greet:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "Hi there! Please press 0 for menu."
-       intent: "greet"
+  - text: "Hi, I’m TARA, your DIKSHA assistant. How may I help you today? Select from one of the following options"
+    buttons:
+    - title: "Find and play content"
+      payload: "find and play content"
+    - title: "Download/update the DIKSHA mobile app"
+      payload: "download update the DIKSHA mobile app"
+    - title: "Other Queries"
+      payload: "other queries"
 
-  utter_how_you:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "I am good, thanks for asking. Please press 0 for menu."
-       intent: "how_you"
+  utter_board:
+  - text: "Tell me which of the following board you belong to, so that I can assist you better:"
+    buttons:
+    - title: "CBSE"
+      payload: "cbse"
+    - title: "State Board"
+      payload: "state board"
+    - title: "Go Back to Menu"
+      payload: "main_menu"
 
-  utter_get_started:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "Hello!"
-       intent: "get_started"
+  utter_download_update_diska_app:
+  - text: "To download/update the DIKSHA mobile app Please visit ( https://play.google.com/store/apps/details?id=in.gov.diksha.app&hl=en_IN​ ) Tip : Press 9 to go back to the previous menu or 0 to the main menu."
 
-  utter_iamabot:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "I am bot, here to help you. Please press 0 for menu."
-       intent: "who_am_i"
+  utter_other_queries:
+  - text: "Please select from the following options"
+    buttons:
+    - title: "How to scan using qr code"
+      payload: "how to scan using qr code"
+    - title: "Not able to Login"
+      payload: "not able to login"
+    - title: "Other"
+      payload: "other"
+
+  utter_how_to_scan_using_qr_code:
+  - text: "Please visit: https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html​ . Press 9 to go back to the previous menu or 0 to the main"
+
+  utter_not_able_to_login:
+  - text: "Please visit:https://diksha.gov.in/help/getting-started/sign-in/index.html​ . Press 9 to go back to the previous menu or 0 to the main menu."
+
+  utter_other:
+  - text: "Please visit:https://diksha.gov.in/help/getting-started/explore-diksha/index.html​ . Press 9 to go back to the previous menu or 0 to the main menu."
+
+  utter_cbse:
+  - text: "Please visit (diksha.gov.in/CBSE/explore) to access eResources, videos, PDFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu"
+
+  utter_state_board:
+  - text: "Which of the following state boards you belong to"
+    buttons:
+    - title: "Tamil Nadu"
+      payload: "tn"
+    - title:  "Karnataka"
+      payload: "kr"
+    - title: "Gujarat"
+      payload: "gj"
+    - title: "Uttar Pradesh"
+      payload: "up"
+
+  utter_state_board_link:
+  - text : "Please visit (link to state board) to access eResources, videos, PDFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
 
   utter_goodbye:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "See ya!"
-       intent: "goodbye"
+  - text: "Bye"
 
-  utter_low_confidence:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "Can you rephrase that please? Press 0 for menu."
-       intent: "low_confidence"
-
-  utter_out_of_scope:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "Sorry, I could not understand you. Please press 0 for menu."
-       intent: "out_of_scope"
-
-  utter_worksheet:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "A set or questions or tasks put together to assess the understanding of any particular topic/unit/chapter. Worksheets can be created on DIKSHA using the inbuilt content editor."
-       intent: "worksheet"
-
-
-  utter_course_mentor:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "A Course Mentor guides and instructs learners on how to undertake a course On DIKSHA, a course mentor creates batches of users to to enrol for and take a course. Mentors also ensure completion of a course within a stipulated time."
-       intent: "course_mentor"
-
-  utter_language_support:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "We support English, Hindi, Kannada, Bengali, Marathi, Tamil, Telugu, Urdu languages."
-       intent: "language_support"
-
-
-  utter_content_customization:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "Yes, you can customize the content for your domain. Any field/screen on DISKHA can be customized to suit organization needs."
-       intent: "utter_content_customization"
-
-  utter_content_suggestions:
-  - text: "Sure, here are a few content for {board} {medium} {grade} {subject}"
-
-  utter_flag_reviewer:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "A person who assesses flagged content. On DIKSHA the flag reviewer reviews the content and rejects if the content is inappropriate according to DIKSHA review guidelines. The flag is removed if the content fits the guidelines"
-       intent: "flag_reviewer"
-
-  utter_author_credit:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "An author can be credited by following these steps. Log in to the diksha portal  -> Select Workspace -> Select Create -> click the Course tile. -> Click Edit Details to enter/ modify the course details -> Enter Creators -> Enter Contributors details -> Enter Original Author details -> Click Save to save the details"
-       intent: "author_credit"
-
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
 
 session_config:
   session_expiration_time: 60
