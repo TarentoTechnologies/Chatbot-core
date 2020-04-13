@@ -32,6 +32,10 @@ appBot.post('/bot/whatsapp', function (req, res) {
 	handler(req, res, 'whatsapp')
 })
 
+appBot.post('/bot/telegram', function (req, res) {
+	handler(req, res, 'telegram')
+})
+
 function handler(req, res, channel) {
 	var body = req.body.Body
 	var sessionID = req.body.From;
