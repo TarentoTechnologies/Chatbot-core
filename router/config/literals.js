@@ -1,7 +1,7 @@
 var message                       = {}
 
 message.START = "<span>Hi, I’m TARA, your DIKSHA assistant. How may I help you today? <br> Select from one of the following options <ol> <li> To find and play content </li> <li> To download/update the DIKSHA mobile app </li><li> Other Queries</li></ol></span>"
-message.CHOOSE_BOARD = "<span> Tell me which of the following board you belong to, so that I can assist you better: <ol> <li> CBSE  </li><li> State Board </li> </ol> </span>"
+message.CHOOSE_BOARD = "<span> Tell me which of the following board you belong to, so that I can assist you better Send the number corresponding to the board.: <ol> <li> 1. CBSE  </li><li> 2. State Board </li> </ol> </span>"
 message.CBSE_MESSAGE = "<span> Please visit (<a href='https://diksha.gov.in/CBSE/explore'>diksha.gov.in/CBSE/explore</a>) to access eResources, videos, DFs and practice sheets from the topics in your syllabus. <br> Press 9 to go back to the previous menu or 0 to the main menu </span>"
 message.CHOOSE_STATE_BOARD = "<span>Which of the following state boards you belong to? <ol><li> Tamil Nadu </li><li> Karnataka </li><li> Gujarat </li><li> Uttar Pradesh </li> </ol> </span>"
 message.TN_BOARD = "<span>Please visit (<a href='https://diksha.gov.in/tn/explore'>diksha.gov.in/tn/explore</a>) to access eResources, videos, PDFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu.</span>"
@@ -17,7 +17,7 @@ message.UNKNOWN_OPTION = "Sorry, I do not understand what you’re asking. Pleas
 message.SORRY = "Sorry, can you come again please?"
 
 message.START_whatsapp = "Hi, I’m TARA, your DIKSHA assistant. How may I help you today? \n Select from one of the following options \n 1. To find and play content \n 2. To download/update the DIKSHA mobile app \n 3. Other Queries"
-message.CHOOSE_BOARD_whatsapp = "Tell me which of the following board you belong to, so that I can assist you better: \nCBSE  \nState Board "
+message.CHOOSE_BOARD_whatsapp = "Tell me which of the following board you belong to, so that I can assist you better. Send the number corresponding to the board. \n1. CBSE  \n2. State Board "
 message.CBSE_MESSAGE_whatsapp = "Please visit 'https://diksha.gov.in/CBSE/explore to access eResources, videos, DFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu "
 message.CHOOSE_STATE_BOARD_whatsapp = "Which of the following state boards you belong to? \nTamil Nadu \nKarnataka \nGujarat \nUttar Pradesh"
 message.TN_BOARD_whatsapp = "Please visit https://diksha.gov.in/tn/explore to access eResources, videos, PDFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu."
@@ -33,7 +33,7 @@ message.UNKNOWN_OPTION_whatsapp = "Sorry, I do not understand what you’re aski
 message.SORRY_whatsapp = "Sorry, can you come again please?"
 
 message.START_telegram = "Hi, I’m TARA, your DIKSHA assistant. How may I help you today? \n Select from one of the following options \n 1. To find and play content \n 2. To download/update the DIKSHA mobile app \n 3. Other Queries"
-message.CHOOSE_BOARD_telegram = "Tell me which of the following board you belong to, so that I can assist you better: \nCBSE  \nState Board "
+message.CHOOSE_BOARD_telegram = "Tell me which of the following board you belong to, so that I can assist you better. Send the number corresponding to the board.: \n1. CBSE  \n2. State Board "
 message.CBSE_MESSAGE_telegram = "Please visit 'https://diksha.gov.in/CBSE/explore to access eResources, videos, DFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu "
 message.CHOOSE_STATE_BOARD_telegram = "Which of the following state boards you belong to? \nTamil Nadu \nKarnataka \nGujarat \nUttar Pradesh"
 message.TN_BOARD_telegram = "Please visit https://diksha.gov.in/tn/explore to access eResources, videos, PDFs and practice sheets from the topics in your syllabus. Press 9 to go back to the previous menu or 0 to the main menu."
