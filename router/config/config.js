@@ -18,9 +18,11 @@ config.REDIS_HOST					 = env.REDIS_HOST || 'localhost'
 
 config.SUNBIRD_ENVIRONMENT			       = env.sunbird_environment || 'sunbird.env'
 config.SUNBIRD_INSTANCE 			       = env.sunbird_instance || 'sunbird.ins'
+config.CONTENT_URL                         = env.sunbird_content_player_url || 'https://staging.open-sunbird.org/api/',
+config.APPID                               = env.sunbird_environment + '.' + env.sunbird_instance + '.portal',
 config.SUNBIRD_TELEMETRY_SYNC_BATCH_SIZE   = env.sunbird_telemetry_sync_batch_size || 20
-config.SUNBIRD_CONTENT_REPO_API_KEY        = env.sunbird_content_repo_api_key || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyZThlNmU5MjA4YjI0MjJmOWFlM2EzNjdiODVmNWQzNiJ9.gvpNN7zEl28ZVaxXWgFmCL6n65UJfXZikUWOKSE8vJ8' // API key for the content provider URL
-config.SUNBIRD_TELEMETRY_SERVICE_LOCAL_URL = env.sunbird_telemetry_service_local_url || 'http://telemetry-service:9001/'
+config.PORTAL_API_AUTH_TOKEN               = env.sunbird_api_auth_token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyZThlNmU5MjA4YjI0MjJmOWFlM2EzNjdiODVmNWQzNiJ9.gvpNN7zEl28ZVaxXWgFmCL6n65UJfXZikUWOKSE8vJ8' // API key for the content provider URL
+config.TELEMETRY_SERVICE_LOCAL_URL         = env.sunbird_telemetry_service_local_url || 'http://telemetry-service:9001/'
 
 config.ELASTIC_HOST                  = 'http://<user>:<password><IP>:<Port>'
 config.ELASTIC_INDEX_NAME            = 'indx_name'
