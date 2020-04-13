@@ -11,7 +11,7 @@ var config = require('./config/config')
 var chatflow = require('./config/chatflow')
 var RasaCoreController = require('./controllers/rasaCoreController')
 var EDB = require('./api/elastic/connection')
-
+const telemetryHelper = require('./api/telemetry/telemetry.js')
 const appBot = express()
 //cors handling
 appBot.use(cors());
@@ -42,11 +42,10 @@ function handler(req, res, channel) {
 	var userData = {};
 	data = { message: body, customData: { userId: sessionID } }
 	LOG.info('context for: ' + sessionID)
-
+	telemetryHelper.logSessionStart(req)
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
 	//EDB.saveToEDB(dataPersist, 'user', sessionID,(err,response)=>{})
-
 	if (!sessionID) {
 		sendResponse(sessionID, res, "From attrib missing", 400);
 	} else {
@@ -131,8 +130,8 @@ http.createServer(appBot).listen(config.REST_HTTP_PORT, function (err) {
 	if (err) {
 		throw err
 	}
-
 	LOG.info('Server started on port ' + config.REST_HTTP_PORT)
+	telemetryHelper.initializeTelemetry()
 });
 
 LOG.info('HTTPS port value ' + config.HTTPS_PATH_KEY)
