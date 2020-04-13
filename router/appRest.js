@@ -55,7 +55,7 @@ function handler(req, res, channel) {
 					///Bot interaction flow
 					RasaCoreController.processUserData(data, sessionID, (err, resp) => {
 						if (err) {
-							sendChannelResponse(sessionID, res, 'SORRY')
+							sendChannelResponse(sessionID, res, 'SORRY', channel)
 						} else {
 							let responses = resp.res;
 							for (var i = 0; i < responses.length; i++) {
@@ -81,7 +81,7 @@ function handler(req, res, channel) {
 					} 
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
-					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey);
+					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
 				}
 
 			} else {
