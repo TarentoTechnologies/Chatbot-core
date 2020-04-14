@@ -16,13 +16,15 @@ config.HTTPS_PATH_CA                 = env.HTTPS_PATH_CA || ''
 config.REDIS_PORT					 = 6379
 config.REDIS_HOST					 = env.REDIS_HOST || 'localhost'
 
-config.SUNBIRD_ENVIRONMENT			       = env.sunbird_environment || 'sunbird.env'
-config.SUNBIRD_INSTANCE 			       = env.sunbird_instance || 'sunbird.ins'
-config.CONTENT_URL                         = env.sunbird_content_player_url || 'https://staging.open-sunbird.org/api/',
-config.APPID                               = 'diksha_vani.env' + '.' + 'sunbird.ins' + '.portal',
-config.SUNBIRD_TELEMETRY_SYNC_BATCH_SIZE   = env.sunbird_telemetry_sync_batch_size || 20
-config.PORTAL_API_AUTH_TOKEN               = env.sunbird_api_auth_token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyZThlNmU5MjA4YjI0MjJmOWFlM2EzNjdiODVmNWQzNiJ9.gvpNN7zEl28ZVaxXWgFmCL6n65UJfXZikUWOKSE8vJ8' // API key for the content provider URL
-config.TELEMETRY_SERVICE_LOCAL_URL         = 'https://staging.ntp.net.in/content/data/'
+
+config.ENVIRONMENT			       = env.sunbird_environment || 'sunbird.env'
+config.TELEMETRY_ENDPOINT          = env.telemetry_endpoint || 'v1/telemetry'
+config.INSTANCE 			       = env.sunbird_instance || 'sunbird.ins'
+config.CONTENT_URL                 = env.sunbird_content_player_url || 'https://staging.open-sunbird.org/api/',
+config.APPID                       = 'diksha_vani.' + 'sunbird.ins' + '.portal',
+config.TELEMETRY_SYNC_BATCH_SIZE   = env.telemetry_sync_batch_size || 1
+config.PORTAL_API_AUTH_TOKEN       = env.sunbird_api_auth_token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyZThlNmU5MjA4YjI0MjJmOWFlM2EzNjdiODVmNWQzNiJ9.gvpNN7zEl28ZVaxXWgFmCL6n65UJfXZikUWOKSE8vJ8' // API key for the content provider URL
+config.TELEMETRY_SERVICE_LOCAL_URL = env.telemetry_service_url || 'https://staging.ntp.net.in/content/data/'
 
 config.ELASTIC_HOST                  = 'http://<user>:<password><IP>:<Port>'
 config.ELASTIC_INDEX_NAME            = 'indx_name'

@@ -42,7 +42,6 @@ function handler(req, res, channel) {
 	var userData = {};
 	data = { message: body, customData: { userId: sessionID } }
 	LOG.info('context for: ' + sessionID)
-	telemetryHelper.logSessionStart(req)
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
 	//EDB.saveToEDB(dataPersist, 'user', sessionID,(err,response)=>{})
@@ -62,6 +61,12 @@ function handler(req, res, channel) {
 						} else {
 							let responses = resp.res;
 							for (var i = 0; i < responses.length; i++) {
+								const data = { 
+									requestObj: req,
+									step: 'START_CONVERSATION',
+									stepResponse: responses[i].text 
+								}
+								telemetryHelper.logInteraction(data)
 								sendResponse(sessionID, res, responses[i].text)
 							}
 						}
@@ -84,6 +89,12 @@ function handler(req, res, channel) {
 					} 
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
+					const data = { 
+						requestObj: req,
+						step: chatflowConfig[currentFlowStep].messageKey,
+						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
+					}
+					telemetryHelper.logInteraction(data)
 					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
 				}
 
@@ -91,6 +102,12 @@ function handler(req, res, channel) {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
 				userData = { sessionId: sessionID, currentFlowStep: 'step1' };
 				setRedisKeyValue(sessionID, userData);
+				const data = { 
+					requestObj: req,
+					step: chatflowConfig['step1'].messageKey,
+					stepResponse: literals.message[chatflowConfig['step1'].messageKey] 
+				}
+				telemetryHelper.logInteraction(data);
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});

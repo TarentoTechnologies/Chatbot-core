@@ -86,6 +86,14 @@ telemetryService.prototype.error = function (data) {
  * for log event
  * data object have these properties {'edata', context', 'object', 'tags'}
  */
+telemetryService.prototype.interact = function (data) {
+  Telemetry.interact(data)
+}
+
+/**
+ * for log event
+ * data object have these properties {'edata', context', 'object', 'tags'}
+ */
 telemetryService.prototype.log = function (data) {
   Telemetry.log(data.edata, {
     context: data.context,
