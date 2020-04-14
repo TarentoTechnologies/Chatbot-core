@@ -21,11 +21,6 @@ module.exports = {
     }
   },
 
-  logSessionStart: function (data) {
-    console.log('New User', data);
-    telemetryHelper.log
-  },
-
   /**
    * this function helps to generate session start event
    */
