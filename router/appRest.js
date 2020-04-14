@@ -12,6 +12,8 @@ var chatflow = require('./config/chatflow')
 var RasaCoreController = require('./controllers/rasaCoreController')
 var EDB = require('./api/elastic/connection')
 const telemetryHelper = require('./api/telemetry/telemetry.js')
+const axios                 = require('axios')
+
 const appBot = express()
 //cors handling
 appBot.use(cors());
@@ -136,10 +138,33 @@ function sendChannelResponse(sessionID, response, responseKey, channel, response
 	if (responseCode) response.status(responseCode)
 	var channelResponse = literals.message[responseKey + '_' + channel];
 	if (channelResponse) {
-		response.send(channelResponse)	
+		if(channel == 'telegram'){
+			postToTelegram(sessionID, response, channelResponse)
+		}else{
+			response.send(channelResponse)	
+		}
 	} else {
 		response.send(literals.message[responseKey])	
 	} 
+}
+
+function postToTelegram(sessionID, client, channelResponse){
+    axios
+        .post(
+            config.TELEGRAM_BOT_ENDPOINT,
+            {
+                chat_id: sessionID,
+                text: channelResponse
+            }
+        )
+        .then(response => {
+            client.end('ok')
+        })
+        .catch(err => {
+            LOG.err('Error :', err)
+            client.end('Error :' + err)
+        })
+
 }
 
 //http endpoint
