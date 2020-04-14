@@ -11,6 +11,7 @@ var config = require('./config/config')
 var chatflow = require('./config/chatflow')
 var RasaCoreController = require('./controllers/rasaCoreController')
 var EDB = require('./api/elastic/connection')
+const axios                 = require('axios')
 
 const appBot = express()
 //cors handling
