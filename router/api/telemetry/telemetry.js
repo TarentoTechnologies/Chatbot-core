@@ -47,12 +47,6 @@ module.exports = {
     });
   },
 
-  /**
-   * This function helps to get actor data for telemetry
-   */
-  getTelemetryActorData: function (req) {
-  },
-
   initializeTelemetry: function() {
     telemetry.init({
       pdata: { id: appId, ver: '1.0' },
