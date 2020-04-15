@@ -1,4 +1,3 @@
-const parser = require('ua-parser-js')
 const _ = require('lodash')
 var config = require('../../config/config')
 const apiToken = config.PORTAL_API_AUTH_TOKEN
@@ -7,38 +6,26 @@ const telemetry = new Telemetry()
 const appId = config.APPID
 
 module.exports = {
-  /**
-   * This function helps to get user spec
-   */
-  getUserSpec: function (req) {
-    var ua = parser(req.headers['user-agent'])
-    return {
-      'agent': ua['browser']['name'],
-      'ver': ua['browser']['version'],
-      'system': ua['os']['name'],
-      'platform': ua['engine']['name'],
-      'raw': ua['ua']
-    }
-  },
 
   /**
    * this function helps to generate session start event
    */
   logInteraction: function (data) {
-    const req = data.requestObj
+    const userData = data.userData
+    const userId = userData.customData.userId
     var channel = 'dikshavani'
     var dims = [] // _.clone(req.session.orgs || [])
     // dims = dims ? _.concat(dims, channel) : channel
     const edata = telemetry.startEventData('session')
-    edata.uaspec = this.getUserSpec(req)
+    edata.uaspec = data.uaspec
     const value =  [];
     value.push(data.stepResponse);
     edata.extra = { pos: [{ "step": data.step }], values: value}
     const context = telemetry.getContextData({ channel: channel, env: 'user' })
-    context.sid = req.body.From
+    context.sid = userId
     context.did = 'bot-client' // req.session.deviceId
     context.rollup = telemetry.getRollUpData(dims)
-    const actor = telemetry.getActorData(req.body.From, 'user')
+    const actor = telemetry.getActorData(userId, 'user')
     telemetry.interact({
       edata: edata,
       context: context,

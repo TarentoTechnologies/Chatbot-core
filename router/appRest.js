@@ -13,6 +13,8 @@ var RasaCoreController = require('./controllers/rasaCoreController')
 var EDB = require('./api/elastic/connection')
 const telemetryHelper = require('./api/telemetry/telemetry.js')
 const axios                 = require('axios')
+const parser = require('ua-parser-js')
+
 
 const appBot = express()
 //cors handling
@@ -41,6 +43,7 @@ appBot.post('/bot/telegram', function (req, res) {
 function handler(req, res, channel) {
 	var body = req.body.Body
 	var sessionID = req.body.From;
+	let uaspec = getUserSpec(req);
 	var userData = {};
 	data = { message: body, customData: { userId: sessionID } }
 	LOG.info('context for: ' + sessionID)
@@ -63,12 +66,13 @@ function handler(req, res, channel) {
 						} else {
 							let responses = resp.res;
 							for (var i = 0; i < responses.length; i++) {
-								const data = { 
-									requestObj: req,
+								const telemetryData = { 
+									userData: data,
+									uaspec: uaspec,
 									step: 'START_CONVERSATION',
 									stepResponse: responses[i].text 
 								}
-								telemetryHelper.logInteraction(data)
+								telemetryHelper.logInteraction(telemetryData)
 								sendResponse(sessionID, res, responses[i].text)
 							}
 						}
@@ -91,12 +95,13 @@ function handler(req, res, channel) {
 					} 
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
-					const data = { 
-						requestObj: req,
+					const telemetryData = { 
+						userData: data,
+						uaspec: uaspec,
 						step: chatflowConfig[currentFlowStep].messageKey,
 						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
 					}
-					telemetryHelper.logInteraction(data)
+					telemetryHelper.logInteraction(telemetryData)
 					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
 				}
 
@@ -104,12 +109,12 @@ function handler(req, res, channel) {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
 				userData = { sessionId: sessionID, currentFlowStep: 'step1' };
 				setRedisKeyValue(sessionID, userData);
-				const data = { 
-					requestObj: req,
+				const telemetryData = { 
+					userData: data,
 					step: chatflowConfig['step1'].messageKey,
 					stepResponse: literals.message[chatflowConfig['step1'].messageKey] 
 				}
-				telemetryHelper.logInteraction(data);
+				telemetryHelper.logInteraction(telemetryData);
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
@@ -119,6 +124,20 @@ function handler(req, res, channel) {
 function setRedisKeyValue(key, value) {
 	const expiryInterval = 3600;
 	redis_client.setex(key, expiryInterval, JSON.stringify(value));
+}
+
+/**
+* This function helps to get user spec
+*/
+function getUserSpec(req) {
+    var ua = parser(req.headers['user-agent'])
+    return {
+      'agent': ua['browser']['name'],
+      'ver': ua['browser']['version'],
+      'system': ua['os']['name'],
+      'platform': ua['engine']['name'],
+      'raw': ua['ua']
+    }
 }
 
 function delRedisKey(key) {
@@ -138,33 +157,10 @@ function sendChannelResponse(sessionID, response, responseKey, channel, response
 	if (responseCode) response.status(responseCode)
 	var channelResponse = literals.message[responseKey + '_' + channel];
 	if (channelResponse) {
-		if(channel == 'telegram'){
-			postToTelegram(sessionID, response, channelResponse)
-		}else{
-			response.send(channelResponse)	
-		}
+		response.send(channelResponse)	
 	} else {
 		response.send(literals.message[responseKey])	
 	} 
-}
-
-function postToTelegram(sessionID, client, channelResponse){
-    axios
-        .post(
-            config.TELEGRAM_BOT_ENDPOINT,
-            {
-                chat_id: sessionID,
-                text: channelResponse
-            }
-        )
-        .then(response => {
-            client.end('ok')
-        })
-        .catch(err => {
-            LOG.err('Error :', err)
-            client.end('Error :' + err)
-        })
-
 }
 
 //http endpoint
