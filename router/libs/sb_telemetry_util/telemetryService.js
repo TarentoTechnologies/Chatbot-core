@@ -16,7 +16,6 @@ function telemetryService () {
  * @param {object} config
  */
 telemetryService.prototype.init = function (config) {
-  console.log('Config', config);
   default_config.dispatcher = new telemetrySyncManager()
   default_config.dispatcher.init(config)
   this.config = Object.assign({}, config, default_config)
