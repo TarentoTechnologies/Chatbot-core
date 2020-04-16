@@ -31,6 +31,90 @@ var chatflow = {
         messageKey: "UP_BOARD",
         responseVariable: ""
     },
+    step1_1_2_5: {
+        messageKey: "NTP_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_6: {
+        messageKey: "PB_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_7: {
+        messageKey: "RJ_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_8: {
+        messageKey: "MN_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_9: {
+        messageKey: "CG_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_10: {
+        messageKey: "MITRA_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_11: {
+        messageKey: "BR_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_12: {
+        messageKey: "OD_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_13: {
+        messageKey: "AS_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_14: {
+        messageKey: "MP_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_15: {
+        messageKey: "HR_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_16: {
+        messageKey: "NL_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_17: {
+        messageKey: "GA_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_18: {
+        messageKey: "TS_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_19: {
+        messageKey: "APEKX_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_20: {
+        messageKey: "ML_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_21: {
+        messageKey: "NCERT_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_22: {
+        messageKey: "JH_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_23: {
+        messageKey: "SK_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_24: {
+        messageKey: "CH_BOARD",
+        responseVariable: ""
+    },
+    step1_1_2_25: {
+        messageKey: "IGOT_BOARD",
+        responseVariable: ""
+    },
     step1_2: {
         messageKey: "PLAYSTORE",
         responseVariable: ""
