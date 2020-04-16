@@ -11,6 +11,10 @@ var config = require('./config/config')
 var chatflow = require('./config/chatflow')
 var RasaCoreController = require('./controllers/rasaCoreController')
 var EDB = require('./api/elastic/connection')
+const telemetryHelper = require('./api/telemetry/telemetry.js')
+const axios                 = require('axios')
+const parser = require('ua-parser-js')
+
 
 const appBot = express()
 //cors handling
@@ -39,14 +43,13 @@ appBot.post('/bot/telegram', function (req, res) {
 function handler(req, res, channel) {
 	var body = req.body.Body
 	var sessionID = req.body.From;
+	let uaspec = getUserSpec(req);
 	var userData = {};
 	data = { message: body, customData: { userId: sessionID } }
 	LOG.info('context for: ' + sessionID)
-
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
 	//EDB.saveToEDB(dataPersist, 'user', sessionID,(err,response)=>{})
-
 	if (!sessionID) {
 		sendResponse(sessionID, res, "From attrib missing", 400);
 	} else {
@@ -63,6 +66,13 @@ function handler(req, res, channel) {
 						} else {
 							let responses = resp.res;
 							for (var i = 0; i < responses.length; i++) {
+								const telemetryData = { 
+									userData: data,
+									uaspec: uaspec,
+									step: 'START_CONVERSATION',
+									stepResponse: responses[i].text 
+								}
+								telemetryHelper.logInteraction(telemetryData)
 								sendResponse(sessionID, res, responses[i].text)
 							}
 						}
@@ -85,6 +95,13 @@ function handler(req, res, channel) {
 					} 
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
+					const telemetryData = { 
+						userData: data,
+						uaspec: uaspec,
+						step: chatflowConfig[currentFlowStep].messageKey,
+						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
+					}
+					telemetryHelper.logInteraction(telemetryData)
 					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
 				}
 
@@ -92,6 +109,12 @@ function handler(req, res, channel) {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
 				userData = { sessionId: sessionID, currentFlowStep: 'step1' };
 				setRedisKeyValue(sessionID, userData);
+				const telemetryData = { 
+					userData: data,
+					step: chatflowConfig['step1'].messageKey,
+					stepResponse: literals.message[chatflowConfig['step1'].messageKey] 
+				}
+				telemetryHelper.logInteraction(telemetryData);
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
@@ -101,6 +124,20 @@ function handler(req, res, channel) {
 function setRedisKeyValue(key, value) {
 	const expiryInterval = 3600;
 	redis_client.setex(key, expiryInterval, JSON.stringify(value));
+}
+
+/**
+* This function helps to get user spec
+*/
+function getUserSpec(req) {
+    var ua = parser(req.headers['user-agent'])
+    return {
+      'agent': ua['browser']['name'],
+      'ver': ua['browser']['version'],
+      'system': ua['os']['name'],
+      'platform': ua['engine']['name'],
+      'raw': ua['ua']
+    }
 }
 
 function delRedisKey(key) {
@@ -131,8 +168,8 @@ http.createServer(appBot).listen(config.REST_HTTP_PORT, function (err) {
 	if (err) {
 		throw err
 	}
-
 	LOG.info('Server started on port ' + config.REST_HTTP_PORT)
+	telemetryHelper.initializeTelemetry()
 });
 
 LOG.info('HTTPS port value ' + config.HTTPS_PATH_KEY)
