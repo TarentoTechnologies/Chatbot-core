@@ -88,7 +88,7 @@ function handler(req, res, channel) {
 						currentFlowStep = possibleFlow;
 					} else if (body === '0') {
 						currentFlowStep = 'step1'
-					} else if (body === '9') {
+					} else if (body === '99') {
 						if (currentFlowStep.lastIndexOf("_") > 0) {
 							currentFlowStep = currentFlowStep.substring (0, currentFlowStep.lastIndexOf("_"))
 						}
