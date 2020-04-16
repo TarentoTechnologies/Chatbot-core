@@ -34,11 +34,8 @@ node('build-slave') {
             stage('Build') {
                 env.NODE_ENV = "build"
                 print "Environment will be : ${env.NODE_ENV}"
-                name = "bot"
-                sh '''
-                docker build -f ./Dockerfile --label commitHash=$(git rev-parse --short HEAD) -t ${hub_org}/${name}:${build_tag} .
-                echo {\"image_name\" : \"${name}\", \"image_tag\" : \"${build_tag}\", \"node_name\" : \"$node\"} > metadata.json
-                '''
+                sh('chmod 777 build.sh')
+                sh("./build.sh ${build_tag} ${env.NODE_NAME} ${hub_org}")
             }
             stage('ArchiveArtifacts') {
                 archiveArtifacts "metadata.json"
