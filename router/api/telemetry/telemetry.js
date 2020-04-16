@@ -36,7 +36,7 @@ module.exports = {
         tags: _.concat([], channel)
       });
     } catch(e) {
-      LOG.error('Error while interacting event',e)
+      LOG.error('Error while interaction event',e)
     }
   },
 
