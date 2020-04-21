@@ -28,6 +28,7 @@ telemetryService.prototype.init = function (config) {
  */
 
 telemetryService.prototype.start = function (data) {
+  this.context = [];
   if (data.context) { this.context.push(data.context) 
   }
   Telemetry.start(this.config, data.contentId, data.contentVer, data.edata, {

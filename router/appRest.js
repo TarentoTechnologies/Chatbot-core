@@ -75,6 +75,7 @@ function handler(req, res, channel) {
 								telemetryHelper.logInteraction(telemetryData)
 								sendResponse(sessionID, res, responses[i].text)
 							}
+							
 						}
 					})
 				} else {
@@ -111,10 +112,9 @@ function handler(req, res, channel) {
 				setRedisKeyValue(sessionID, userData);
 				const telemetryData = { 
 					userData: data,
-					step: chatflowConfig['step1'].messageKey,
-					stepResponse: literals.message[chatflowConfig['step1'].messageKey] 
+					userSpecData: uaspec,
 				}
-				telemetryHelper.logInteraction(telemetryData);
+				telemetryHelper.logSessionStart(telemetryData);
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});

@@ -8,6 +8,32 @@ const appId = config.APPID
 
 module.exports = {
 
+
+  /**
+   * this function helps to generate session start event
+   */
+  logSessionStart: function (sessionData) {
+    console.log(sessionData);
+    const uaspec = sessionData.userSpecData   
+    var channel = 'dikshavani'  // req.session.rootOrghashTagId || _.get(req, 'headers.X-Channel-Id')
+    var dims = []// _.clone(req.session.orgs || [])
+    //dims = dims ? _.concat(dims, channel) : channel
+    const edata = telemetry.startEventData('session')
+    edata.uaspec = uaspec
+    const context = telemetry.getContextData({ channel: channel, env: 'dikshavani_bot' })
+    context.sid = sessionData.userData.customData.userId
+    context.did = '6b17499998d0284e57d91ac20ebd82e3'
+    context.rollup = {} // telemetry.getRollUpData(dims)
+    const actor = telemetry.getActorData(sessionData.userData.customData.userId, 'user')
+    console.log('logging session start event', context.did);
+    telemetry.start({
+      edata: edata,
+      context: context,
+      actor: actor,
+      tags: _.concat([], channel)
+    })
+  },
+
   /**
    * this function helps to generate session start event
    */
