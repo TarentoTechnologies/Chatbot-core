@@ -83,11 +83,12 @@ telemetryService.prototype.error = function (data) {
 }
 
 /**
- * for log event
- * data object have these properties {'edata', context', 'object', 'tags'}
+ * To log telemetry of user interactions on the page.
+ * For example, search, click, preview, move, resize, configure
+ * data object have these properties {'data', 'options'}
  */
 telemetryService.prototype.interact = function (data) {
-  Telemetry.interact(data)
+  Telemetry.interact(data.data, data.options)
 }
 
 /**

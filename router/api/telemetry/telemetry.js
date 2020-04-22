@@ -5,7 +5,6 @@ const apiToken = config.PORTAL_API_AUTH_TOKEN
 const Telemetry = require('sb_telemetry_util')
 const telemetry = new Telemetry()
 const appId = config.APPID
-
 module.exports = {
 
 
@@ -41,25 +40,36 @@ module.exports = {
     try {
       const userData = data.userData
       const userId = userData.customData.userId
-      var channel = 'dikshavani'
-      var dims = [] // _.clone(req.session.orgs || [])
-      // dims = dims ? _.concat(dims, channel) : channel
-      const edata = telemetry.startEventData('session')
-      edata.uaspec = data.uaspec
       const value =  [];
       value.push(data.stepResponse);
-      edata.extra = { pos: [{ "step": data.step }], values: value}
-      const context = telemetry.getContextData({ channel: channel, env: 'user' })
+      const interactionData = { 
+        type: 'SPEAK',
+        id: 'diksha-bot',
+        extra: {
+          pos: "",
+          values: [],
+        }
+      };
+      interactionData.extra = { pos: [{ step: data.step, userInput: data.userData.message }], values: value}
+      var channel = 'dikshavani'  // req.session.rootOrghashTagId || _.get(req, 'headers.X-Channel-Id')
+      var dims = []// _.clone(req.session.orgs || [])
+      //dims = dims ? _.concat(dims, channel) : channel
+      const context = telemetry.getContextData({ channel: channel, env: 'dikshavani_bot' })
       context.sid = userId
-      context.did = 'bot-client' // req.session.deviceId
-      context.rollup = telemetry.getRollUpData(dims)
+      context.did = '6b17499998d0284e57d91ac20ebd82e3'
+      context.rollup = {} // telemetry.getRollUpData(dims)
       const actor = telemetry.getActorData(userId, 'user')
-      
+      var options = { 
+        context: context, // To override the existing context
+        object: {}, // To override the existing object
+        actor: actor, // To override the existing actor
+        tags: _.concat([], channel), // To override the existing tags
+        runningEnv: "server" // It can be either client or server
+      }
+
       telemetry.interact({
-        edata: edata,
-        context: context,
-        actor: actor,
-        tags: _.concat([], channel)
+        data: interactionData,
+        options: options
       });
     } catch(e) {
       LOG.error('Error while interaction event',e)

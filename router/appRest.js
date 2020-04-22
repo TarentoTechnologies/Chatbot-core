@@ -99,10 +99,17 @@ function handler(req, res, channel) {
 					const telemetryData = { 
 						userData: data,
 						uaspec: uaspec,
-						step: chatflowConfig[currentFlowStep].messageKey,
+						step: currentFlowStep,
 						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
 					}
 					telemetryHelper.logInteraction(telemetryData)
+					/*const telemetryDataOfUser = { 
+						userData: data,
+						uaspec: uaspec,
+						step: chatflowConfig[currentFlowStep].messageKey,
+						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
+					}
+					telemetryHelper.logInteraction(telemetryData)*/
 					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
 				}
 
@@ -115,6 +122,13 @@ function handler(req, res, channel) {
 					userSpecData: uaspec,
 				}
 				telemetryHelper.logSessionStart(telemetryData);
+				const telemetryDataForInteraction = { 
+					userData: data,
+					uaspec: uaspec,
+					step: 'step1',
+					stepResponse: literals.message[chatflowConfig['step1'].messageKey] 
+				}
+				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
