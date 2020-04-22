@@ -21,10 +21,9 @@ module.exports = {
     edata.uaspec = uaspec
     const context = telemetry.getContextData({ channel: channel, env: 'dikshavani_bot' })
     context.sid = sessionData.userData.customData.userId
-    context.did = '6b17499998d0284e57d91ac20ebd82e3'
-    context.rollup = {} // telemetry.getRollUpData(dims)
+    context.did = 'dikshavani-bot-widget' // We need to have device id here
+    context.rollup = telemetry.getRollUpData(dims)
     const actor = telemetry.getActorData(sessionData.userData.customData.userId, 'user')
-    console.log('logging session start event', context.did);
     telemetry.start({
       edata: edata,
       context: context,
@@ -53,11 +52,11 @@ module.exports = {
       interactionData.extra = { pos: [{ step: data.step, userInput: data.userData.message }], values: value}
       var channel = 'dikshavani'  // req.session.rootOrghashTagId || _.get(req, 'headers.X-Channel-Id')
       var dims = []// _.clone(req.session.orgs || [])
-      //dims = dims ? _.concat(dims, channel) : channel
+      // dims = dims ? _.concat(dims, channel) : channel
       const context = telemetry.getContextData({ channel: channel, env: 'dikshavani_bot' })
       context.sid = userId
-      context.did = '6b17499998d0284e57d91ac20ebd82e3'
-      context.rollup = {} // telemetry.getRollUpData(dims)
+      context.did = 'dikshavani-bot-widget' // We need to have device id here
+      context.rollup = telemetry.getRollUpData(dims)
       const actor = telemetry.getActorData(userId, 'user')
       var options = { 
         context: context, // To override the existing context
