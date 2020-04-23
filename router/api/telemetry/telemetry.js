@@ -14,28 +14,28 @@ module.exports = {
   logSessionStart: function (sessionData) {
     console.log(sessionData);
     const uaspec = sessionData.userSpecData   
-    var channel = 'dikshavani'  // req.session.rootOrghashTagId || _.get(req, 'headers.X-Channel-Id')
+    var channelId = 'dikshavani'  // req.session.rootOrghashTagId || _.get(req, 'headers.X-Channel-Id')
     var dims = []// _.clone(req.session.orgs || [])
     //dims = dims ? _.concat(dims, channel) : channel
     const edata = telemetry.startEventData('session')
     edata.uaspec = uaspec
-    const context = telemetry.getContextData({ channel: channel, env: 'dikshavani_bot' })
+    const context = telemetry.getContextData({ channel: channelId, env: 'dikshavani_bot' })
     context.sid = sessionData.userData.customData.userId
-    context.did = 'dikshavani-bot-widget' // We need to have device id here
+    context.did = 'device-id' // We need to have device id here
     context.rollup = telemetry.getRollUpData(dims)
     const actor = telemetry.getActorData(sessionData.userData.customData.userId, 'user')
     telemetry.start({
       edata: edata,
       context: context,
       actor: actor,
-      tags: _.concat([], channel)
+      tags: _.concat([], channelId)
     })
   },
 
   /**
    * this function helps to generate session start event
    */
-  logInteraction: function (data) {
+  logInteraction: function (data, channel) {
     try {
       const userData = data.userData
       const userId = userData.customData.userId
@@ -43,26 +43,25 @@ module.exports = {
       value.push(data.stepResponse);
       const interactionData = { 
         type: 'SPEAK',
-        id: 'diksha-bot',
-        extra: {
-          pos: "",
-          values: [],
-        }
+        subtype: data.subtype,
+        id: channel,
+        pageid: data.pageid
       };
-      interactionData.extra = { pos: [{ step: data.step, userInput: data.userData.message }], values: value}
-      var channel = 'dikshavani'  // req.session.rootOrghashTagId || _.get(req, 'headers.X-Channel-Id')
+
+      // interactionData.extra = { pos: [{ step: data.step, userInput: data.userData.message }], values: value}
+      var channelId = 'dikshavani'  // req.session.rootOrghashTagId || _.get(req, 'headers.X-Channel-Id')
       var dims = []// _.clone(req.session.orgs || [])
       // dims = dims ? _.concat(dims, channel) : channel
-      const context = telemetry.getContextData({ channel: channel, env: 'dikshavani_bot' })
+      const context = telemetry.getContextData({ channel: channelId, env: 'dikshavani_bot' })
       context.sid = userId
-      context.did = 'dikshavani-bot-widget' // We need to have device id here
+      context.did = 'device-id' // We need to have device id here
       context.rollup = telemetry.getRollUpData(dims)
       const actor = telemetry.getActorData(userId, 'user')
       var options = { 
         context: context, // To override the existing context
         object: {}, // To override the existing object
         actor: actor, // To override the existing actor
-        tags: _.concat([], channel), // To override the existing tags
+        tags: _.concat([], channelId), // To override the existing tags
         runningEnv: "server" // It can be either client or server
       }
 

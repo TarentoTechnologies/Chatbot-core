@@ -69,10 +69,10 @@ function handler(req, res, channel) {
 								const telemetryData = { 
 									userData: data,
 									uaspec: uaspec,
-									step: 'START_CONVERSATION',
-									stepResponse: responses[i].text 
+									pageid: responses[i].intent,
+									subtype: 'bot'
 								}
-								telemetryHelper.logInteraction(telemetryData)
+								telemetryHelper.logInteraction(telemetryData, channel)
 								sendResponse(sessionID, res, responses[i].text)
 							}
 							
@@ -99,10 +99,10 @@ function handler(req, res, channel) {
 					const telemetryData = { 
 						userData: data,
 						uaspec: uaspec,
-						step: currentFlowStep,
-						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
+						pageid: currentFlowStep,
+						subtype: 'router'
 					}
-					telemetryHelper.logInteraction(telemetryData)
+					telemetryHelper.logInteraction(telemetryData, channel)
 					/*const telemetryDataOfUser = { 
 						userData: data,
 						uaspec: uaspec,
@@ -125,10 +125,10 @@ function handler(req, res, channel) {
 				const telemetryDataForInteraction = { 
 					userData: data,
 					uaspec: uaspec,
-					step: 'step1',
-					stepResponse: literals.message[chatflowConfig['step1'].messageKey] 
+					pageid: 'step1',
+					subtype: 'router'
 				}
-				telemetryHelper.logInteraction(telemetryDataForInteraction)
+				telemetryHelper.logInteraction(telemetryDataForInteraction, channel)
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});

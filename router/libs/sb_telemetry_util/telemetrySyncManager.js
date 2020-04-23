@@ -98,7 +98,6 @@ telemetrySyncManager.prototype.sync = function (events, callback) {
     request(options, function (err, res, body) {
       console.log('Request', res.request.body);
       if (res && res.statusCode === 200) {
-        console.log('Status code success');
         callback(null, body);
         return;
       }
