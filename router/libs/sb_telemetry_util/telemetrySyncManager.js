@@ -8,6 +8,7 @@
 var request = require('request')
 var _ = require('lodash');
 var telemetryBatchUtil = require('./telemetryBatchUtil');
+var LOG = require('../../log/logger')
 
 function telemetrySyncManager() {
 
@@ -94,10 +95,10 @@ telemetrySyncManager.prototype.sync = function (events, callback) {
   if (events && events.length) {
     var self = this
     const options = this.getHttpOption(events)
-
     request(options, function (err, res, body) {
-      console.log('Request', res.request.body);
+      //console.log('Response', res.request.body)
       if (res && res.statusCode === 200) {
+        self.logTelemetryResponse(res.request.body)
         callback(null, body);
         return;
       }
@@ -120,12 +121,20 @@ telemetrySyncManager.prototype.sync = function (events, callback) {
 }
 
 /**
+ * desc: Responsible to log every event into log file
+ */
+telemetrySyncManager.prototype.logTelemetryResponse = function (data) {
+  // console.log(JSON.parse(data))
+  LOG.info('Telemetry Response...', JSON.stringify(data))
+  // console.log('Type of DATA', );
+}
+
+/**
  * desc: Responsible for call http api
  */
 telemetrySyncManager.prototype.syncBatches = function (callback) {
   var self = this;
   var batches = telemetryBatchUtil.get();
-  console.log('Batches........',  batches);
   _.forEach(batches, function (batch) {
     (function (batch) {
       self.sync(batch.events, function (error, response) {
