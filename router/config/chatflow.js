@@ -116,26 +116,53 @@ var chatflow = {
         responseVariable: ""
     },
     step1_2: {
-        messageKey: "PLAYSTORE",
+        messageKey: "ACCESS_DIKSHA",
+        responseVariable: ""
+    },
+    step1_2_1: {
+        messageKey: "CONTRIBUTE_CONTENT",
+        responseVariable: ""
+    },
+    step1_2_2: {
+        messageKey: "CONSTITUTION_QUIZ",
+        responseVariable: ""
+    },
+    step1_2_2_1: {
+        messageKey: "CONSTITUTION_QUIZ_LANGUAGE_ENGLISH",
+        responseVariable: ""
+    },
+    step1_2_2_2: {
+        messageKey: "CONSTITUTION_QUIZ_LANGUAGE_HINDI",
+        responseVariable: ""
+    },
+    step1_2_3: {
+        messageKey: "WEEKLY_CRITICAL_THINKING",
         responseVariable: ""
     },
     step1_3: {
+        messageKey: "PLAYSTORE",
+        responseVariable: ""
+    },
+    step1_4: {
         messageKey: "OTHER_OPTIONS",
         responseVariable: "other_options"
     },
-    step1_3_1: {
+    step1_4_1: {
         messageKey: "SCAN_QRCODE",
         responseVariable: ""
     },
-    step1_3_2: {
+    step1_4_2: {
         messageKey: "UNABLE_LOGIN",
         responseVariable: ""
     },
-    step1_3_3: {
+    step1_4_3: {
+        messageKey: "FORGOT_PASSWORD",
+        responseVariable: ""
+    },
+    step1_4_4: {
         messageKey: "OTHERS",
         responseVariable: ""
     }
-
 };
 
 module.exports.chatflow = chatflow;

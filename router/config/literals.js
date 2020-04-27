@@ -10,7 +10,7 @@ message.START =
         <li>I want to access programs on DIKSHA</li>
         <li>I want to download DIKSHA mobile app</li>
         <li>I have other DIKSHA queries</li>
-    <ol>
+    </ol>
 </span>`
 message.CHOOSE_BOARD = 
 `<span> 
@@ -25,18 +25,18 @@ message.CHOOSE_BOARD =
 
 message.CBSE_MESSAGE = `
 <span>
-Please visit: 
-<a target='_blank' href='https://diksha.gov.in/CBSE/explore'>diksha.gov.in/CBSE/explore</a><br>
-Select the Medium and Class to view relevant subject textbook<br>
-Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span>
-        <strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <span-->
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/CBSE/explore'>
+        diksha.gov.in/CBSE/explore
+    </a><br>
+    Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 
 message.CHOOSE_STATE_BOARD = `
 <span>
     Which state board do you belong to? <br>
+    Type the number next to the State:<br>
     <ol>
         <li>Tamilnadu</li>
         <li>Karnataka</li>
@@ -64,190 +64,269 @@ message.CHOOSE_STATE_BOARD = `
         <li>Chandigarh</li>
         <li>IGOT</li>
     </ol>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning</span-->
+    <strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.TN_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/tn/explore'>diksha.gov.in/tn/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning</span-->
+    Please visit <a target='_blank' href='https://diksha.gov.in/tn/explore'>diksha.gov.in/tn/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.KA_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ka/explore'>diksha.gov.in/ka/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning</span-->
+    Please visit <a target='_blank' href='https://diksha.gov.in/ka/explore'>diksha.gov.in/ka/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.GJ_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/gj/explore'>diksha.gov.in/gj/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/gj/explore'>diksha.gov.in/gj/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.UP_BOARD =
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/up/explore'>diksha.gov.in/up/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/up/explore'>diksha.gov.in/up/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>` 
 message.NTP_BOARD =
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/explore'>diksha.gov.in/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/explore'>diksha.gov.in/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.PB_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/pb/explore'>diksha.gov.in/pb/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/pb/explore'>diksha.gov.in/pb/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.RJ_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/rj/explore'>diksha.gov.in/rj/explore</a><rj>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/rj/explore'>diksha.gov.in/rj/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.MN_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/mn/explore'>diksha.gov.in/mn/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/mn/explore'>diksha.gov.in/mn/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.CG_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/cg/explore'>diksha.gov.in/cg/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/cg/explore'>diksha.gov.in/cg/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.MITRA_BOARD = 
 `<span>
     Please visit <a target='_blank' href='https://diksha.gov.in/mitra/explore'>diksha.gov.in/mitra/explore</a>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.BR_BOARD = 
 `<span>
     Please visit <a target='_blank' href='https://diksha.gov.in/br/explore'>diksha.gov.in/br/explore</a>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.OD_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/od/explore'>diksha.gov.in/od/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/od/explore'>diksha.gov.in/od/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.AS_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/as/explore'>diksha.gov.in/as/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/as/explore'>diksha.gov.in/as/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.MP_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/mp/explore'>diksha.gov.in/mp/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/mp/explore'>diksha.gov.in/mp/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.HR_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/hr/explore'>diksha.gov.in/hr/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/hr/explore'>diksha.gov.in/hr/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.NL_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/nl/explore'>diksha.gov.in/nl/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/nl/explore'>diksha.gov.in/nl/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.GA_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ga/explore'>diksha.gov.in/ga/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/ga/explore'>diksha.gov.in/ga/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.TS_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ts/explore'>diksha.gov.in/ts/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/ts/explore'>diksha.gov.in/ts/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.APEKX_BOARD = 
 `<span>
     Please visit <a target='_blank' href='https://diksha.gov.in/apekx/explore'>diksha.gov.in/apekx/explore</a>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.ML_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ml/explore'>diksha.gov.in/ml/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/ml/explore'>diksha.gov.in/ml/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.NCERT_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ncert/explore'>diksha.gov.in/ncert/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/ncert/explore'>diksha.gov.in/ncert/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.JH_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/jh/explore'>diksha.gov.in/jh/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/jh/explore'>diksha.gov.in/jh/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.SK_BOARD = 
 `<span>
     Please visit <a target='_blank' href='https://diksha.gov.in/sk/explore'>diksha.gov.in/sk/explore</a>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.CH_BOARD = 
 `<span>
     Please visit <a target='_blank' href='https://diksha.gov.in/ch/explore'>diksha.gov.in/ch/explore</a>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 message.IGOT_BOARD = 
 `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/igot/explore'>diksha.gov.in/igot/explore</a><br>
-    Select the Medium and Class to view relevant subject textbook<br>
-    Type 99 to go back to choose another board, or Type 0 to start from the beginning
-    <!--span><strong>Tip : </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
+    Please visit <a target='_blank' href='https://diksha.gov.in/igot/explore'>diksha.gov.in/igot/explore</a>
+    <br>Select the Medium and Class to view relevant subject textbook<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another board, or Type 0 to start from the beginning
 </span>`
 
-message.PLAYSTORE = "<span>Please visit (<a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara​</a>). <br><br><strong>Tip : </strong>Press 0 to the main menu.</span>"
-message.OTHER_OPTIONS = "<span> Please select from the following options- <br><br>&emsp;&emsp; 1- How to scan using qr code?  <br>&emsp;&emsp; 2- Not able to Login <br>&emsp;&emsp; 3- Other <br><br><strong>Tip : </strong>Press 0 to the main menu.</span>"
-message.SCAN_QRCODE = "<span> Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'> https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html</a>.<br><br><strong>Tip : </strong>Press 99 to go back to the previous menu or 0 to the main menu. </span>"
-message.UNABLE_LOGIN = "<span>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>https://diksha.gov.in/help/getting-started/sign-in/index.html​</a>. <br><br><strong>Tip : </strong>Press 99 to go back to the previous menu or 0 to the main menu </span>"
-message.OTHERS = "<span>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/explore-diksha/index.html'>https://diksha.gov.in/help/getting-started/explore-diksha/index.html​</a>.<br><br><strong>Tip : </strong>Press 99 to go back to the previous menu or 0 to the main menu. </span>"
+message.ACCESS_DIKSHA = 
+`<span>
+    Select which program you want to access-<br>
+    Type the number next to the option:
+    <ol>
+        <li>I want to contribute content</li>
+        <li>I want to take Constitution quiz</li>
+        <li>I want to practice Weekly Creative and Critical Thinking questions</li>
+    </ol>
+    <strong>Tip: </strong>Press 0 to start from the beginning.
+</span>`
+message.CONTRIBUTE_CONTENT = 
+`<span>
+    Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>vdn.diksha.gov.in</a><br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another program, or Type 0 to start from the beginning
+</span>`
+message.CONSTITUTION_QUIZ = 
+`<span>
+    Choose your quiz language<br>
+    Type the number next to the option:
+    <ol>
+        <li>English</li>
+        <li>Hindi</li>
+    </ol>
+    <strong>Tip: </strong>Type 99 to go back to choose another program, or Type 0 to start from the beginning
+</span>`
+message.WEEKLY_CRITICAL_THINKING =
+`<span>
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook'>
+        diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook
+    </a><br><br>
+    Select the Medium, Grade and Subject to view relevant content<br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another program, or Type 0 to start from the beginning
+</span>`
+
+message.CONSTITUTION_QUIZ_LANGUAGE_ENGLISH = 
+`<span>
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/play/quiz/do_312998713531351040138'>
+        diksha.gov.in/play/quiz/do_312998713531351040138
+    </a><br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another language, or Type 0 to start from the beginning
+</span>`
+message.CONSTITUTION_QUIZ_LANGUAGE_HINDI = 
+`<span>
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/play/quiz/do_3129987409840947201283'>
+        diksha.gov.in/play/quiz/do_3129987409840947201283
+    </a><br>
+    <br><strong>Tip: </strong>Type 99 to go back to choose another language, or Type 0 to start from the beginning
+</span>`
+message.PLAYSTORE = 
+`<span>
+    Please visit 
+    <a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>
+        (https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara)
+    </a><br><br>
+    <strong>Step 1.</strong> Download the DIKSHA mobile app from the link given above<br>
+    <strong>Step 2.</strong> Install the DIKSHA app<br>
+    <strong>Step 3.</strong> Follow the instructions provided in the app<br><br>
+    You are good to go!<br>
+    <br><strong>Tip: </strong>Press 0 to start from the beginning.
+</span>`
+
+
+message.OTHER_OPTIONS = 
+`<span> 
+    Type the number next to your query:
+    <ol>
+        <li>I want to scan the QR code</li>
+        <li>I am unable to log in</li>
+        <li>I have forgotten my password or I want to reset my password</li>
+        <li>I have other queries</li>
+    </ol>
+    <strong>Tip: </strong>Press 0 to start from the beginning.
+</span>`
+message.SCAN_QRCODE = 
+`<span>
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'>
+        https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html
+    </a>
+    <br><br><strong>Tip: </strong>Type 99 to go back to choose another query, or Type 0 to start from the beginning
+</span>`
+
+message.UNABLE_LOGIN = 
+`<span>
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>
+        https://diksha.gov.in/help/getting-started/sign-in/index.html
+    ​</a>
+    <br><br><strong>Tip: </strong>Type 99 to go back to choose another query, or Type 0 to start from the beginning
+</span>`
+message.FORGOT_PASSWORD = 
+`<span>
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/help/getting-started/recover-password/index.html'>
+        https://diksha.gov.in/help/getting-started/recover-password/index.html
+    </a>
+    <br><br><strong>Tip: </strong>Type 99 to go back to choose another query, or Type 0 to start from the beginning
+</span>`
+message.OTHERS = 
+`<span>
+    Please visit: 
+    <a target='_blank' href='https://diksha.gov.in/help/getting-started/explore-diksha/index.html'>
+        https://diksha.gov.in/help/getting-started/explore-diksha/index.html
+    </a>
+    <br><br><strong>Tip: </strong>Type 99 to go back to choose another query, or Type 0 to start from the beginning
+</span>`
 message.UNKNOWN_OPTION = "Sorry, I do not understand what you’re asking. Please choose from the following options or press 0 for the main menu, so I can help you better"
 message.SORRY = "Sorry, can you come again please?"
 
