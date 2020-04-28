@@ -15,7 +15,7 @@ module.exports = {
     var dims = []
     const edata = telemetry.startEventData('botsession')
     edata.uaspec = uaspec
-    const context = telemetry.getContextData({ channel: channelId, env: sessionData.requestData.appId })
+    const context = telemetry.getContextData({ channel: channelId, env: 'dikshavani' })
     context.sid = sessionData.userData.customData.userId
     context.did = sessionData.requestData.deviceId
     context.rollup = telemetry.getRollUpData(dims)
@@ -40,10 +40,9 @@ module.exports = {
         subtype: data.subtype,
         id: data.id
       };
-      console.log(data)
       var channelId = data.requestData.channelId
       var dims = []
-      const context = telemetry.getContextData({ channel: channelId, env:  data.requestData.appId})
+      const context = telemetry.getContextData({ channel: channelId, env:  'dikshavani'})
       context.sid = userData.customData.userId
       context.did = data.requestData.deviceId
       context.rollup = telemetry.getRollUpData(dims)
@@ -68,7 +67,7 @@ module.exports = {
   initializeTelemetry: function(data) {
     try {
       telemetry.init({
-        pdata: { id: data.appId, ver: '1.0', pid: data.pid },
+        pdata: { id: data.appId, ver: '1.0', pid: 'dikshavani.' + data.pid },
         method: 'POST',
         version: '1.0',
         batchsize: config.TELEMETRY_SYNC_BATCH_SIZE,

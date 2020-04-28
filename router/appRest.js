@@ -25,22 +25,46 @@ appBot.use(bodyParser.urlencoded({ extended: false }))
 // Redis is used as the session tracking store
 const redis_client = redis.createClient(config.REDIS_PORT, config.REDIS_HOST);
 const chatflowConfig = chatflow.chatflow;
+var deviceId = ''
+var appId = ''
+var channelId = ''
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
-	var data = {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId, pid: 'botclient', apiToken: apiToken}
+	deviceId  = req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'];
+	channelId = req.headers['x-channel-id'];
+	var data = {
+		deviceId: deviceId,
+		channelId: channelId, 
+		appId: appId,
+		pid: 'botclient',
+		apiToken: apiToken
+	}
 	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'botclient')
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
-	var data = {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId, pid: 'whatsapp', apiToken: apiToken}
+	var data = {
+		deviceId: deviceId,
+		channelId: channelId, 
+		appId: appId,
+		pid: 'whatsapp',
+		apiToken: apiToken
+	}
 	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'whatsapp')
 })
 
 appBot.post('/bot/telegram', function (req, res) {
-	var data = {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId, pid: 'telegram', apiToken: apiToken}
+	var data = {
+		deviceId: deviceId,
+		channelId: channelId, 
+		appId: appId,
+		pid: 'telegram',
+		apiToken: apiToken
+	}
 	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'telegram')
 })
@@ -77,9 +101,9 @@ function handler(req, res, channel) {
 									id: responses[i].intent,
 									subtype: 'intent_detected',
 									requestData : {
-										deviceId: req.body.From, 
-										channelId: req.body.ChannelId, 
-										appId: req.body.AppId
+										deviceId: deviceId, 
+										channelId: channelId, 
+										appId: appId
 									}
 								}
 								telemetryHelper.logInteraction(telemetryData)
@@ -110,7 +134,11 @@ function handler(req, res, channel) {
 						uaspec: uaspec,
 						id: currentFlowStep,
 						subtype: 'intent_detected',
-						requestData : {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId}
+						requestData : {
+							deviceId: deviceId, 
+							channelId: channelId, 
+							appId: appId
+						}
 					}
 					telemetryHelper.logInteraction(telemetryData)
 					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
@@ -122,7 +150,11 @@ function handler(req, res, channel) {
 				const telemetryData = { 
 					userData: data,
 					userSpecData: uaspec,
-					requestData : {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId}
+					requestData : {
+						deviceId: deviceId, 
+						channelId: channelId, 
+						appId: appId
+					}
 				}
 				telemetryHelper.logSessionStart(telemetryData);
 				const telemetryDataForInteraction = { 
@@ -130,7 +162,11 @@ function handler(req, res, channel) {
 					uaspec: uaspec,
 					id: 'step1',
 					subtype: 'intent_detected',
-					requestData : {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId}
+					requestData : {
+						deviceId: deviceId, 
+						channelId: channelId, 
+						appId: appId
+					}
 				}
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				sendChannelResponse(sessionID, res, 'START', channel);
