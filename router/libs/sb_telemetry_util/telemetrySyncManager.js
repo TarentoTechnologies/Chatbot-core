@@ -58,10 +58,11 @@ telemetrySyncManager.prototype.getHttpHeaders = function () {
   // If user not sending the headers, we adding authtoken and content-type default,
   // in this user should send authtoken
   if (!this.config.headers) {
+    console.log('Header Not Present');
     if (typeof this.config.authtoken !== 'undefined') { headersParam['Authorization'] = this.config.authtoken }
     headersParam['Content-Type'] = 'application/json'
   } else {
-    headersParam = this.headers
+    headersParam = this.config.headers
   }
   return headersParam
 }
@@ -71,10 +72,10 @@ telemetrySyncManager.prototype.getHttpHeaders = function () {
  */
 telemetrySyncManager.prototype.getHttpOption = function (events) {
   const headers = this.getHttpHeaders()
-
+  console.log('Headers', headers);
   var telemetryObj = {
     'id': 'ekstep.telemetry',
-    'ver': this.config.version || '3.0',
+    'ver': this.config.ver || '3.0',
     'ets': Date.now(),
     'events': events
   }
@@ -96,9 +97,9 @@ telemetrySyncManager.prototype.sync = function (events, callback) {
     var self = this
     const options = this.getHttpOption(events)
     request(options, function (err, res, body) {
-      //console.log('Response', res.request.body)
+      console.log('Response------------',res.request.body)
       if (res && res.statusCode === 200) {
-        self.logTelemetryResponse(res.request.body)
+        // self.logTelemetryResponse(res.request.body)
         callback(null, body);
         return;
       }

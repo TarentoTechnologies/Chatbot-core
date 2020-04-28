@@ -17,6 +17,7 @@ function telemetryService () {
  */
 telemetryService.prototype.init = function (config) {
   default_config.dispatcher = new telemetrySyncManager()
+  console.log('Header', config);
   default_config.dispatcher.init(config)
   this.config = Object.assign({}, config, default_config)
   Telemetry.initialize(this.config)
@@ -128,7 +129,6 @@ telemetryService.prototype.startEventData = function (type, pageid, mode, durati
   const startEventData = {
     type: type,
     mode: mode,
-    duration: duration,
     pageid: pageid
   }
   return JSON.parse(JSON.stringify(startEventData))
@@ -146,7 +146,6 @@ telemetryService.prototype.endEventData = function (type, pageid, mode, duration
   const endEventData = {
     type: type,
     mode: mode,
-    duration: duration,
     pageid: pageid,
     summary: summery
   }

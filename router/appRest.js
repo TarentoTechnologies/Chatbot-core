@@ -14,8 +14,7 @@ var EDB = require('./api/elastic/connection')
 const telemetryHelper = require('./api/telemetry/telemetry.js')
 const axios                 = require('axios')
 const parser = require('ua-parser-js')
-
-
+const apiToken = config.PORTAL_API_AUTH_TOKEN
 const appBot = express()
 //cors handling
 appBot.use(cors());
@@ -29,14 +28,20 @@ const chatflowConfig = chatflow.chatflow;
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
+	var data = {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId, pid: 'botclient', apiToken: apiToken}
+	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'botclient')
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
+	var data = {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId, pid: 'whatsapp', apiToken: apiToken}
+	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'whatsapp')
 })
 
 appBot.post('/bot/telegram', function (req, res) {
+	var data = {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId, pid: 'telegram', apiToken: apiToken}
+	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'telegram')
 })
 
@@ -69,13 +74,17 @@ function handler(req, res, channel) {
 								const telemetryData = { 
 									userData: data,
 									uaspec: uaspec,
-									pageid: responses[i].intent,
-									subtype: 'bot'
+									id: responses[i].intent,
+									subtype: 'intent_detected',
+									requestData : {
+										deviceId: req.body.From, 
+										channelId: req.body.ChannelId, 
+										appId: req.body.AppId
+									}
 								}
-								telemetryHelper.logInteraction(telemetryData, channel)
+								telemetryHelper.logInteraction(telemetryData)
 								sendResponse(sessionID, res, responses[i].text)
 							}
-							
 						}
 					})
 				} else {
@@ -99,20 +108,13 @@ function handler(req, res, channel) {
 					const telemetryData = { 
 						userData: data,
 						uaspec: uaspec,
-						pageid: currentFlowStep,
-						subtype: 'router'
+						id: currentFlowStep,
+						subtype: 'intent_detected',
+						requestData : {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId}
 					}
-					telemetryHelper.logInteraction(telemetryData, channel)
-					/*const telemetryDataOfUser = { 
-						userData: data,
-						uaspec: uaspec,
-						step: chatflowConfig[currentFlowStep].messageKey,
-						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
-					}
-					telemetryHelper.logInteraction(telemetryData)*/
+					telemetryHelper.logInteraction(telemetryData)
 					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
 				}
-
 			} else {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
 				userData = { sessionId: sessionID, currentFlowStep: 'step1' };
@@ -120,15 +122,17 @@ function handler(req, res, channel) {
 				const telemetryData = { 
 					userData: data,
 					userSpecData: uaspec,
+					requestData : {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId}
 				}
 				telemetryHelper.logSessionStart(telemetryData);
 				const telemetryDataForInteraction = { 
 					userData: data,
 					uaspec: uaspec,
-					pageid: 'step1',
-					subtype: 'router'
+					id: 'step1',
+					subtype: 'intent_detected',
+					requestData : {deviceId: req.body.From, channelId: req.body.ChannelId, appId: req.body.AppId}
 				}
-				telemetryHelper.logInteraction(telemetryDataForInteraction, channel)
+				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
@@ -183,7 +187,7 @@ http.createServer(appBot).listen(config.REST_HTTP_PORT, function (err) {
 		throw err
 	}
 	LOG.info('Server started on port ' + config.REST_HTTP_PORT)
-	telemetryHelper.initializeTelemetry()
+	// telemetryHelper.initializeTelemetry()
 });
 
 LOG.info('HTTPS port value ' + config.HTTPS_PATH_KEY)
