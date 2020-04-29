@@ -93,7 +93,6 @@ function handler(req, res, channel) {
 							currentFlowStep = currentFlowStep.substring (0, currentFlowStep.lastIndexOf("_"))
 						}
 					}
-
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
 					const telemetryData = { 
