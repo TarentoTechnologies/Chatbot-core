@@ -144,4 +144,32 @@ data/subjects.txt
 
 ## lookup:medium
 data/mediums.txt
-  
+
+## intent: lockdown_or_curfew
+- How do I study during the lockdown?
+- How can I study during the lockdown?
+- Is it possible for me to study during the lockdown?
+- do you have study material for me in the lockdown?
+- lockdown studies
+- lockdown
+- Schools are closed. How can I study?
+- How do I study during the curfew?
+- How can I study during the curfew?
+- Is it possible for me to study during the curfew?
+- do you have study material for me in the curfew?
+- curfew studies
+- curfew
+
+## intent: online_or_live_classes
+- Are online classes available on DIKSHA?
+- Does DIKSHA have online classes?
+- I want to start online classes
+- When will DIKSHA have online classes?
+- Do you have online classes?
+- Are live classes available on DIKSHA?
+- Does DIKSHA have live classes?
+- I want to start live classes
+- When will DIKSHA have live classes?
+- Do you have live classes?"
+- online classes
+- live classes

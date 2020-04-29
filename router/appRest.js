@@ -120,19 +120,25 @@ function handler(req, res, channel) {
 				} else {
 					var currentFlowStep = userData.currentFlowStep;
 					var possibleFlow = currentFlowStep + '_' + body;
+					var responseKey = ''
 					if (chatflowConfig[possibleFlow]) {
 						var respVarName = chatflowConfig[currentFlowStep].responseVariable;
 						if (respVarName) {
 							userData[respVarName] = body;
 						}
 						currentFlowStep = possibleFlow;
+						responseKey = chatflowConfig[currentFlowStep].messageKey
 					} else if (body === '0') {
 						currentFlowStep = 'step1'
+						responseKey = chatflowConfig[currentFlowStep].messageKey
 					} else if (body === '99') {
 						if (currentFlowStep.lastIndexOf("_") > 0) {
 							currentFlowStep = currentFlowStep.substring (0, currentFlowStep.lastIndexOf("_"))
+							responseKey = chatflowConfig[currentFlowStep].messageKey
 						}
-					} 
+					} else {
+						responseKey = getErrorMessageForInvalidInput(currentFlowStep) //chatflowConfig[currentFlowStep + '_error'].messageKey
+					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
 					const telemetryData = { 
@@ -147,7 +153,7 @@ function handler(req, res, channel) {
 						}
 					}
 					telemetryHelper.logInteraction(telemetryData)
-					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
+					sendChannelResponse(sessionID, res, responseKey, channel);
 				}
 			} else {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
@@ -178,6 +184,13 @@ function handler(req, res, channel) {
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
+	}
+}
+function getErrorMessageForInvalidInput(currentFlowStep){
+	if (chatflowConfig[currentFlowStep + '_error']) {
+		return chatflowConfig[currentFlowStep + '_error'].messageKey;
+	} else {
+		return chatflowConfig['step1_wrong_input'].messageKey
 	}
 }
 

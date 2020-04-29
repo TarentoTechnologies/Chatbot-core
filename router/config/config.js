@@ -18,8 +18,6 @@ config.REDIS_HOST					 = env.REDIS_HOST || 'localhost'
 
 
 config.TELEMETRY_ENDPOINT          = env.telemetry_endpoint || 'v1/telemetry'
-config.INSTANCE 			       = env.sunbird_instance || 'sunbird.ins'
-config.APPID                       = 'diksha_vani.' + 'sunbird.ins' + '.portal',
 config.TELEMETRY_SYNC_BATCH_SIZE   = env.telemetry_sync_batch_size || 1
 config.PORTAL_API_AUTH_TOKEN       = env.sunbird_api_auth_token || ''
 config.TELEMETRY_SERVICE_LOCAL_URL = env.telemetry_service_url || ''
