@@ -31,9 +31,9 @@ var channelId = ''
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
-	deviceId  = req.headers['x-device-id'];
-	appId     = req.headers['x-app-id'];
-	channelId = req.headers['x-channel-id'];
+	deviceId  = req.body.From; // req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'] || '';
+	channelId = req.headers['x-channel-id'] || '';
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
@@ -46,9 +46,9 @@ appBot.post('/bot', function (req, res) {
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
-	deviceId  = req.headers['x-device-id'];
-	appId     = req.headers['x-app-id'];
-	channelId = req.headers['x-channel-id'];
+	deviceId  = req.body.From //req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'] || '';
+	channelId = req.headers['x-channel-id'] || '';
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
@@ -56,6 +56,7 @@ appBot.post('/bot/whatsapp', function (req, res) {
 		pid: 'whatsapp',
 		apiToken: apiToken
 	}
+	console.log('Data', data);
 	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'whatsapp')
 })
@@ -78,9 +79,10 @@ appBot.post('/bot/telegram', function (req, res) {
 function handler(req, res, channel) {
 	var body = req.body.Body
 	var sessionID = req.body.From;
+	var userID = req.body.userId ? req.body.userId :req.body.From;
 	let uaspec = getUserSpec(req);
 	var userData = {};
-	data = { message: body, customData: { userId: sessionID } }
+	data = { message: body, customData: { userId: userID } }
 	LOG.info('context for: ' + sessionID)
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
@@ -113,7 +115,6 @@ function handler(req, res, channel) {
 								}
 							}
 							var response = '';
-							console.log('responses', responses[0].quick_replies);
 							if (responses && responses[0].text) {
 								telemetryData.id = 'rasa';
 								telemetryData.type = responses[0].intent;
