@@ -13,7 +13,6 @@ message.START =
         <li>I have other DIKSHA queries</li>
     </ol>
 </span>`
-message.STEP1_ERROR = `Step one error`
 message.CHOOSE_BOARD = `<span> 
     Tell me which board you belong to<br>
     Type the number next to the option:
