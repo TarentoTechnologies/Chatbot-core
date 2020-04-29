@@ -46,6 +46,9 @@ appBot.post('/bot', function (req, res) {
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
+	deviceId  = req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'];
+	channelId = req.headers['x-channel-id'];
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
@@ -58,6 +61,9 @@ appBot.post('/bot/whatsapp', function (req, res) {
 })
 
 appBot.post('/bot/telegram', function (req, res) {
+	deviceId  = req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'];
+	channelId = req.headers['x-channel-id'];
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
