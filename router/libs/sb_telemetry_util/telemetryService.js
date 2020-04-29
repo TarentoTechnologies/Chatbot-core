@@ -28,6 +28,7 @@ telemetryService.prototype.init = function (config) {
  */
 
 telemetryService.prototype.start = function (data) {
+  this.context = [];
   if (data.context) { this.context.push(data.context) 
   }
   Telemetry.start(this.config, data.contentId, data.contentVer, data.edata, {
@@ -82,11 +83,12 @@ telemetryService.prototype.error = function (data) {
 }
 
 /**
- * for log event
- * data object have these properties {'edata', context', 'object', 'tags'}
+ * To log telemetry of user interactions on the page.
+ * For example, search, click, preview, move, resize, configure
+ * data object have these properties {'data', 'options'}
  */
 telemetryService.prototype.interact = function (data) {
-  Telemetry.interact(data)
+  Telemetry.interact(data.data, data.options)
 }
 
 /**
@@ -126,7 +128,6 @@ telemetryService.prototype.startEventData = function (type, pageid, mode, durati
   const startEventData = {
     type: type,
     mode: mode,
-    duration: duration,
     pageid: pageid
   }
   return JSON.parse(JSON.stringify(startEventData))
@@ -144,7 +145,6 @@ telemetryService.prototype.endEventData = function (type, pageid, mode, duration
   const endEventData = {
     type: type,
     mode: mode,
-    duration: duration,
     pageid: pageid,
     summary: summery
   }

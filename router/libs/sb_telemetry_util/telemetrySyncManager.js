@@ -8,6 +8,7 @@
 var request = require('request')
 var _ = require('lodash');
 var telemetryBatchUtil = require('./telemetryBatchUtil');
+var LOG = require('../../log/logger')
 
 function telemetrySyncManager() {
 
@@ -60,7 +61,7 @@ telemetrySyncManager.prototype.getHttpHeaders = function () {
     if (typeof this.config.authtoken !== 'undefined') { headersParam['Authorization'] = this.config.authtoken }
     headersParam['Content-Type'] = 'application/json'
   } else {
-    headersParam = this.headers
+    headersParam = this.config.headers
   }
   return headersParam
 }
@@ -70,10 +71,9 @@ telemetrySyncManager.prototype.getHttpHeaders = function () {
  */
 telemetrySyncManager.prototype.getHttpOption = function (events) {
   const headers = this.getHttpHeaders()
-
   var telemetryObj = {
     'id': 'ekstep.telemetry',
-    'ver': this.config.version || '3.0',
+    'ver': this.config.ver || '3.0',
     'ets': Date.now(),
     'events': events
   }
@@ -94,11 +94,9 @@ telemetrySyncManager.prototype.sync = function (events, callback) {
   if (events && events.length) {
     var self = this
     const options = this.getHttpOption(events)
-
     request(options, function (err, res, body) {
-      console.log('Request', res.request.body);
+      console.log('RESPONSE \n',res.request.body)
       if (res && res.statusCode === 200) {
-        console.log('Status code success');
         callback(null, body);
         return;
       }
@@ -126,7 +124,6 @@ telemetrySyncManager.prototype.sync = function (events, callback) {
 telemetrySyncManager.prototype.syncBatches = function (callback) {
   var self = this;
   var batches = telemetryBatchUtil.get();
-  console.log('Batches........',  batches);
   _.forEach(batches, function (batch) {
     (function (batch) {
       self.sync(batch.events, function (error, response) {

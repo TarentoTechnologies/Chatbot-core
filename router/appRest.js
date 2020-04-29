@@ -14,8 +14,7 @@ var EDB = require('./api/elastic/connection')
 const telemetryHelper = require('./api/telemetry/telemetry.js')
 const axios                 = require('axios')
 const parser = require('ua-parser-js')
-
-
+const apiToken = config.PORTAL_API_AUTH_TOKEN
 const appBot = express()
 //cors handling
 appBot.use(cors());
@@ -26,26 +25,64 @@ appBot.use(bodyParser.urlencoded({ extended: false }))
 // Redis is used as the session tracking store
 const redis_client = redis.createClient(config.REDIS_PORT, config.REDIS_HOST);
 const chatflowConfig = chatflow.chatflow;
+var deviceId = ''
+var appId = ''
+var channelId = ''
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
+	deviceId  = req.body.From; // req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'] || '';
+	channelId = req.headers['x-channel-id'] || '';
+	var data = {
+		deviceId: deviceId,
+		channelId: channelId, 
+		appId: appId,
+		pid: 'botclient',
+		apiToken: apiToken
+	}
+	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'botclient')
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
+	deviceId  = req.body.From //req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'] || '';
+	channelId = req.headers['x-channel-id'] || '';
+	var data = {
+		deviceId: deviceId,
+		channelId: channelId, 
+		appId: appId,
+		pid: 'whatsapp',
+		apiToken: apiToken
+	}
+	console.log('Data', data);
+	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'whatsapp')
 })
 
 appBot.post('/bot/telegram', function (req, res) {
+	deviceId  = req.body.From //req.headers['x-device-id'];
+	appId     = req.headers['x-app-id'] || '';
+	channelId = req.headers['x-channel-id'] || '';
+	var data = {
+		deviceId: deviceId,
+		channelId: channelId, 
+		appId: appId,
+		pid: 'telegram',
+		apiToken: apiToken
+	}
+	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'telegram')
 })
 
 function handler(req, res, channel) {
 	var body = req.body.Body
 	var sessionID = req.body.From;
+	var userID = req.body.userId ? req.body.userId :req.body.From;
 	let uaspec = getUserSpec(req);
 	var userData = {};
-	data = { message: body, customData: { userId: sessionID } }
+	data = { message: body, customData: { userId: userID } }
 	LOG.info('context for: ' + sessionID)
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
@@ -65,22 +102,51 @@ function handler(req, res, channel) {
 							sendChannelResponse(sessionID, res, 'SORRY', channel)
 						} else {
 							let responses = resp.res;
-							for (var i = 0; i < responses.length; i++) {
-								const telemetryData = { 
-									userData: data,
-									uaspec: uaspec,
-									step: 'START_CONVERSATION',
-									stepResponse: responses[i].text 
+							const telemetryData = { 
+								userData: data,
+								uaspec: uaspec,
+								id: '',
+								type: '',
+								subtype: '',
+								requestData : {
+									deviceId: deviceId, 
+									channelId: channelId, 
+									appId: appId
 								}
-								telemetryHelper.logInteraction(telemetryData)
-								sendResponse(sessionID, res, responses[i].text)
 							}
+							var response = '';
+							if (responses && responses[0].text) {
+								telemetryData.id = 'rasa';
+								telemetryData.type = responses[0].intent;
+								telemetryData.subtype = 'intent_detected';
+								response = responses[0].text;
+							}else {
+								telemetryData.id = 'rasa';
+								telemetryData.subtype = 'intent_not_detected';
+								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
+								telemetryData.type = responseKey;	
+								response = literals.message[responseKey];
+							}
+							telemetryHelper.logInteraction(telemetryData)
+							sendResponse(sessionID, res, response)
 						}
 					})
 				} else {
 					var currentFlowStep = userData.currentFlowStep;
 					var possibleFlow = currentFlowStep + '_' + body;
 					var responseKey = ''
+					const telemetryData = { 
+						userData: data,
+						uaspec: uaspec,
+						id:'',
+						type:'',
+						subtype: '',
+						requestData : {
+							deviceId: deviceId, 
+							channelId: channelId, 
+							appId: appId
+						}
+					}
 					if (chatflowConfig[possibleFlow]) {
 						var respVarName = chatflowConfig[currentFlowStep].responseVariable;
 						if (respVarName) {
@@ -88,39 +154,62 @@ function handler(req, res, channel) {
 						}
 						currentFlowStep = possibleFlow;
 						responseKey = chatflowConfig[currentFlowStep].messageKey
+						telemetryData.id = currentFlowStep;
+						telemetryData.subtype= 'intent_detected';
+						telemetryData.type = responseKey
 					} else if (body === '0') {
 						currentFlowStep = 'step1'
 						responseKey = chatflowConfig[currentFlowStep].messageKey
+						telemetryData.id = currentFlowStep;
+						telemetryData.subtype = 'intent_detected';
+						telemetryData.type = responseKey
 					} else if (body === '99') {
 						if (currentFlowStep.lastIndexOf("_") > 0) {
 							currentFlowStep = currentFlowStep.substring (0, currentFlowStep.lastIndexOf("_"))
 							responseKey = chatflowConfig[currentFlowStep].messageKey
+							telemetryData.id = currentFlowStep;
+							telemetryData.subtype = 'intent_detected';
+							telemetryData.type = responseKey
+
 						}
 					} else {
-						responseKey = getErrorMessageForInvalidInput(currentFlowStep) //chatflowConfig[currentFlowStep + '_error'].messageKey
+						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
+						telemetryData.id = possibleFlow;
+						telemetryData.subtype = 'intent_not_detected';
+						telemetryData.type = responseKey
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
-					const telemetryData = { 
-						userData: data,
-						uaspec: uaspec,
-						step: responseKey,
-						stepResponse: literals.message[responseKey] 
-					}
 					telemetryHelper.logInteraction(telemetryData)
 					sendChannelResponse(sessionID, res, responseKey, channel);
 				}
-
 			} else {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
 				userData = { sessionId: sessionID, currentFlowStep: 'step1' };
 				setRedisKeyValue(sessionID, userData);
 				const telemetryData = { 
 					userData: data,
-					step: chatflowConfig['step1'].messageKey,
-					stepResponse: literals.message[chatflowConfig['step1'].messageKey] 
+					userSpecData: uaspec,
+					requestData : {
+						deviceId: deviceId, 
+						channelId: channelId, 
+						appId: appId
+					}
 				}
-				telemetryHelper.logInteraction(telemetryData);
+				telemetryHelper.logSessionStart(telemetryData);
+				const telemetryDataForInteraction = { 
+					userData: data,
+					uaspec: uaspec,
+					id: 'step1',
+					type: 'START',
+					subtype: 'intent_detected',
+					requestData : {
+						deviceId: deviceId, 
+						channelId: channelId, 
+						appId: appId
+					}
+				}
+				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
@@ -182,7 +271,7 @@ http.createServer(appBot).listen(config.REST_HTTP_PORT, function (err) {
 		throw err
 	}
 	LOG.info('Server started on port ' + config.REST_HTTP_PORT)
-	telemetryHelper.initializeTelemetry()
+	// telemetryHelper.initializeTelemetry()
 });
 
 LOG.info('HTTPS port value ' + config.HTTPS_PATH_KEY)
