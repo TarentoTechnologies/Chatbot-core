@@ -19,6 +19,7 @@ message.CHOOSE_BOARD = `<span>
         <li>CBSE</li>
         <li>State Board</li>
     </ol>
+    <hr>
     <strong>** </strong>Press 0 to go to first menu.
 </span>`
 message.CBSE_MESSAGE = `<span>
@@ -38,7 +39,6 @@ message.CHOOSE_STATE_BOARD = `
         <li>Karnataka</li>
         <li>Gujarat</li>
         <li>UttarPradesh</li>
-        <li>National Teacher Platform</li>
         <li>Punjab</li>
         <li>Rajasthan</li>
         <li>Manipur</li>
@@ -58,8 +58,8 @@ message.CHOOSE_STATE_BOARD = `
         <li>Jharkhand</li>
         <li>Sikkim</li>
         <li>Chandigarh</li>
-        <li>IGOT</li>
     </ol>
+    <hr>
     <strong>** </strong>Press 99 to go back to select CBSE board or press 0 to go to first menu
 </span>`
 message.TN_BOARD = `<span>
@@ -82,11 +82,6 @@ message.UP_BOARD =`<span>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>` 
-message.NTP_BOARD =`<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/explore'>diksha.gov.in/explore</a>
-    <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
-    <br><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
-</span>`
 message.PB_BOARD = `<span>
     Please visit <a target='_blank' href='https://diksha.gov.in/pb/explore'>diksha.gov.in/pb/explore</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
@@ -182,11 +177,6 @@ message.CH_BOARD = `<span>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
-message.IGOT_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/igot/explore'>diksha.gov.in/igot/explore</a>
-    <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
-    <br><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
-</span>`
 message.ACCESS_DIKSHA = `<span>
     Select what you want to access-<br>
     Type the number next to the option:
@@ -194,6 +184,7 @@ message.ACCESS_DIKSHA = `<span>
         <li>I want to take Constitution quiz</li>
         <li>I want to practice Weekly Creative and Critical Thinking questions</li>
     </ol>
+    <hr>
     <strong>** </strong>Press 0 to go to first menu.
 </span>`
 message.CONTRIBUTE_CONTENT = `<span>
@@ -209,6 +200,7 @@ message.CONSTITUTION_QUIZ = `<span>
         <li>English</li>
         <li>Hindi</li>
     </ol>
+    <hr>
     <strong>** </strong>Press 99 to go back or press 0 to go to first menu
 </span>`
 message.WEEKLY_CRITICAL_THINKING =`<span>
@@ -252,6 +244,7 @@ message.OTHER_OPTIONS = `<span>
         <li>I have forgotten my password or I want to reset my password</li>
         <li>I have other queries</li>
     </ol>
+    <hr>
     <strong>** </strong>Press 0 to go to first menu.
 </span>`
 message.SCAN_QRCODE = `<span>
@@ -282,7 +275,8 @@ message.OTHERS = `<span>
     </a>
     <br><br><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
-message.UNKNOWN_OPTION = "Sorry, I do not understand what you’re asking. Press 0 for the main menu"
+message.UNKNOWN_OPTION = 
+`Sorry, I do not understand what you’re asking. Press 0 to go to first menu or type your query directly, so I can help you better`
 message.SORRY = "Sorry, can you come again please?"
 message.WRONG_INPUT_AT_FIRST_LEVEL = "<span>Sorry, I do not understand what you’re asking. Press 99 to go back or press 0 to go to first menu, so I can help you better.</span>"
 message.WRONG_INPUT_AT_SECOND_LEVEL = "<span>Sorry, I do not understand what you're asking. Press 0 to go to first menu or type your query directly, so I can help you better.</span>"
