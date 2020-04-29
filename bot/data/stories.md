@@ -45,3 +45,11 @@
 # worksheet
 * worksheet
   - utter_worksheet
+
+# online or live classes
+* online_or_live_classes
+  - utter_online_or_live_classes
+
+# curfew or lockdown
+* lockdown_or_curfew
+  - utter_lockdown_or_curfew
