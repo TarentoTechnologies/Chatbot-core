@@ -1,6 +1,5 @@
 var message                       = {}
-message.START = 
-`<span>
+message.START = `<span>
     Hello, I am Tara!<br>
     I am your DIKSHA guide<br>
     Please select your preference from the options I provide or type your query directly<br>
@@ -188,7 +187,6 @@ message.IGOT_BOARD = `<span>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
-
 message.ACCESS_DIKSHA = `<span>
     Select what you want to access-<br>
     Type the number next to the option:
@@ -218,10 +216,9 @@ message.WEEKLY_CRITICAL_THINKING =`<span>
     <a target='_blank' href='https://diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook'>
         diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook
     </a><br><br>
-    Select the Medium, Grade and Subject to view relevant content<br>
+    Select the Subject to view relevant content on the page<br>
     <br><strong>** </strong>Press 99 to go back to choose another program or press 0 to go to first menu.
 </span>`
-
 message.CONSTITUTION_QUIZ_LANGUAGE_ENGLISH = `<span>
     Play the quiz by visting: 
     <a target='_blank' href='https://diksha.gov.in/play/quiz/do_312998713531351040138'>
@@ -264,7 +261,6 @@ message.SCAN_QRCODE = `<span>
     </a>
     <br><br><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
-
 message.UNABLE_LOGIN = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>
@@ -286,8 +282,10 @@ message.OTHERS = `<span>
     </a>
     <br><br><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
-message.UNKNOWN_OPTION = "Sorry, I do not understand what you’re asking. Please choose from the following options or press 0 for the main menu, so I can help you better"
+message.UNKNOWN_OPTION = "Sorry, I do not understand what you’re asking. Press 0 for the main menu"
 message.SORRY = "Sorry, can you come again please?"
+message.WRONG_INPUT_AT_FIRST_LEVEL = "<span>Sorry, I do not understand what you’re asking. Press 99 to go back or press 0 to go to first menu, so I can help you better.</span>"
+message.WRONG_INPUT_AT_SECOND_LEVEL = "<span>Sorry, I do not understand what you're asking. Press 0 to go to first menu or type your query directly, so I can help you better.</span>"
 
 message.START_whatsapp = "Hi, I’m TARA, your DIKSHA assistant. How may I help you today? \n Select from one of the following options. Send the number corresponding to your choice \n 1- To find and play content \n 2- To download/update the DIKSHA mobile app \n 3- Other Queries"
 message.CHOOSE_BOARD_whatsapp = "Tell me which of the following board you belong to, so that I can assist you better. Send the number corresponding to the board. \n1- CBSE  \n2- State Board "

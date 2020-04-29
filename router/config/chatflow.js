@@ -3,9 +3,17 @@ var chatflow = {
         messageKey: "START",
         responseVariable: "userIntent"
     },
+    step1_error: {
+        messageKey: "UNKNOWN_OPTION",
+        responseVariable: ""
+    },
     step1_1: {
         messageKey: "CHOOSE_BOARD",
         responseVariable: "userBoard"
+    },
+    step1_1_error: {
+        messageKey: "WRONG_INPUT_AT_FIRST_LEVEL",
+        responseVariable: ""
     },
     step1_1_1: {
         messageKey: "CBSE_MESSAGE",
@@ -14,6 +22,10 @@ var chatflow = {
     step1_1_2: {
         messageKey: "CHOOSE_STATE_BOARD",
         responseVariable: "stateBoard"
+    },
+    step1_1_2_error: {
+        messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
+        responseVariable: ""
     },
     step1_1_2_1: {
         messageKey: "TN_BOARD",
@@ -119,9 +131,17 @@ var chatflow = {
         messageKey: "ACCESS_DIKSHA",
         responseVariable: "access_diksha"
     },
+    step1_2_error: {
+        messageKey: "WRONG_INPUT_AT_FIRST_LEVEL",
+        responseVariable: ""
+    },
     step1_2_1: {
         messageKey: "CONSTITUTION_QUIZ",
         responseVariable: "constitution_quiz"
+    },
+    step1_2_1_error: {
+        messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
+        responseVariable: ""
     },
     step1_2_1_1: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_ENGLISH",
@@ -161,6 +181,10 @@ var chatflow = {
     },
     step1_5_4: {
         messageKey: "OTHERS",
+        responseVariable: ""
+    },
+    step1_5_error: {
+        messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
         responseVariable: ""
     }
 };

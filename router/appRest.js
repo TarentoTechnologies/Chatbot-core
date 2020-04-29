@@ -80,29 +80,35 @@ function handler(req, res, channel) {
 				} else {
 					var currentFlowStep = userData.currentFlowStep;
 					var possibleFlow = currentFlowStep + '_' + body;
+					var responseKey = ''
 					if (chatflowConfig[possibleFlow]) {
 						var respVarName = chatflowConfig[currentFlowStep].responseVariable;
 						if (respVarName) {
 							userData[respVarName] = body;
 						}
 						currentFlowStep = possibleFlow;
+						responseKey = chatflowConfig[currentFlowStep].messageKey
 					} else if (body === '0') {
 						currentFlowStep = 'step1'
+						responseKey = chatflowConfig[currentFlowStep].messageKey
 					} else if (body === '99') {
 						if (currentFlowStep.lastIndexOf("_") > 0) {
 							currentFlowStep = currentFlowStep.substring (0, currentFlowStep.lastIndexOf("_"))
+							responseKey = chatflowConfig[currentFlowStep].messageKey
 						}
-					} 
+					} else {
+						responseKey = chatflowConfig[currentFlowStep + '_error'].messageKey
+					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
 					const telemetryData = { 
 						userData: data,
 						uaspec: uaspec,
-						step: chatflowConfig[currentFlowStep].messageKey,
-						stepResponse: literals.message[chatflowConfig[currentFlowStep].messageKey] 
+						step: responseKey,
+						stepResponse: literals.message[responseKey] 
 					}
 					telemetryHelper.logInteraction(telemetryData)
-					sendChannelResponse(sessionID, res, chatflowConfig[currentFlowStep].messageKey, channel);
+					sendChannelResponse(sessionID, res, responseKey, channel);
 				}
 
 			} else {
