@@ -12,6 +12,8 @@ intents:
   - author_credit
   - find_content
   - content_suggestions
+  - online_or_live_classes
+  - lockdown_or_curfew
 
 entities:
   - board
@@ -34,6 +36,8 @@ actions:
 - utter_author_credit
 - utter_worksheet
 - utter_content_suggestions
+- utter_online_or_live_classes
+- utter_lockdown_or_curfew
 
 responses:
   utter_greet:
@@ -132,6 +136,19 @@ responses:
        text: "An author can be credited by following these steps. Log in to the diksha portal  -> Select Workspace -> Select Create -> click the Course tile. -> Click Edit Details to enter/ modify the course details -> Enter Creators -> Enter Contributors details -> Enter Original Author details -> Click Save to save the details"
        intent: "author_credit"
 
+  utter_online_or_live_classes:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "Currently, there are no online or live classes on DIKSHA.<br>But, I can guide you to a lot of interesting content specific to your board, medium, class and subject.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly"
+       intent: "online_or_live_classes"
+
+  utter_lockdown_or_curfew:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "I understand you are worried about studying during these trying times.<br>I can guide you to a lot of interesting content for you on DIKSHA.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly"
+       intent: "lockdown_or_curfew"
 
 session_config:
   session_expiration_time: 60
