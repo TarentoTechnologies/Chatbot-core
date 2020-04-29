@@ -117,25 +117,21 @@ var chatflow = {
     },
     step1_2: {
         messageKey: "ACCESS_DIKSHA",
-        responseVariable: ""
+        responseVariable: "access_diksha"
     },
     step1_2_1: {
-        messageKey: "CONTRIBUTE_CONTENT",
-        responseVariable: ""
-    },
-    step1_2_2: {
         messageKey: "CONSTITUTION_QUIZ",
-        responseVariable: ""
+        responseVariable: "constitution_quiz"
     },
-    step1_2_2_1: {
+    step1_2_1_1: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_ENGLISH",
         responseVariable: ""
     },
-    step1_2_2_2: {
+    step1_2_1_2: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_HINDI",
         responseVariable: ""
     },
-    step1_2_3: {
+    step1_2_2: {
         messageKey: "WEEKLY_CRITICAL_THINKING",
         responseVariable: ""
     },
@@ -144,22 +140,26 @@ var chatflow = {
         responseVariable: ""
     },
     step1_4: {
+        messageKey: "CONTRIBUTE_CONTENT",
+        responseVariable: "contribut_content"
+    },
+    step1_5: {
         messageKey: "OTHER_OPTIONS",
         responseVariable: "other_options"
     },
-    step1_4_1: {
+    step1_5_1: {
         messageKey: "SCAN_QRCODE",
         responseVariable: ""
     },
-    step1_4_2: {
+    step1_5_2: {
         messageKey: "UNABLE_LOGIN",
         responseVariable: ""
     },
-    step1_4_3: {
+    step1_5_3: {
         messageKey: "FORGOT_PASSWORD",
         responseVariable: ""
     },
-    step1_4_4: {
+    step1_5_4: {
         messageKey: "OTHERS",
         responseVariable: ""
     }
