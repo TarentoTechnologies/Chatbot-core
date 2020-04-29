@@ -113,14 +113,17 @@ function handler(req, res, channel) {
 								}
 							}
 							var response = '';
+							console.log('responses', responses[0].quick_replies);
 							if (responses && responses[0].text) {
-								telemetryData.id = responses[0].intent;
+								telemetryData.id = 'rasa';
+								telemetryData.type = responses[0].intent;
 								telemetryData.subtype = 'intent_detected';
 								response = responses[0].text;
 							}else {
-								telemetryData.id = responses[0].intent; // Will be blank when don't have response
+								telemetryData.id = 'rasa';
 								telemetryData.subtype = 'intent_not_detected';
 								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
+								telemetryData.type = responseKey;	
 								response = literals.message[responseKey];
 							}
 							telemetryHelper.logInteraction(telemetryData)
@@ -170,7 +173,7 @@ function handler(req, res, channel) {
 						}
 					} else {
 						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
-						telemetryData.id = currentFlowStep;
+						telemetryData.id = possibleFlow;
 						telemetryData.subtype = 'intent_not_detected';
 						telemetryData.type = responseKey
 					}
