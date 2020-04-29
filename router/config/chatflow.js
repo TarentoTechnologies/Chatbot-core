@@ -3,9 +3,17 @@ var chatflow = {
         messageKey: "START",
         responseVariable: "userIntent"
     },
+    step1_error: {
+        messageKey: "UNKNOWN_OPTION",
+        responseVariable: ""
+    },
     step1_1: {
         messageKey: "CHOOSE_BOARD",
         responseVariable: "userBoard"
+    },
+    step1_1_error: {
+        messageKey: "WRONG_INPUT_AT_FIRST_LEVEL",
+        responseVariable: ""
     },
     step1_1_1: {
         messageKey: "CBSE_MESSAGE",
@@ -14,6 +22,10 @@ var chatflow = {
     step1_1_2: {
         messageKey: "CHOOSE_STATE_BOARD",
         responseVariable: "stateBoard"
+    },
+    step1_1_2_error: {
+        messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
+        responseVariable: ""
     },
     step1_1_2_1: {
         messageKey: "TN_BOARD",
@@ -117,25 +129,29 @@ var chatflow = {
     },
     step1_2: {
         messageKey: "ACCESS_DIKSHA",
+        responseVariable: "access_diksha"
+    },
+    step1_2_error: {
+        messageKey: "WRONG_INPUT_AT_FIRST_LEVEL",
         responseVariable: ""
     },
     step1_2_1: {
-        messageKey: "CONTRIBUTE_CONTENT",
-        responseVariable: ""
-    },
-    step1_2_2: {
         messageKey: "CONSTITUTION_QUIZ",
+        responseVariable: "constitution_quiz"
+    },
+    step1_2_1_error: {
+        messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
         responseVariable: ""
     },
-    step1_2_2_1: {
+    step1_2_1_1: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_ENGLISH",
         responseVariable: ""
     },
-    step1_2_2_2: {
+    step1_2_1_2: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_HINDI",
         responseVariable: ""
     },
-    step1_2_3: {
+    step1_2_2: {
         messageKey: "WEEKLY_CRITICAL_THINKING",
         responseVariable: ""
     },
@@ -144,23 +160,35 @@ var chatflow = {
         responseVariable: ""
     },
     step1_4: {
+        messageKey: "CONTRIBUTE_CONTENT",
+        responseVariable: "contribut_content"
+    },
+    step1_5: {
         messageKey: "OTHER_OPTIONS",
         responseVariable: "other_options"
     },
-    step1_4_1: {
+    step1_5_1: {
         messageKey: "SCAN_QRCODE",
         responseVariable: ""
     },
-    step1_4_2: {
+    step1_5_2: {
         messageKey: "UNABLE_LOGIN",
         responseVariable: ""
     },
-    step1_4_3: {
+    step1_5_3: {
         messageKey: "FORGOT_PASSWORD",
         responseVariable: ""
     },
-    step1_4_4: {
+    step1_5_4: {
         messageKey: "OTHERS",
+        responseVariable: ""
+    },
+    step1_5_error: {
+        messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
+        responseVariable: ""
+    },
+    step1_wrong_input: {
+        messageKey: "UNKNOWN_OPTION",
         responseVariable: ""
     }
 };
