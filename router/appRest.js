@@ -104,6 +104,7 @@ function handler(req, res, channel) {
 								userData: data,
 								uaspec: uaspec,
 								id: '',
+								type: '',
 								subtype: '',
 								requestData : {
 									deviceId: deviceId, 
@@ -134,6 +135,7 @@ function handler(req, res, channel) {
 						userData: data,
 						uaspec: uaspec,
 						id:'',
+						type:'',
 						subtype: '',
 						requestData : {
 							deviceId: deviceId, 
@@ -150,18 +152,27 @@ function handler(req, res, channel) {
 						responseKey = chatflowConfig[currentFlowStep].messageKey
 						telemetryData.id = currentFlowStep;
 						telemetryData.subtype= 'intent_detected';
+						telemetryData.type = responseKey
 					} else if (body === '0') {
 						currentFlowStep = 'step1'
 						responseKey = chatflowConfig[currentFlowStep].messageKey
+						telemetryData.id = currentFlowStep;
+						telemetryData.subtype = 'intent_detected';
+						telemetryData.type = responseKey
 					} else if (body === '99') {
 						if (currentFlowStep.lastIndexOf("_") > 0) {
 							currentFlowStep = currentFlowStep.substring (0, currentFlowStep.lastIndexOf("_"))
 							responseKey = chatflowConfig[currentFlowStep].messageKey
+							telemetryData.id = currentFlowStep;
+							telemetryData.subtype = 'intent_detected';
+							telemetryData.type = responseKey
+
 						}
 					} else {
 						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
 						telemetryData.id = currentFlowStep;
 						telemetryData.subtype = 'intent_not_detected';
+						telemetryData.type = responseKey
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
@@ -186,6 +197,7 @@ function handler(req, res, channel) {
 					userData: data,
 					uaspec: uaspec,
 					id: 'step1',
+					type: 'START',
 					subtype: 'intent_detected',
 					requestData : {
 						deviceId: deviceId, 

@@ -36,7 +36,7 @@ module.exports = {
       const userData = data.userData
       const userId = userData.customData.userId
       const interactionData = { 
-        type: 'SHOW',
+        type: data.type,
         subtype: data.subtype,
         id: data.id
       };
