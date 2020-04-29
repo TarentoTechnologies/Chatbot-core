@@ -100,27 +100,47 @@ function handler(req, res, channel) {
 							sendChannelResponse(sessionID, res, 'SORRY', channel)
 						} else {
 							let responses = resp.res;
-							for (var i = 0; i < responses.length; i++) {
-								const telemetryData = { 
-									userData: data,
-									uaspec: uaspec,
-									id: responses[i].intent,
-									subtype: 'intent_detected',
-									requestData : {
-										deviceId: deviceId, 
-										channelId: channelId, 
-										appId: appId
-									}
+							const telemetryData = { 
+								userData: data,
+								uaspec: uaspec,
+								id: '',
+								subtype: '',
+								requestData : {
+									deviceId: deviceId, 
+									channelId: channelId, 
+									appId: appId
 								}
-								telemetryHelper.logInteraction(telemetryData)
-								sendResponse(sessionID, res, responses[i].text)
 							}
+							var response = '';
+							if (responses && responses[0].text) {
+								telemetryData.id = responses[0].intent;
+								telemetryData.subtype = 'intent_detected';
+								response = responses[0].text;
+							}else {
+								telemetryData.id = responses[0].intent; // Will be blank when don't have response
+								telemetryData.subtype = 'intent_not_detected';
+								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
+								response = literals.message[responseKey];
+							}
+							telemetryHelper.logInteraction(telemetryData)
+							sendResponse(sessionID, res, response)
 						}
 					})
 				} else {
 					var currentFlowStep = userData.currentFlowStep;
 					var possibleFlow = currentFlowStep + '_' + body;
 					var responseKey = ''
+					const telemetryData = { 
+						userData: data,
+						uaspec: uaspec,
+						id:'',
+						subtype: '',
+						requestData : {
+							deviceId: deviceId, 
+							channelId: channelId, 
+							appId: appId
+						}
+					}
 					if (chatflowConfig[possibleFlow]) {
 						var respVarName = chatflowConfig[currentFlowStep].responseVariable;
 						if (respVarName) {
@@ -128,6 +148,8 @@ function handler(req, res, channel) {
 						}
 						currentFlowStep = possibleFlow;
 						responseKey = chatflowConfig[currentFlowStep].messageKey
+						telemetryData.id = currentFlowStep;
+						telemetryData.subtype= 'intent_detected';
 					} else if (body === '0') {
 						currentFlowStep = 'step1'
 						responseKey = chatflowConfig[currentFlowStep].messageKey
@@ -137,21 +159,12 @@ function handler(req, res, channel) {
 							responseKey = chatflowConfig[currentFlowStep].messageKey
 						}
 					} else {
-						responseKey = getErrorMessageForInvalidInput(currentFlowStep) //chatflowConfig[currentFlowStep + '_error'].messageKey
+						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
+						telemetryData.id = currentFlowStep;
+						telemetryData.subtype = 'intent_not_detected';
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
-					const telemetryData = { 
-						userData: data,
-						uaspec: uaspec,
-						id: currentFlowStep,
-						subtype: 'intent_detected',
-						requestData : {
-							deviceId: deviceId, 
-							channelId: channelId, 
-							appId: appId
-						}
-					}
 					telemetryHelper.logInteraction(telemetryData)
 					sendChannelResponse(sessionID, res, responseKey, channel);
 				}
