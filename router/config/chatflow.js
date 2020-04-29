@@ -186,6 +186,10 @@ var chatflow = {
     step1_5_error: {
         messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
         responseVariable: ""
+    },
+    step1_wrong_input: {
+        messageKey: "UNKNOWN_OPTION",
+        responseVariable: ""
     }
 };
 

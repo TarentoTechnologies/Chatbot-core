@@ -97,7 +97,7 @@ function handler(req, res, channel) {
 							responseKey = chatflowConfig[currentFlowStep].messageKey
 						}
 					} else {
-						responseKey = chatflowConfig[currentFlowStep + '_error'].messageKey
+						responseKey = getErrorMessageForInvalidInput(currentFlowStep) //chatflowConfig[currentFlowStep + '_error'].messageKey
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(sessionID, userData);
@@ -124,6 +124,13 @@ function handler(req, res, channel) {
 				sendChannelResponse(sessionID, res, 'START', channel);
 			}
 		});
+	}
+}
+function getErrorMessageForInvalidInput(currentFlowStep){
+	if (chatflowConfig[currentFlowStep + '_error']) {
+		return chatflowConfig[currentFlowStep + '_error'].messageKey;
+	} else {
+		return chatflowConfig['step1_wrong_input'].messageKey
 	}
 }
 
