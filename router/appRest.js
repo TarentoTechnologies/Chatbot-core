@@ -77,13 +77,16 @@ appBot.post('/bot/telegram', function (req, res) {
 })
 
 function handler(req, res, channel) {
-	var body = req.body.Body
+	var body = req.body.Body;
 	var deviceID = req.body.From;
 	var userID = req.body.userId;
 	let uaspec = getUserSpec(req);
 	var userData = {};
 	data = { message: body, customData: { userId: userID } }
 	LOG.info('context for: ' + deviceID)
+	console.log('Date & Time : ', new Date());
+	console.log('Device ID   : ', deviceId);
+	console.log('User ID     : ', userID);
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
 	//EDB.saveToEDB(dataPersist, 'user', deviceID,(err,response)=>{})
@@ -102,6 +105,7 @@ function handler(req, res, channel) {
 							sendChannelResponse(deviceID, res, 'SORRY', channel)
 						} else {
 							let responses = resp.res;
+							console.log('User Input    		 :', data.message);
 							const telemetryData = { 
 								userData: data,
 								uaspec: uaspec,
@@ -121,11 +125,13 @@ function handler(req, res, channel) {
 								telemetryData.type = responses[0].intent;
 								telemetryData.subtype = 'intent_detected';
 								response = responses[0].text;
+								console.log('Bot Response Key    :', responses[0].intent);
 							}else {
 								telemetryData.subtype = 'intent_not_detected';
 								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
 								telemetryData.type = responseKey;	
 								telemetryData.id = responseKey;
+								console.log('Bot Response Key    :', responseKey);
 								response = literals.message[responseKey];
 							}
 							telemetryHelper.logInteraction(telemetryData)
@@ -144,8 +150,8 @@ function handler(req, res, channel) {
 						subtype: '',
 						sid: userData.sessionID,
 						requestData : {
-							deviceId: deviceId, 
-							channelId: channelId, 
+							deviceId: deviceId,
+							channelId: channelId,
 							appId: appId,
 						}
 					}
@@ -183,6 +189,8 @@ function handler(req, res, channel) {
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(deviceID, userData);
 					telemetryHelper.logInteraction(telemetryData)
+					console.log('User Input       :', possibleFlow);
+					console.log('Bot Response Key :', responseKey);
 					sendChannelResponse(deviceID, res, responseKey, channel);
 				}
 			} else {
@@ -215,6 +223,8 @@ function handler(req, res, channel) {
 					}
 				}
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
+				console.log('User Input       : step1');
+				console.log('Bot Response Key : START');
 				sendChannelResponse(deviceID, res, 'START', channel);
 			}
 		});
@@ -255,6 +265,7 @@ function delRedisKey(key) {
 function sendResponse(deviceID, response, responseBody, responseCode) {
 	response.set('Content-Type', 'text/plain')
 	if (responseCode) response.status(responseCode)
+	//console.log('Bot Response       : ', responseBody);
 	response.send(responseBody)
 }
 
@@ -264,8 +275,10 @@ function sendChannelResponse(deviceID, response, responseKey, channel, responseC
 	if (responseCode) response.status(responseCode)
 	var channelResponse = literals.message[responseKey + '_' + channel];
 	if (channelResponse) {
+		//console.log('Bot Response       : ', channelResponse);
 		response.send(channelResponse)	
 	} else {
+		//console.log('Bot Response       : ', literals.message[responseKey]);
 		response.send(literals.message[responseKey])	
 	} 
 }

@@ -20,7 +20,6 @@ module.exports = {
     context.sid = sessionData.sid
     context.did = sessionData.requestData.deviceId
     context.rollup = telemetry.getRollUpData(dims)
-    console.log('Context', context);
     const actor = telemetry.getActorData(sessionData.userData.customData.userId, 'user')
     telemetry.start({
       edata: edata,
