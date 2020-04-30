@@ -16,6 +16,7 @@ const axios                 = require('axios')
 const parser = require('ua-parser-js')
 const apiToken = config.PORTAL_API_AUTH_TOKEN
 const appBot = express()
+var UUIDV4   = require('uuid')
 //cors handling
 appBot.use(cors());
 //body parsers for requests
@@ -78,28 +79,28 @@ appBot.post('/bot/telegram', function (req, res) {
 
 function handler(req, res, channel) {
 	var body = req.body.Body
-	var sessionID = req.body.From;
-	var userID = req.body.userId ? req.body.userId :req.body.From;
+	var deviceID = req.body.From;
+	var userID = req.body.userId;
 	let uaspec = getUserSpec(req);
 	var userData = {};
 	data = { message: body, customData: { userId: userID } }
-	LOG.info('context for: ' + sessionID)
+	LOG.info('context for: ' + deviceID)
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
-	//EDB.saveToEDB(dataPersist, 'user', sessionID,(err,response)=>{})
-	if (!sessionID) {
-		sendResponse(sessionID, res, "From attrib missing", 400);
+	//EDB.saveToEDB(dataPersist, 'user', deviceID,(err,response)=>{})
+	if (!deviceID) {
+		sendResponse(deviceID, res, "From attrib missing", 400);
 	} else {
-		redis_client.get(sessionID, (err, redisValue) => {
+		redis_client.get(deviceID, (err, redisValue) => {
 			if (redisValue != null) {
 				// Key is already exist and hence assiging data which is already there at the posted key
 				userData = JSON.parse(redisValue);
 				// all non numeric user messages go to bot
 				if (isNaN(body)) {
 					///Bot interaction flow
-					RasaCoreController.processUserData(data, sessionID, (err, resp) => {
+					RasaCoreController.processUserData(data, deviceID, (err, resp) => {
 						if (err) {
-							sendChannelResponse(sessionID, res, 'SORRY', channel)
+							sendChannelResponse(deviceID, res, 'SORRY', channel)
 						} else {
 							let responses = resp.res;
 							const telemetryData = { 
@@ -108,6 +109,7 @@ function handler(req, res, channel) {
 								id: '',
 								type: '',
 								subtype: '',
+								sid: userData.sessionID,
 								requestData : {
 									deviceId: deviceId, 
 									channelId: channelId, 
@@ -116,19 +118,19 @@ function handler(req, res, channel) {
 							}
 							var response = '';
 							if (responses && responses[0].text) {
-								telemetryData.id = 'rasa';
+								telemetryData.id = responses[0].intent;
 								telemetryData.type = responses[0].intent;
 								telemetryData.subtype = 'intent_detected';
 								response = responses[0].text;
 							}else {
-								telemetryData.id = 'rasa';
 								telemetryData.subtype = 'intent_not_detected';
 								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
 								telemetryData.type = responseKey;	
+								telemetryData.id = responseKey;
 								response = literals.message[responseKey];
 							}
 							telemetryHelper.logInteraction(telemetryData)
-							sendResponse(sessionID, res, response)
+							sendResponse(deviceID, res, response)
 						}
 					})
 				} else {
@@ -141,10 +143,11 @@ function handler(req, res, channel) {
 						id:'',
 						type:'',
 						subtype: '',
+						sid: userData.sessionID,
 						requestData : {
 							deviceId: deviceId, 
 							channelId: channelId, 
-							appId: appId
+							appId: appId,
 						}
 					}
 					if (chatflowConfig[possibleFlow]) {
@@ -179,21 +182,23 @@ function handler(req, res, channel) {
 						telemetryData.type = responseKey
 					}
 					userData['currentFlowStep'] = currentFlowStep;
-					setRedisKeyValue(sessionID, userData);
+					setRedisKeyValue(deviceID, userData);
 					telemetryHelper.logInteraction(telemetryData)
-					sendChannelResponse(sessionID, res, responseKey, channel);
+					sendChannelResponse(deviceID, res, responseKey, channel);
 				}
 			} else {
 				// Implies new user. Adding data in redis for the key and also sending the WELCOME message
-				userData = { sessionId: sessionID, currentFlowStep: 'step1' };
-				setRedisKeyValue(sessionID, userData);
+				var uuID = UUIDV4();
+				userData = { sessionID: uuID, currentFlowStep: 'step1' };
+				setRedisKeyValue(deviceID, userData);
 				const telemetryData = { 
 					userData: data,
 					userSpecData: uaspec,
+					sid: uuID,
 					requestData : {
 						deviceId: deviceId, 
 						channelId: channelId, 
-						appId: appId
+						appId: appId,
 					}
 				}
 				telemetryHelper.logSessionStart(telemetryData);
@@ -203,14 +208,15 @@ function handler(req, res, channel) {
 					id: 'step1',
 					type: 'START',
 					subtype: 'intent_detected',
+					sid: uuID,
 					requestData : {
 						deviceId: deviceId, 
 						channelId: channelId, 
-						appId: appId
+						appId: appId,
 					}
 				}
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
-				sendChannelResponse(sessionID, res, 'START', channel);
+				sendChannelResponse(deviceID, res, 'START', channel);
 			}
 		});
 	}
@@ -247,13 +253,13 @@ function delRedisKey(key) {
 }
 
 //send data to user
-function sendResponse(sessionID, response, responseBody, responseCode) {
+function sendResponse(deviceID, response, responseBody, responseCode) {
 	response.set('Content-Type', 'text/plain')
 	if (responseCode) response.status(responseCode)
 	response.send(responseBody)
 }
 
-function sendChannelResponse(sessionID, response, responseKey, channel, responseCode) {
+function sendChannelResponse(deviceID, response, responseKey, channel, responseCode) {
 	response.set('Content-Type', 'text/plain')
 	var tmp = literals.message
 	if (responseCode) response.status(responseCode)
