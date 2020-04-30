@@ -204,7 +204,7 @@ data/mediums.txt
 - I want to understand how to scan QR code
 - I am unable to sca QR code
 
-# intent: query_login
+## intent: query_login
 - I am unable to login
 - I want to register on DIKSHA
 - Facing problem with login
@@ -212,11 +212,11 @@ data/mediums.txt
 - Help me to login
 - Help me to register
 
-# intent: query_reset_password
+## intent: query_reset_password
 - I have forgotten my password
 - I want to reset my password
 
-# intent: contribute_content
+## intent: contribute_content
 - I want to contribute content as a teacher
 - I want to access vidyadaan
 - I am a teacher and want to contribute content
