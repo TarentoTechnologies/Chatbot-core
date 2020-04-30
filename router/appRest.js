@@ -32,9 +32,9 @@ var channelId = ''
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
-	deviceId  = req.body.From; // req.headers['x-device-id'];
-	appId     = req.headers['x-app-id'] || '';
-	channelId = req.headers['x-channel-id'] || '';
+	deviceId  = req.body.From;
+	appId     = req.body.appId;
+	channelId = req.body.channel;
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
@@ -47,9 +47,9 @@ appBot.post('/bot', function (req, res) {
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
-	deviceId  = req.body.From //req.headers['x-device-id'];
-	appId     = req.headers['x-app-id'] || '';
-	channelId = req.headers['x-channel-id'] || '';
+	deviceId  = req.body.From;
+	appId     = req.body.appId;
+	channelId = req.body.channel;
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
@@ -57,15 +57,14 @@ appBot.post('/bot/whatsapp', function (req, res) {
 		pid: 'whatsapp',
 		apiToken: apiToken
 	}
-	console.log('Data', data);
 	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'whatsapp')
 })
 
 appBot.post('/bot/telegram', function (req, res) {
-	deviceId  = req.body.From //req.headers['x-device-id'];
-	appId     = req.headers['x-app-id'] || '';
-	channelId = req.headers['x-channel-id'] || '';
+	deviceId  = req.body.From;
+	appId     = req.body.appId;
+	channelId = req.body.channel;
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
