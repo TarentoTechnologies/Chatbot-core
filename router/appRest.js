@@ -84,9 +84,10 @@ function handler(req, res, channel) {
 	var userData = {};
 	data = { message: body, customData: { userId: userID } }
 	LOG.info('context for: ' + deviceID)
-	console.log('Date & Time : ', new Date());
-	console.log('Device ID   : ', deviceId);
-	console.log('User ID     : ', userID);
+	var logData =  { date : '', deviceId: '', userId:'', userInput:'', botResponse:'' };
+	logData.date = new Date();
+	logData.deviceId = deviceId;
+	logData.userId = userID;
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
 	//EDB.saveToEDB(dataPersist, 'user', deviceID,(err,response)=>{})
@@ -105,7 +106,7 @@ function handler(req, res, channel) {
 							sendChannelResponse(deviceID, res, 'SORRY', channel)
 						} else {
 							let responses = resp.res;
-							console.log('User Input    		 :', data.message);
+							logData.userInput = data.message;
 							const telemetryData = { 
 								userData: data,
 								uaspec: uaspec,
@@ -125,16 +126,18 @@ function handler(req, res, channel) {
 								telemetryData.type = responses[0].intent;
 								telemetryData.subtype = 'intent_detected';
 								response = responses[0].text;
-								console.log('Bot Response Key    :', responses[0].intent);
+								logData.botResponse = responses[0].intent;
 							}else {
 								telemetryData.subtype = 'intent_not_detected';
 								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
 								telemetryData.type = responseKey;	
 								telemetryData.id = responseKey;
-								console.log('Bot Response Key    :', responseKey);
+								logData.botResponse =  responseKey;
 								response = literals.message[responseKey];
 							}
+							
 							telemetryHelper.logInteraction(telemetryData)
+							LOG.info('LOG : ' + JSON.stringify(logData))
 							sendResponse(deviceID, res, response)
 						}
 					})
@@ -178,7 +181,6 @@ function handler(req, res, channel) {
 							telemetryData.id = currentFlowStep;
 							telemetryData.subtype = 'intent_detected';
 							telemetryData.type = responseKey
-
 						}
 					} else {
 						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
@@ -189,8 +191,9 @@ function handler(req, res, channel) {
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(deviceID, userData);
 					telemetryHelper.logInteraction(telemetryData)
-					console.log('User Input       :', possibleFlow);
-					console.log('Bot Response Key :', responseKey);
+					logData.userInput = possibleFlow;
+					logData.botResponse = responseKey;
+					LOG.info('LOG : ' + JSON.stringify(logData))
 					sendChannelResponse(deviceID, res, responseKey, channel);
 				}
 			} else {
@@ -223,8 +226,9 @@ function handler(req, res, channel) {
 					}
 				}
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
-				console.log('User Input       : step1');
-				console.log('Bot Response Key : START');
+				logData.userInput = 'step1';
+				logData.botResponse= 'START';
+				LOG.info('LOG : ', JSON.stringify(logData));
 				sendChannelResponse(deviceID, res, 'START', channel);
 			}
 		});
@@ -265,7 +269,6 @@ function delRedisKey(key) {
 function sendResponse(deviceID, response, responseBody, responseCode) {
 	response.set('Content-Type', 'text/plain')
 	if (responseCode) response.status(responseCode)
-	//console.log('Bot Response       : ', responseBody);
 	response.send(responseBody)
 }
 
@@ -275,10 +278,8 @@ function sendChannelResponse(deviceID, response, responseKey, channel, responseC
 	if (responseCode) response.status(responseCode)
 	var channelResponse = literals.message[responseKey + '_' + channel];
 	if (channelResponse) {
-		//console.log('Bot Response       : ', channelResponse);
 		response.send(channelResponse)	
 	} else {
-		//console.log('Bot Response       : ', literals.message[responseKey]);
 		response.send(literals.message[responseKey])	
 	} 
 }
