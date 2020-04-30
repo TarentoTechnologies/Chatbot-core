@@ -125,17 +125,6 @@ responses:
        text: "<span>DIKSHA has digital contents in English, Hindi, Kannada, Bengali, Marathi, Tamil, Telugu, Urdu languages.<br><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "language_support"
 
-
-  utter_content_customization:
-  - custom:
-     blocks:
-     - type: "response"
-       text: "Yes, you can customize the content for your domain. Any field/screen on DISKHA can be customized to suit organization needs."
-       intent: "utter_content_customization"
-
-  utter_content_suggestions:
-  - text: "Sure, here are a few content for {board} {medium} {grade} {subject}"
-
   utter_flag_reviewer:
   - custom:
      blocks:
