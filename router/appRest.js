@@ -79,7 +79,7 @@ appBot.post('/bot/telegram', function (req, res) {
 function handler(req, res, channel) {
 	var body = req.body.Body
 	var deviceID = req.body.From;
-	var userID = req.body.userId;
+	var userID = req.body.userId ? req.body.userId : req.body.From;
 	let uaspec = getUserSpec(req);
 	var userData = {};
 	data = { message: body, customData: { userId: userID } }
