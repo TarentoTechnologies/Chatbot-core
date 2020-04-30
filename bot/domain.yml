@@ -11,7 +11,6 @@ intents:
   - content_customization
   - author_credit
   - find_content
-  - content_suggestions
   - online_or_live_classes
   - lockdown_or_curfew
   - covid_or_corona_virus
@@ -42,7 +41,6 @@ actions:
 - utter_language_support
 - utter_author_credit
 - utter_worksheet
-- utter_content_suggestions
 - utter_online_or_live_classes
 - utter_lockdown_or_curfew
 - utter_covid_or_corona_virus
@@ -124,6 +122,14 @@ responses:
      - type: "response"
        text: "<span>DIKSHA has digital contents in English, Hindi, Kannada, Bengali, Marathi, Tamil, Telugu, Urdu languages.<br><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "language_support"
+
+
+  utter_content_customization:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "Yes, you can customize the content for your domain. Any field/screen on DISKHA can be customized to suit organization needs."
+       intent: "utter_content_customization"
 
   utter_flag_reviewer:
   - custom:
