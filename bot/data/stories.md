@@ -53,3 +53,31 @@
 # curfew or lockdown
 * lockdown_or_curfew
   - utter_lockdown_or_curfew
+
+# covid or corona or covid 19 
+* covid_or_corona_virus
+  - utter_covid_or_corona_virus
+
+# creative and critical thinking
+* creative_and_critical_thinking
+  - utter_creative_and_critical_thinking
+
+# download diksha app
+* download_diksha_app
+  - utter_download_diksha_app
+
+# how to scan qr code
+* how_to_scan_qr_code
+  - utter_how_to_scan_qr_code
+
+# unable to login
+* query_login
+  - utter_query_login
+
+# query about reset password
+* query_reset_password
+  - utter_query_reset_password
+
+# contribute content
+* contribute_content
+  - utter_contribute_content

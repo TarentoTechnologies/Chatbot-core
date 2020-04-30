@@ -14,6 +14,13 @@ intents:
   - content_suggestions
   - online_or_live_classes
   - lockdown_or_curfew
+  - covid_or_corona_virus
+  - creative_and_critical_thinking
+  - download_diksha_app
+  - how_to_scan_qr_code
+  - query_login
+  - query_reset_password
+  - contribute_content
 
 entities:
   - board
@@ -38,20 +45,27 @@ actions:
 - utter_content_suggestions
 - utter_online_or_live_classes
 - utter_lockdown_or_curfew
+- utter_covid_or_corona_virus
+- utter_creative_and_critical_thinking
+- utter_download_diksha_app
+- utter_how_to_scan_qr_code
+- utter_query_login
+- utter_query_reset_password
+- utter_contribute_content
 
 responses:
   utter_greet:
   - custom:
      blocks:
      - type: "response"
-       text: "Hi there! Please press 0 for menu."
+       text: "<span>Hi, there!<br><br>Tell me your query so that I can help you or press 0 to go to first menu or press 99 to go back</span>"
        intent: "greet"
 
   utter_how_you:
   - custom:
      blocks:
      - type: "response"
-       text: "I am good, thanks for asking. Please press 0 for menu."
+       text: "<span>I am good! Hope you doing well too.<br><br>Tell me your query so that I can help you or press 0 to go to first menu or press 99 to go back</span>"
        intent: "how_you"
 
   utter_get_started:
@@ -65,21 +79,21 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "I am bot, here to help you. Please press 0 for menu."
+       text: "<span>I am Tara, your DIKSHA bot guide.<br><br>Tell me you query so that I can help you or press 0 to go to first menu or press 99 to go back</span>"
        intent: "who_am_i"
 
   utter_goodbye:
   - custom:
      blocks:
      - type: "response"
-       text: "See ya!"
+       text: "<span>Bye, Happy learning! <br><br><hr><strong>**</strong>Press 0 to go to first menu or type your query directly</span>"
        intent: "goodbye"
 
   utter_low_confidence:
   - custom:
      blocks:
      - type: "response"
-       text: "Can you rephrase that please? Press 0 for menu."
+       text: "<span>I could not understand correctly, can you rephrase that for me? or Press 0 to go to first menu</span>"
        intent: "low_confidence"
 
   utter_out_of_scope:
@@ -108,7 +122,7 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "We support English, Hindi, Kannada, Bengali, Marathi, Tamil, Telugu, Urdu languages."
+       text: "<span>DIKSHA has digital contents in English, Hindi, Kannada, Bengali, Marathi, Tamil, Telugu, Urdu languages.<br><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "language_support"
 
 
@@ -140,15 +154,64 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "Currently, there are no online or live classes on DIKSHA.<br>But, I can guide you to a lot of interesting content specific to your board, medium, class and subject.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly"
+       text: "<span>Currently, there are no online or live classes on DIKSHA. But, I can guide you to a lot of interesting content specific to your board, medium, class and subject.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "online_or_live_classes"
 
   utter_lockdown_or_curfew:
   - custom:
      blocks:
      - type: "response"
-       text: "I understand you are worried about studying during these trying times.<br>I can guide you to a lot of interesting content for you on DIKSHA.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly"
+       text: "<span>I understand you are worried about studying during these trying times.I can guide you to a lot of interesting content for you on DIKSHA.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "lockdown_or_curfew"
+
+  utter_covid_or_corona_virus:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand that you are worried about the situation. Unfortunately, I cannot help you with this information. But, I can guide you to a lot of interesting content on DIKSHA. <br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "covid_or_corona_virus"
+
+  utter_creative_and_critical_thinking:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to practice Weekly Creative and Critical Thinking questions. <br>Please visit : <a href='https://diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook'>diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook<a/><br>Select the Subject to view relevant content on the webpage.<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "creative_and_critical_thinking"
+
+  utter_download_diksha_app:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to download DIKSHA app.<br> Please visit (<a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara</a>)<br><strong>Step 1.</strong> Download the DIKSHA mobile app from the link given above.<br><strong>Step 2.</strong> Install the DIKSHA app<br><strong>Step 3.</strong> Follow the instructions provided in the app<br><br>You are good to go!<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "download_diksha_app"
+
+  utter_how_to_scan_qr_code:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to see how to scan the QR code.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'>diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "how_to_scan_qr_code"
+
+  utter_query_login:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to know how to login/Register.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>diksha.gov.in/help/getting-started/sign-in/index.html</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "query_login"
+
+  utter_query_reset_password:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to know how to reset password.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/recover-password/index.html'>diksha.gov.in/help/getting-started/recover-password/index.html</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "query_reset_password"
+
+  utter_contribute_content:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href''https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "contribute_content"
 
 session_config:
   session_expiration_time: 60

@@ -14,21 +14,22 @@
 - vanakkam
 
 ## intent:how_you
-- how are you
-- how you doing
-- how do you do
-- whats up
-- how is it going
-- how are you today
-- How have you been?
-- whassup
-- What are you up to
+- how are you ?
+- how you doing ?
+- how do you do ?
+- whats up ?
+- how is it going ?
+- how are you today ?
+- How have you been ?
+- whassup ?
+- What are you up to ?
 
 ## intent:goodbye
-- bye
-- goodbye
-- see you around
-- see you later
+- Bye
+- Goodbye
+- See you around
+- See you later
+- See you
 
 ## intent:bot_challenge
 - are you a bot?
@@ -173,3 +174,51 @@ data/mediums.txt
 - Do you have live classes?"
 - online classes
 - live classes
+
+## intent: covid_or_corona_virus
+- What is COVID?
+- What is COVID19?
+- How do I deal with COVID?
+- How do I deal with COVID19?
+- COVID
+- COVID19
+- quarantine
+
+## intent: creative_and_critical_thinking
+- I want to practice Weekly Creative and Critical Thinking questions
+- Critical thinking questions
+- I want to access critical thinking questions
+- Show me critical thinking questions
+- Take me to critical questions
+
+## intent: download_diksha_app
+- I want to downlaod DIKSHA App
+- DIKSHA app download
+- How to download the DIKSHA app
+- How to install the DIKSHA app
+- I want to install DIKSHA app
+
+## intent: how_to_scan_qr_code
+- I want to scan the QR code
+- How to scan QR code
+- I want to understand how to scan QR code
+- I am unable to sca QR code
+
+# intent: query_login
+- I am unable to login
+- I want to register on DIKSHA
+- Facing problem with login
+- Don't know how to login
+- Help me to login
+- Help me to register
+
+# intent: query_reset_password
+- I have forgotten my password
+- I want to reset my password
+
+# intent: contribute_content
+- I want to contribute content as a teacher
+- I want to access vidyadaan
+- I am a teacher and want to contribute content
+- Contribute content
+- Content Contribution
