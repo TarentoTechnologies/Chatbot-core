@@ -13,15 +13,14 @@ module.exports = {
     const uaspec = sessionData.userSpecData 
     var dims = []
     var channelId = sessionData.requestData.channelId
-    var splitedChannelId = data.requestData.channelId.split('.');
-    const context = telemetry.getContextData({ channel: channelId, env: splitedChannelId[1] + '.' + splitedChannelId[2]})
+    var splitedChannelId = channelId.split('.');
     const edata = telemetry.startEventData('botsession')
     edata.uaspec = uaspec
-
     const context = telemetry.getContextData({ channel: channelId, env: splitedChannelId[1] + '.' + splitedChannelId[2]})
-    context.sid = sessionData.id
+    context.sid = sessionData.sid
     context.did = sessionData.requestData.deviceId
     context.rollup = telemetry.getRollUpData(dims)
+    console.log('Context', context);
     const actor = telemetry.getActorData(sessionData.userData.customData.userId, 'user')
     telemetry.start({
       edata: edata,
@@ -44,7 +43,7 @@ module.exports = {
         id: data.id
       };
       var channelId = data.requestData.channelId
-      var splitedChannelId = data.requestData.channelId.split('.');
+      var splitedChannelId = channelId.split('.');
       var dims = []
       const context = telemetry.getContextData({ channel: channelId, env: splitedChannelId[1] + '.' + splitedChannelId[2]})
       context.sid = data.sid
