@@ -8,7 +8,8 @@ var logger = winston.createLogger({
   ],
   exceptionHandlers: [
     new (winston.transports.Console)({ json: false, timestamp: true }),
-    new winston.transports.File({ filename: __dirname + '/exceptions.log', json: false })
+    // Commenting the below line as we will not need errors/info logging into file , We are already loggin errors/info in console.
+    //new winston.transports.File({ filename: __dirname + '/exceptions.log', json: false })
   ],
   exitOnError: false
 });
