@@ -205,7 +205,7 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href'https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "contribute_content"
 
 session_config:
