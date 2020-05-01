@@ -228,7 +228,7 @@ function handler(req, res, channel) {
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				logData.userInput = 'step1';
 				logData.botResponse= 'START';
-				LOG.info('LOG : ', JSON.stringify(logData));
+				LOG.info('LOG : ', logData);
 				sendChannelResponse(deviceID, res, 'START', channel);
 			}
 		});
