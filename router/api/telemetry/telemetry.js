@@ -62,7 +62,7 @@ module.exports = {
         options: options
       });
     } catch(e) {
-      LOG.error('Error while interaction event',e)
+      LOG.error('Error while interaction event')
     }
   },
 
@@ -83,7 +83,7 @@ module.exports = {
         }
       })
     } catch(e) {
-      LOG.error('Error while initilising telemetry', e)
+      LOG.error('Error while initilising telemetry')
     }
   }
 } 
