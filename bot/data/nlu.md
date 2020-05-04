@@ -14,22 +14,21 @@
 - vanakkam
 
 ## intent:how_you
-- how are you ?
-- how you doing ?
-- how do you do ?
-- whats up ?
-- how is it going ?
-- how are you today ?
-- How have you been ?
-- whassup ?
-- What are you up to ?
+- how are you
+- how you doing
+- how do you do
+- whats up
+- how is it going
+- how are you today
+- How have you been?
+- whassup
+- What are you up to
 
 ## intent:goodbye
-- Bye
-- Goodbye
-- See you around
-- See you later
-- See you
+- bye
+- goodbye
+- see you around
+- see you later
 
 ## intent:bot_challenge
 - are you a bot?
@@ -125,6 +124,28 @@
 - add author to material
 - add name in credit of content
 
+## intent:content_suggestions
+- I want to learn [CBSE](board) content
+- I'm a student from [Maharashtra](board) and want to learn from home
+- Do you have any content from [Karnataka](board) state board
+- Show me class [one](grade) content from [Tamil Nadu](board)
+- Please show [second](grade) standard content
+- I want to do [maths](subject) revision
+- I want to learn [fourth](grade) standard [physics](subject)
+- I am a student of [karnataka](board) board and want to read [history](subject) books for [fifth](grade) standard
+- can you suggest [mathematics](subject) books for [ninth](grade) class [cbse](board) board
+
+## intent:live_class
+- do you run live classes
+- can i attend online class
+- do you have online classes
+- does diksha support live classroom
+- can i take live class
+- online classes in diksha
+- do you have live classroom setup?
+- how can i attend live class
+- do you have online classroom coaching
+
 ## lookup:board
 data/boards.txt
 
@@ -136,80 +157,4 @@ data/subjects.txt
 
 ## lookup:medium
 data/mediums.txt
-
-## intent: lockdown_or_curfew
-- How do I study during the lockdown?
-- How can I study during the lockdown?
-- Is it possible for me to study during the lockdown?
-- do you have study material for me in the lockdown?
-- lockdown studies
-- lockdown
-- Schools are closed. How can I study?
-- How do I study during the curfew?
-- How can I study during the curfew?
-- Is it possible for me to study during the curfew?
-- do you have study material for me in the curfew?
-- curfew studies
-- curfew
-
-## intent: online_or_live_classes
-- Are online classes available on DIKSHA?
-- Does DIKSHA have online classes?
-- I want to start online classes
-- When will DIKSHA have online classes?
-- Do you have online classes?
-- Are live classes available on DIKSHA?
-- Does DIKSHA have live classes?
-- I want to start live classes
-- When will DIKSHA have live classes?
-- Do you have live classes?"
-- online classes
-- live classes
-
-## intent: covid_or_corona_virus
-- What is COVID?
-- What is COVID19?
-- How do I deal with COVID?
-- How do I deal with COVID19?
-- COVID
-- COVID19
-- quarantine
-
-## intent: creative_and_critical_thinking
-- I want to practice Weekly Creative and Critical Thinking questions
-- Critical thinking questions
-- I want to access critical thinking questions
-- Show me critical thinking questions
-- Take me to critical questions
-
-## intent: download_diksha_app
-- I want to downlaod DIKSHA App
-- DIKSHA app download
-- How to download the DIKSHA app
-- How to install the DIKSHA app
-- I want to install DIKSHA app
-
-## intent: how_to_scan_qr_code
-- I want to scan the QR code
-- How to scan QR code
-- I want to understand how to scan QR code
-- I am unable to sca QR code
-
-## intent: query_login
-- I am unable to login
-- I want to register on DIKSHA
-- Facing problem with login
-- Don't know how to login
-- Help me to login
-- Help me to register
-
-## intent: query_reset_password
-- I have forgotten my password
-- I want to reset my password
-
-## intent: contribute_content
-- I want to contribute content as a teacher
-- I want to access vidyadaan
-- I am a teacher and want to contribute content
-- Contribute content
-- Content Contribution
+  

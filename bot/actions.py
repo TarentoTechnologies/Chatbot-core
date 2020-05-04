@@ -8,6 +8,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import spacy
+from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
+
 #
 #
 nlp      = spacy.load('en_core_web_sm')
@@ -29,25 +31,36 @@ class ActionSubjectCourses(Action):
          #dispatcher.utter_custom_json(elements)
          return []
 
+class ContentForm(FormAction):
 
+    def name(self):
+        # type: () -> Text
+        return "content_form"
+
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+
+        return ["board", "subject", "grade"]
+    def submit(self,
+               dispatcher: CollectingDispatcher,
+               tracker: Tracker,
+               domain: Dict[Text, Any]) -> List[Dict]:
+        # utter submit template
+        print(tracker.get_slot("board"))
+        print(tracker.get_slot("grade"))
+        print(tracker.get_slot("subject"))
+        dispatcher.utter_template('utter_submit', tracker)
+        return []
 
 class FallbackAction(Action):
    def name(self):
       return "fallback_action"
 
    def run(self, dispatcher, tracker, domain):
-      intent_ranking = tracker.latest_message.get('intent_ranking', [])
-      doc = nlp(tracker.latest_message.get('text'))
-      nouns = []
-      adjs  = []
-      for token in doc:
-          if token.pos_ == 'NOUN':
-               nouns.append(token.text)
-          if token.pos_ == 'ADJ':
-               adjs.append(token.text)
-      if len(intent_ranking) > 0 :
-            elements = [{"type":"low_confidence","entities":nouns, "adj":adjs, "intent" : "low_confidence"}]
-            dispatcher.utter_message(json_message=elements)
-      else :
-         elements = [{"type":"low_confidence","entities":nouns, "adj":adjs, "intent" : "low_confidence"}]
-         dispatcher.utter_message(json_message=elements)
+       if ('lockdown' in str(tracker.latest_message.get('text')).lower()) or  ('curfew' in str(tracker.latest_message.get('text')).lower()):
+           dispatcher.utter_message(template="utter_lockdown")
+       if ('covid' in str(tracker.latest_message.get('text')).lower()) or  ('corona' in str(tracker.latest_message.get('text')).lower()):
+           dispatcher.utter_message(template="utter_covid")
+       else:
+           dispatcher.utter_message(template="utter_out_of_scope")
+
