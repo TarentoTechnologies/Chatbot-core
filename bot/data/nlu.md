@@ -132,6 +132,19 @@
 - Please show [second](grade) standard content
 - I want to do [maths](subject) revision
 - I want to learn [fourth](grade) standard [physics](subject)
+- I am a student of [karnataka](board) board and want to read [history](subject) books for [fifth](grade) standard
+- can you suggest [mathematics](subject) books for [ninth](grade) class [cbse](board) board
+
+## intent:live_class
+- do you run live classes
+- can i attend online class
+- do you have online classes
+- does diksha support live classroom
+- can i take live class
+- online classes in diksha
+- do you have live classroom setup?
+- how can i attend live class
+- do you have online classroom coaching
 
 ## lookup:board
 data/boards.txt

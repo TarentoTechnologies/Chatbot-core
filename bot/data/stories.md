@@ -32,7 +32,12 @@
 
 # content_suggestions
 * content_suggestions
-  - utter_content_suggestions
+  - content_form
+  - form{"name": "board"}
+  - form{"name": "grade"}
+  - form{"name": "subject"}
+  - form{"name": "null"}
+
 
 # language_support
 * language_support
@@ -45,3 +50,7 @@
 # worksheet
 * worksheet
   - utter_worksheet
+
+# live_class
+* live_class
+  - utter_live_class
