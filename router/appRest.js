@@ -26,19 +26,13 @@ appBot.use(bodyParser.urlencoded({ extended: false }))
 // Redis is used as the session tracking store
 const redis_client = redis.createClient(config.REDIS_PORT, config.REDIS_HOST);
 const chatflowConfig = chatflow.chatflow;
-//var deviceId = ''
-//var appId = ''
-//var channelId = ''
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
-	var deviceId  = req.body.From;
-	var appId     = req.body.appId;
-	var channelId = req.body.channel;
 	var data = {
-		deviceId: deviceId,
-		channelId: channelId, 
-		appId: appId + '.bot',
+		deviceId: req.body.From,
+		channelId: req.body.channel, 
+		appId: req.body.appId + '.bot',
 		apiToken: apiToken
 	}
 	telemetryHelper.initializeTelemetry(data)
@@ -46,11 +40,9 @@ appBot.post('/bot', function (req, res) {
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
-	var deviceId  = req.body.From;
-	var channelId = req.body.channel;
 	var data = {
-		deviceId: deviceId,
-		channelId: channelId, 
+		deviceId: req.body.From,
+		channelId: req.body.channel, 
 		appId: 'whatsapp',
 		apiToken: apiToken
 	}
