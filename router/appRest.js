@@ -26,42 +26,39 @@ appBot.use(bodyParser.urlencoded({ extended: false }))
 // Redis is used as the session tracking store
 const redis_client = redis.createClient(config.REDIS_PORT, config.REDIS_HOST);
 const chatflowConfig = chatflow.chatflow;
-var deviceId = ''
-var appId = ''
-var channelId = ''
+//var deviceId = ''
+//var appId = ''
+//var channelId = ''
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
-	deviceId  = req.body.From;
-	appId     = req.body.appId;
-	channelId = req.body.channel;
+	var deviceId  = req.body.From;
+	var appId     = req.body.appId;
+	var channelId = req.body.channel;
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
 		appId: appId + '.bot',
-		pid: 'botclient',
 		apiToken: apiToken
 	}
 	telemetryHelper.initializeTelemetry(data)
-	handler(req, res, 'botclient')
+	handler(req, res, 'botclient', data)
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
-	deviceId  = req.body.From;
-	appId     = 'whatsapp';
-	channelId = req.body.channel;
+	var deviceId  = req.body.From;
+	var channelId = req.body.channel;
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
-		appId: appId,
-		pid: 'whatsapp',
+		appId: 'whatsapp',
 		apiToken: apiToken
 	}
 	telemetryHelper.initializeTelemetry(data)
-	handler(req, res, 'whatsapp')
+	handler(req, res, 'whatsapp', data)
 })
 
-function handler(req, res, channel) {
+function handler(req, res, channel, requestData) {
 	var body = req.body.Body;
 	var deviceID = req.body.From;
 	var userID = req.body.userId ? req.body.userId : req.body.From;
@@ -71,7 +68,7 @@ function handler(req, res, channel) {
 	LOG.info('context for: ' + deviceID)
 	var logData =  { date : '', deviceId: '', userId:'', userInput:'', botResponse:'' };
 	logData.date = new Date();
-	logData.deviceId = deviceId;
+	logData.deviceId = deviceID;
 	logData.userId = userID;
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
@@ -99,11 +96,7 @@ function handler(req, res, channel) {
 								type: '',
 								subtype: '',
 								sid: userData.sessionID,
-								requestData : {
-									deviceId: deviceId, 
-									channelId: channelId, 
-									appId: appId
-								}
+								requestData : requestData
 							}
 							var response = '';
 							if (responses && responses[0].text) {
@@ -137,11 +130,7 @@ function handler(req, res, channel) {
 						type:'',
 						subtype: '',
 						sid: userData.sessionID,
-						requestData : {
-							deviceId: deviceId,
-							channelId: channelId,
-							appId: appId,
-						}
+						requestData : requestData
 					}
 					if (chatflowConfig[possibleFlow]) {
 						var respVarName = chatflowConfig[currentFlowStep].responseVariable;
@@ -190,11 +179,7 @@ function handler(req, res, channel) {
 					userData: data,
 					userSpecData: uaspec,
 					sid: uuID,
-					requestData : {
-						deviceId: deviceId, 
-						channelId: channelId, 
-						appId: appId,
-					}
+					requestData : requestData
 				}
 				telemetryHelper.logSessionStart(telemetryData);
 				const telemetryDataForInteraction = { 
@@ -204,11 +189,7 @@ function handler(req, res, channel) {
 					type: 'START',
 					subtype: 'intent_detected',
 					sid: uuID,
-					requestData : {
-						deviceId: deviceId, 
-						channelId: channelId, 
-						appId: appId,
-					}
+					requestData : requestData
 				}
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				logData.userInput = 'step1';

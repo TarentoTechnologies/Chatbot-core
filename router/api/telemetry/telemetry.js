@@ -13,10 +13,9 @@ module.exports = {
     const uaspec = sessionData.userSpecData 
     var dims = []
     var channelId = sessionData.requestData.channelId
-    var splitedAppId = sessionData.requestData.appId.split('.');
     const edata = telemetry.startEventData('botsession')
     edata.uaspec = uaspec
-    const context = telemetry.getContextData({ channel: channelId, env: splitedAppId[1] + '.' + splitedAppId[2]})
+    const context = telemetry.getContextData({ channel: channelId, env: sessionData.requestData.appId})
     context.sid = sessionData.sid
     context.did = sessionData.requestData.deviceId
     context.rollup = telemetry.getRollUpData(dims)
@@ -42,9 +41,8 @@ module.exports = {
         id: data.id
       };
       var channelId = data.requestData.channelId
-      var splitedAppId = data.requestData.appId.split('.');
       var dims = []
-      const context = telemetry.getContextData({ channel: channelId, env: splitedAppId[1] + '.' + splitedAppId[2]})
+      const context = telemetry.getContextData({ channel: channelId, env: data.requestData.appId})
       context.sid = data.sid
       context.did = data.requestData.deviceId
       context.rollup = telemetry.getRollUpData(dims)
@@ -69,17 +67,17 @@ module.exports = {
   initializeTelemetry: function(data) {
     try {
       telemetry.init({
-        pdata: { id: data.appId, ver: '1.0', pid: 'dikshavani.' + data.pid },
+        pdata: { id: data.appId, ver: '1.0', pid: 'dikshavani.botclient' },
         method: 'POST',
         version: '1.0',
         batchsize: config.TELEMETRY_SYNC_BATCH_SIZE,
         endpoint: config.TELEMETRY_ENDPOINT,
         host: config.TELEMETRY_SERVICE_LOCAL_URL,
         headers: {
-          'x-app-id': data.appId, 
+          'x-app-id': 'dikshavani.botclient', 
           'Authorization':'Bearer ' + data.apiToken,
           'x-channel-id': data.channelId,
-          'x-device-id' : data.deviceId
+          'x-device-id' : ''
         }
       })
     } catch(e) {
