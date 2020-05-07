@@ -61,21 +61,6 @@ appBot.post('/bot/whatsapp', function (req, res) {
 	handler(req, res, 'whatsapp')
 })
 
-appBot.post('/bot/telegram', function (req, res) {
-	deviceId  = req.body.From;
-	appId     = req.body.appId;
-	channelId = req.body.channel;
-	var data = {
-		deviceId: deviceId,
-		channelId: channelId, 
-		appId: appId,
-		pid: 'telegram',
-		apiToken: apiToken
-	}
-	telemetryHelper.initializeTelemetry(data)
-	handler(req, res, 'telegram')
-})
-
 function handler(req, res, channel) {
 	var body = req.body.Body;
 	var deviceID = req.body.From;
