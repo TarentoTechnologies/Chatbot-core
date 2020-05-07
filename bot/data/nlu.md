@@ -137,7 +137,7 @@ data/subjects.txt
 ## lookup:medium
 data/mediums.txt
 
-## intent: lockdown_or_curfew
+## intent: learn_from_home
 - How do I study during the lockdown?
 - How can I study during the lockdown?
 - Is it possible for me to study during the lockdown?
@@ -152,7 +152,7 @@ data/mediums.txt
 - curfew studies
 - curfew
 
-## intent: online_or_live_classes
+## intent: online_classes
 - Are online classes available on DIKSHA?
 - Does DIKSHA have online classes?
 - I want to start online classes
@@ -166,7 +166,7 @@ data/mediums.txt
 - online classes
 - live classes
 
-## intent: covid_or_corona_virus
+## intent: covid_queries
 - What is COVID?
 - What is COVID19?
 - How do I deal with COVID?
@@ -189,13 +189,13 @@ data/mediums.txt
 - How to install the DIKSHA app
 - I want to install DIKSHA app
 
-## intent: how_to_scan_qr_code
+## intent: scan_qr_code
 - I want to scan the QR code
 - How to scan QR code
 - I want to understand how to scan QR code
 - I am unable to sca QR code
 
-## intent: query_login
+## intent: login_issue
 - I am unable to login
 - I want to register on DIKSHA
 - Facing problem with login
@@ -203,7 +203,7 @@ data/mediums.txt
 - Help me to login
 - Help me to register
 
-## intent: query_reset_password
+## intent: reset_password
 - I have forgotten my password
 - I want to reset my password
 

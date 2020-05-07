@@ -11,14 +11,14 @@ intents:
   - content_customization
   - author_credit
   - find_content
-  - online_or_live_classes
-  - lockdown_or_curfew
-  - covid_or_corona_virus
+  - online_classes
+  - learn_from_home
+  - covid_queries
   - creative_and_critical_thinking
   - download_diksha_app
-  - how_to_scan_qr_code
-  - query_login
-  - query_reset_password
+  - scan_qr_code
+  - login_issue
+  - reset_password
   - contribute_content
 
 entities:
@@ -41,14 +41,14 @@ actions:
 - utter_language_support
 - utter_author_credit
 - utter_worksheet
-- utter_online_or_live_classes
-- utter_lockdown_or_curfew
-- utter_covid_or_corona_virus
+- utter_online_classes
+- utter_learn_from_home
+- utter_covid_queries
 - utter_creative_and_critical_thinking
 - utter_download_diksha_app
-- utter_how_to_scan_qr_code
-- utter_query_login
-- utter_query_reset_password
+- utter_scan_qr_code
+- utter_login_issue
+- utter_reset_password
 - utter_contribute_content
 
 responses:
@@ -145,26 +145,26 @@ responses:
        text: "An author can be credited by following these steps. Log in to the diksha portal  -> Select Workspace -> Select Create -> click the Course tile. -> Click Edit Details to enter/ modify the course details -> Enter Creators -> Enter Contributors details -> Enter Original Author details -> Click Save to save the details"
        intent: "author_credit"
 
-  utter_online_or_live_classes:
+  utter_online_classes:
   - custom:
      blocks:
      - type: "response"
        text: "<span>Currently, there are no online or live classes on DIKSHA. But, I can guide you to a lot of interesting content specific to your board, medium, class and subject.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "online_or_live_classes"
+       intent: "online_classes"
 
-  utter_lockdown_or_curfew:
+  utter_learn_from_home:
   - custom:
      blocks:
      - type: "response"
        text: "<span>I understand you are worried about studying during these trying times.I can guide you to a lot of interesting content for you on DIKSHA.<br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "lockdown_or_curfew"
+       intent: "learn_from_home"
 
-  utter_covid_or_corona_virus:
+  utter_covid_queries:
   - custom:
      blocks:
      - type: "response"
        text: "<span>I understand that you are worried about the situation. Unfortunately, I cannot help you with this information. But, I can guide you to a lot of interesting content on DIKSHA. <br>To discover content, press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "covid_or_corona_virus"
+       intent: "covid_queries"
 
   utter_creative_and_critical_thinking:
   - custom:
@@ -180,26 +180,26 @@ responses:
        text: "<span>I understand you want to download DIKSHA app.<br> Please visit (<a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara</a>)<br><strong>Step 1.</strong> Download the DIKSHA mobile app from the link given above.<br><strong>Step 2.</strong> Install the DIKSHA app<br><strong>Step 3.</strong> Follow the instructions provided in the app<br><br>You are good to go!<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "download_diksha_app"
 
-  utter_how_to_scan_qr_code:
+  utter_scan_qr_code:
   - custom:
      blocks:
      - type: "response"
        text: "<span>I understand you want to see how to scan the QR code.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'>diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "how_to_scan_qr_code"
+       intent: "scan_qr_code"
 
-  utter_query_login:
+  utter_login_issue:
   - custom:
      blocks:
      - type: "response"
        text: "<span>I understand you want to know how to login/Register.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>diksha.gov.in/help/getting-started/sign-in/index.html</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "query_login"
+       intent: "login_issue"
 
-  utter_query_reset_password:
+  utter_reset_password:
   - custom:
      blocks:
      - type: "response"
        text: "<span>I understand you want to know how to reset password.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/recover-password/index.html'>diksha.gov.in/help/getting-started/recover-password/index.html</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "query_reset_password"
+       intent: "reset_password"
 
   utter_contribute_content:
   - custom:
