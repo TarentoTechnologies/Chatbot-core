@@ -24,12 +24,17 @@ telemetryService.prototype.init = function (config) {
 
 /**
  * for start event
- * data object have these properties {'edata', 'contentId', 'contentVer', 'context', 'object', 'tags'}
+ * data object have these properties {'edata', 'contentId', 'contentVer', 'context', 'object', 'tags', 'headers'}
  */
 
 telemetryService.prototype.start = function (data) {
   this.context = [];
   if (data.context) { this.context.push(data.context) 
+  }
+  if (data.headers) {
+    data.headers.forEach(element => {
+      this.config.headers[element.key] = element.value;
+    });
   }
   Telemetry.start(this.config, data.contentId, data.contentVer, data.edata, {
     context: data.context,
@@ -88,6 +93,11 @@ telemetryService.prototype.error = function (data) {
  * data object have these properties {'data', 'options'}
  */
 telemetryService.prototype.interact = function (data) {
+  if (data.headers) {
+    data.headers.forEach(element => {
+      this.config.headers[element.key] = element.value;
+    });
+  }
   Telemetry.interact(data.data, data.options)
 }
 

@@ -14,7 +14,6 @@ var EDB = require('./api/elastic/connection')
 const telemetryHelper = require('./api/telemetry/telemetry.js')
 const axios                 = require('axios')
 const parser = require('ua-parser-js')
-const apiToken = config.PORTAL_API_AUTH_TOKEN
 const appBot = express()
 var UUIDV4   = require('uuid')
 //cors handling
@@ -32,10 +31,8 @@ appBot.post('/bot', function (req, res) {
 	var data = {
 		deviceId: req.body.From,
 		channelId: req.body.channel, 
-		appId: req.body.appId + '.bot',
-		apiToken: apiToken
+		appId: req.body.appId + '.bot'
 	}
-	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'botclient', data)
 })
 
@@ -44,9 +41,7 @@ appBot.post('/bot/whatsapp', function (req, res) {
 		deviceId: req.body.From,
 		channelId: req.body.channel, 
 		appId: 'whatsapp',
-		apiToken: apiToken
 	}
-	telemetryHelper.initializeTelemetry(data)
 	handler(req, res, 'whatsapp', data)
 })
 
@@ -100,8 +95,8 @@ function handler(req, res, channel, requestData) {
 							}else {
 								telemetryData.subtype = 'intent_not_detected';
 								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
-								telemetryData.type = responseKey;	
-								telemetryData.id = responseKey;
+								telemetryData.type = 'UNKNOWN_OPTION';	
+								telemetryData.id = 'UNKNOWN_OPTION';
 								logData.botResponse =  responseKey;
 								response = literals.message[responseKey];
 							}
@@ -150,9 +145,9 @@ function handler(req, res, channel, requestData) {
 						}
 					} else {
 						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
-						telemetryData.id = currentFlowStep + '_' + responseKey;
+						telemetryData.id = currentFlowStep + '_UNKNOWN_OPTION';
 						telemetryData.subtype = 'intent_not_detected';
-						telemetryData.type = responseKey
+						telemetryData.type = 'UNKNOWN_OPTION'
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(deviceID, userData);
@@ -248,7 +243,7 @@ http.createServer(appBot).listen(config.REST_HTTP_PORT, function (err) {
 		throw err
 	}
 	LOG.info('Server started on port ' + config.REST_HTTP_PORT)
-	// telemetryHelper.initializeTelemetry()
+	telemetryHelper.initializeTelemetry()
 });
 
 LOG.info('HTTPS port value ' + config.HTTPS_PATH_KEY)

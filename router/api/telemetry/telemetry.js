@@ -1,5 +1,6 @@
 const _ = require('lodash')
 var config = require('../../config/config')
+const apiToken = config.PORTAL_API_AUTH_TOKEN
 var LOG = require('../../log/logger')
 const Telemetry = require('sb_telemetry_util')
 const telemetry = new Telemetry()
@@ -22,8 +23,12 @@ module.exports = {
     context.did = sessionData.requestData.deviceId
     context.rollup = telemetry.getRollUpData(dims)
     const actor = telemetry.getActorData(sessionData.userData.customData.userId, 'user')
+    var headers = [];
+    var channelIdHeader = { key: 'x-channel-id', value : channelId };
+    headers.push(channelIdHeader);
     telemetry.start({
       edata: edata,
+      headers: headers,
       context: context,
       actor: actor,
       tags: _.concat([], channelId)
@@ -58,17 +63,21 @@ module.exports = {
         tags: _.concat([], channelId), // To override the existing tags
         runningEnv: "server" // It can be either client or server
       }
-
+      var headers = [];
+      var channelIdHeader = { key: 'x-channel-id', value : channelId };
+      headers.push(channelIdHeader);
       telemetry.interact({
         data: interactionData,
-        options: options
+        options: options,
+        headers: headers
       });
     } catch(e) {
       LOG.error('Error while interaction event')
     }
   },
 
-  initializeTelemetry: function(data) {
+  initializeTelemetry: function() {
+    
     try {
       telemetry.init({
         method: 'POST',
@@ -78,8 +87,7 @@ module.exports = {
         host: config.TELEMETRY_SERVICE_LOCAL_URL,
         headers: {
           'x-app-id': 'dikshavani.botclient', 
-          'Authorization':'Bearer ' + data.apiToken,
-          'x-channel-id': data.channelId,
+          'Authorization':'Bearer ' + apiToken,
           'x-device-id' : ''
         }
       })
