@@ -38,7 +38,7 @@ appBot.post('/bot', function (req, res) {
 	var data = {
 		deviceId: deviceId,
 		channelId: channelId, 
-		appId: appId,
+		appId: appId + '.bot',
 		pid: 'botclient',
 		apiToken: apiToken
 	}
@@ -48,7 +48,7 @@ appBot.post('/bot', function (req, res) {
 
 appBot.post('/bot/whatsapp', function (req, res) {
 	deviceId  = req.body.From;
-	appId     = req.body.appId;
+	appId     = 'whatsapp';
 	channelId = req.body.channel;
 	var data = {
 		deviceId: deviceId,
@@ -184,7 +184,7 @@ function handler(req, res, channel) {
 						}
 					} else {
 						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
-						telemetryData.id = possibleFlow;
+						telemetryData.id = currentFlowStep + '_' + responseKey;
 						telemetryData.subtype = 'intent_not_detected';
 						telemetryData.type = responseKey
 					}
