@@ -2,17 +2,17 @@
 * greet
   - utter_greet
 
-## how_you
-* how_you
-  - utter_how_you
+## well_being
+* well_being
+  - utter_well_being
 
 ## get started
 * get_started
   - utter_get_started
 
-## say goodbye
-* goodbye
-  - utter_goodbye
+## say bye
+* bye
+  - utter_bye
 
 ## bot challenge
 * bot_challenge
@@ -43,24 +43,24 @@
   - utter_worksheet
 
 # online or live classes
-* online_classes
-  - utter_online_classes
+* online_class
+  - utter_online_class
 
 # curfew or lockdown
-* learn_from_home
-  - utter_learn_from_home
+* lockdown_study
+  - utter_lockdown_study
 
 # covid or corona or covid 19 
-* covid_queries
-  - utter_covid_queries
+* COVID19_queries
+  - utter_COVID19_queries
 
 # creative and critical thinking
-* creative_and_critical_thinking
-  - utter_creative_and_critical_thinking
+* critical_practice
+  - utter_critical_practice
 
 # download diksha app
-* download_diksha_app
-  - utter_download_diksha_app
+* app_link
+  - utter_app_link
 
 # how to scan qr code
 * scan_qr_code
@@ -75,5 +75,5 @@
   - utter_reset_password
 
 # contribute content
-* contribute_content
-  - utter_contribute_content
+* vidyadaan_link
+  - utter_vidyadaan_link
