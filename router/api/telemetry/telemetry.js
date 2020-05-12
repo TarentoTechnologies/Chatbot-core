@@ -1,5 +1,6 @@
 const _ = require('lodash')
 var config = require('../../config/config')
+const apiToken = config.PORTAL_API_AUTH_TOKEN
 var LOG = require('../../log/logger')
 const Telemetry = require('sb_telemetry_util')
 const telemetry = new Telemetry()
@@ -13,16 +14,21 @@ module.exports = {
     const uaspec = sessionData.userSpecData 
     var dims = []
     var channelId = sessionData.requestData.channelId
-    var splitedAppId = sessionData.requestData.appId.split('.');
+    var appId = sessionData.requestData.appId
     const edata = telemetry.startEventData('botsession')
     edata.uaspec = uaspec
-    const context = telemetry.getContextData({ channel: channelId, env: splitedAppId[1] + '.' + splitedAppId[2]})
+    var pdata = { id: appId, ver: '1.0', pid: 'dikshavani.botclient' };
+    const context = telemetry.getContextData({ channel: channelId, env: appId, pdata: pdata})
     context.sid = sessionData.sid
     context.did = sessionData.requestData.deviceId
     context.rollup = telemetry.getRollUpData(dims)
     const actor = telemetry.getActorData(sessionData.userData.customData.userId, 'user')
+    var headers = [];
+    var channelIdHeader = { key: 'x-channel-id', value : channelId };
+    headers.push(channelIdHeader);
     telemetry.start({
       edata: edata,
+      headers: headers,
       context: context,
       actor: actor,
       tags: _.concat([], channelId)
@@ -42,9 +48,10 @@ module.exports = {
         id: data.id
       };
       var channelId = data.requestData.channelId
-      var splitedAppId = data.requestData.appId.split('.');
+      var appId = data.requestData.appId
       var dims = []
-      const context = telemetry.getContextData({ channel: channelId, env: splitedAppId[1] + '.' + splitedAppId[2]})
+      var pdata = { id: appId, ver: '1.0', pid: 'dikshavani.botclient' };
+      const context = telemetry.getContextData({ channel: channelId, env: appId, pdata: pdata})
       context.sid = data.sid
       context.did = data.requestData.deviceId
       context.rollup = telemetry.getRollUpData(dims)
@@ -56,30 +63,32 @@ module.exports = {
         tags: _.concat([], channelId), // To override the existing tags
         runningEnv: "server" // It can be either client or server
       }
-
+      var headers = [];
+      var channelIdHeader = { key: 'x-channel-id', value : channelId };
+      headers.push(channelIdHeader);
       telemetry.interact({
         data: interactionData,
-        options: options
+        options: options,
+        headers: headers
       });
     } catch(e) {
       LOG.error('Error while interaction event')
     }
   },
 
-  initializeTelemetry: function(data) {
+  initializeTelemetry: function() {
+    
     try {
       telemetry.init({
-        pdata: { id: data.appId, ver: '1.0', pid: 'dikshavani.' + data.pid },
         method: 'POST',
         version: '1.0',
         batchsize: config.TELEMETRY_SYNC_BATCH_SIZE,
         endpoint: config.TELEMETRY_ENDPOINT,
         host: config.TELEMETRY_SERVICE_LOCAL_URL,
         headers: {
-          'x-app-id': data.appId, 
-          'Authorization':'Bearer ' + data.apiToken,
-          'x-channel-id': data.channelId,
-          'x-device-id' : data.deviceId
+          'x-app-id': 'dikshavani.botclient', 
+          'Authorization':'Bearer ' + apiToken,
+          'x-device-id' : ''
         }
       })
     } catch(e) {

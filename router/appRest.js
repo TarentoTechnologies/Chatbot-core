@@ -14,7 +14,6 @@ var EDB = require('./api/elastic/connection')
 const telemetryHelper = require('./api/telemetry/telemetry.js')
 const axios                 = require('axios')
 const parser = require('ua-parser-js')
-const apiToken = config.PORTAL_API_AUTH_TOKEN
 const appBot = express()
 var UUIDV4   = require('uuid')
 //cors handling
@@ -26,57 +25,27 @@ appBot.use(bodyParser.urlencoded({ extended: false }))
 // Redis is used as the session tracking store
 const redis_client = redis.createClient(config.REDIS_PORT, config.REDIS_HOST);
 const chatflowConfig = chatflow.chatflow;
-var deviceId = ''
-var appId = ''
-var channelId = ''
 
 // Route that receives a POST request to /bot
 appBot.post('/bot', function (req, res) {
-	deviceId  = req.body.From;
-	appId     = req.body.appId;
-	channelId = req.body.channel;
 	var data = {
-		deviceId: deviceId,
-		channelId: channelId, 
-		appId: appId,
-		pid: 'botclient',
-		apiToken: apiToken
+		deviceId: req.body.From,
+		channelId: req.body.channel, 
+		appId: req.body.appId + '.bot'
 	}
-	telemetryHelper.initializeTelemetry(data)
-	handler(req, res, 'botclient')
+	handler(req, res, 'botclient', data)
 })
 
 appBot.post('/bot/whatsapp', function (req, res) {
-	deviceId  = req.body.From;
-	appId     = req.body.appId;
-	channelId = req.body.channel;
 	var data = {
-		deviceId: deviceId,
-		channelId: channelId, 
-		appId: appId,
-		pid: 'whatsapp',
-		apiToken: apiToken
+		deviceId: req.body.From,
+		channelId: req.body.channel, 
+		appId: 'whatsapp',
 	}
-	telemetryHelper.initializeTelemetry(data)
-	handler(req, res, 'whatsapp')
+	handler(req, res, 'whatsapp', data)
 })
 
-appBot.post('/bot/telegram', function (req, res) {
-	deviceId  = req.body.From;
-	appId     = req.body.appId;
-	channelId = req.body.channel;
-	var data = {
-		deviceId: deviceId,
-		channelId: channelId, 
-		appId: appId,
-		pid: 'telegram',
-		apiToken: apiToken
-	}
-	telemetryHelper.initializeTelemetry(data)
-	handler(req, res, 'telegram')
-})
-
-function handler(req, res, channel) {
+function handler(req, res, channel, requestData) {
 	var body = req.body.Body;
 	var deviceID = req.body.From;
 	var userID = req.body.userId ? req.body.userId : req.body.From;
@@ -86,7 +55,7 @@ function handler(req, res, channel) {
 	LOG.info('context for: ' + deviceID)
 	var logData =  { date : '', deviceId: '', userId:'', userInput:'', botResponse:'' };
 	logData.date = new Date();
-	logData.deviceId = deviceId;
+	logData.deviceId = deviceID;
 	logData.userId = userID;
 	//persisting incoming data to EDB
 	//dataPersist = {'message': body, 'channel' : 'rest'}
@@ -114,11 +83,7 @@ function handler(req, res, channel) {
 								type: '',
 								subtype: '',
 								sid: userData.sessionID,
-								requestData : {
-									deviceId: deviceId, 
-									channelId: channelId, 
-									appId: appId
-								}
+								requestData : requestData
 							}
 							var response = '';
 							if (responses && responses[0].text) {
@@ -130,8 +95,8 @@ function handler(req, res, channel) {
 							}else {
 								telemetryData.subtype = 'intent_not_detected';
 								responseKey = getErrorMessageForInvalidInput(responses[0].intent);
-								telemetryData.type = responseKey;	
-								telemetryData.id = responseKey;
+								telemetryData.type = 'UNKNOWN_OPTION';	
+								telemetryData.id = 'UNKNOWN_OPTION';
 								logData.botResponse =  responseKey;
 								response = literals.message[responseKey];
 							}
@@ -152,11 +117,7 @@ function handler(req, res, channel) {
 						type:'',
 						subtype: '',
 						sid: userData.sessionID,
-						requestData : {
-							deviceId: deviceId,
-							channelId: channelId,
-							appId: appId,
-						}
+						requestData : requestData
 					}
 					if (chatflowConfig[possibleFlow]) {
 						var respVarName = chatflowConfig[currentFlowStep].responseVariable;
@@ -184,9 +145,9 @@ function handler(req, res, channel) {
 						}
 					} else {
 						responseKey = getErrorMessageForInvalidInput(currentFlowStep)
-						telemetryData.id = possibleFlow;
+						telemetryData.id = currentFlowStep + '_UNKNOWN_OPTION';
 						telemetryData.subtype = 'intent_not_detected';
-						telemetryData.type = responseKey
+						telemetryData.type = 'UNKNOWN_OPTION'
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(deviceID, userData);
@@ -205,11 +166,7 @@ function handler(req, res, channel) {
 					userData: data,
 					userSpecData: uaspec,
 					sid: uuID,
-					requestData : {
-						deviceId: deviceId, 
-						channelId: channelId, 
-						appId: appId,
-					}
+					requestData : requestData
 				}
 				telemetryHelper.logSessionStart(telemetryData);
 				const telemetryDataForInteraction = { 
@@ -219,11 +176,7 @@ function handler(req, res, channel) {
 					type: 'START',
 					subtype: 'intent_detected',
 					sid: uuID,
-					requestData : {
-						deviceId: deviceId, 
-						channelId: channelId, 
-						appId: appId,
-					}
+					requestData : requestData
 				}
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				logData.userInput = 'step1';
@@ -290,7 +243,7 @@ http.createServer(appBot).listen(config.REST_HTTP_PORT, function (err) {
 		throw err
 	}
 	LOG.info('Server started on port ' + config.REST_HTTP_PORT)
-	// telemetryHelper.initializeTelemetry()
+	telemetryHelper.initializeTelemetry()
 });
 
 LOG.info('HTTPS port value ' + config.HTTPS_PATH_KEY)
