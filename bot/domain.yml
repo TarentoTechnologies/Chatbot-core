@@ -20,6 +20,10 @@ intents:
   - login_issue
   - reset_password
   - vidyadaan_link
+  - board_discovery
+  - IGOT
+  - state_training
+  - training_certificate
 
 entities:
   - board
@@ -50,6 +54,10 @@ actions:
 - utter_login_issue
 - utter_reset_password
 - utter_vidyadaan_link
+- utter_board_discovery
+- utter_IGOT
+- utter_state_training
+- utter_training_certificate
 
 responses:
   utter_greet:
@@ -98,7 +106,7 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "Sorry, I could not understand you. Please press 0 for menu."
+       text: "<span> Sorry, I do not understand what you’re asking. Press 0 to go to first menu or type your query directly, so I can help you better </span>"
        intent: "out_of_scope"
 
   utter_worksheet:
@@ -207,6 +215,34 @@ responses:
      - type: "response"
        text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "vidyadaan_link"
+
+  utter_IGOT:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to take IGOT Training-Please visit and select your Role to view relevant training: <a target='_blank' href='https://igot.gov.in/igot/explore-course'> DIKSHA IGOT</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "IGOT"  
+  
+  utter_state_training:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to take a state training. Please visit and select the Topic, Medium, Class and Subject to view relevant training: <a target='_blank' href='https://diksha.gov.in/explore-course'> DIKSHA STATE_TRAINING </a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "IGOT" 
+  
+  utter_training_certificate:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>You will be notified as soon as your certificate is issued to you. After the notification, you can download your certificate from your DIKSHA profile page<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "training_certificate"   
+
+  # utter_board_discovery:
+  # - custom:
+  #    blocks:
+  #    - type: "response"
+  #      text: "<span>Great! I understand that you are looking for content of <Respective board> board. Please visit:DIKSHA {State} (Respctive board link)** </strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+  #      intent: "vidyadaan_link"
 
 session_config:
   session_expiration_time: 60

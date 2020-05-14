@@ -151,6 +151,11 @@ data/mediums.txt
 - do you have study material for me in the curfew?
 - curfew studies
 - curfew
+- How do I study during the lockdown/curfew?
+- How can I study during the lockdown/curfew?
+- Is it possible for me to study during the lockdown/curfew?
+- do you have study material for me in the lockdown/curfew?
+- lockdown/curfew studies
 
 ## intent: online_class
 - Are online classes available on DIKSHA?
@@ -165,6 +170,11 @@ data/mediums.txt
 - Do you have live classes?"
 - online classes
 - live classes
+- Are live/online classes available on DIKSHA?
+- Does DIKSHA have live/online classes?
+- I want to start live/online classes
+- When will DIKSHA have live/online classes?
+- Do you have live/online classes?
 
 ## intent: COVID19_queries
 - What is COVID?
@@ -174,6 +184,9 @@ data/mediums.txt
 - COVID
 - COVID19
 - quarantine
+- What is COVID/COVID19?
+- How do I deal with COVID/COVID19?
+- COVID/COVID19 and quarantine
 
 ## intent: critical_practice
 - I want to practice Weekly Creative and Critical Thinking questions
@@ -188,6 +201,8 @@ data/mediums.txt
 - How to download the DIKSHA app
 - How to install the DIKSHA app
 - I want to install DIKSHA app
+- Install the DIKSHA app
+- I want DIKSHA app
 
 ## intent: scan_qr_code
 - I want to scan the QR code
@@ -202,10 +217,19 @@ data/mediums.txt
 - Don't know how to login
 - Help me to login
 - Help me to register
+- Login problem
+- I want to register on dikhsha app but I can't please help me
+- I want registration in Diksha app 
+- Registration problem
 
 ## intent: reset_password
 - I have forgotten my password
 - I want to reset my password
+- I want my current password
+- Password
+- Not accepting my password
+- Password wrong
+- How to create password
 
 ## intent: vidyadaan_link
 - I want to contribute content as a teacher
@@ -213,3 +237,30 @@ data/mediums.txt
 - I am a teacher and want to contribute content
 - Contribute content
 - Content Contribution
+
+## intent: board_discovery
+- IGOTI want to learn [CBSE](board) content
+- I'm a student from [Maharashtra](board) and want to learn from home
+- Do you have any content from [Karnataka](board) state board
+- Show me class [one](grade) content from [Tamil Nadu](board)
+- Please show [second](grade) standard content
+- I want to do [maths](subject) revision
+- I want to learn [fourth](grade) standard [physics](subject)
+
+## intent: IGOT
+- IGOT
+- I want the training as a Ncc cadet in English(language)
+- COVID 19 training for ncc cadets
+
+## intent: state_training
+- How to start my training 
+- Where I can join training
+
+## intent: training_certificate
+- I Am not able to download my certificate 
+- I want to download my certificate 
+- Certificate 
+- I want to download my training certificate 
+- I want to take my acknowledgement completion certificate 
+- How to get certificate for completed training
+
