@@ -20,7 +20,6 @@ intents:
   - login_issue
   - reset_password
   - vidyadaan_link
-  - board_discovery
   - IGOT
   - state_training
   - training_certificate
@@ -54,7 +53,6 @@ actions:
 - utter_login_issue
 - utter_reset_password
 - utter_vidyadaan_link
-- utter_board_discovery
 - utter_IGOT
 - utter_state_training
 - utter_training_certificate
@@ -237,13 +235,6 @@ responses:
        text: "<span>You will be notified as soon as your certificate is issued to you. After the notification, you can download your certificate from your DIKSHA profile page<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "training_certificate"   
 
-  # utter_board_discovery:
-  # - custom:
-  #    blocks:
-  #    - type: "response"
-  #      text: "<span>Great! I understand that you are looking for content of <Respective board> board. Please visit:DIKSHA {State} (Respctive board link)** </strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-  #      intent: "vidyadaan_link"
-
-session_config:
+  session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

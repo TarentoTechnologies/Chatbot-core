@@ -238,15 +238,6 @@ data/mediums.txt
 - Contribute content
 - Content Contribution
 
-## intent: board_discovery
-- IGOTI want to learn [CBSE](board) content
-- I'm a student from [Maharashtra](board) and want to learn from home
-- Do you have any content from [Karnataka](board) state board
-- Show me class [one](grade) content from [Tamil Nadu](board)
-- Please show [second](grade) standard content
-- I want to do [maths](subject) revision
-- I want to learn [fourth](grade) standard [physics](subject)
-
 ## intent: IGOT
 - IGOT
 - I want the training as a Ncc cadet in English(language)
