@@ -77,3 +77,9 @@
 # contribute content
 * vidyadaan_link
   - utter_vidyadaan_link
+
+# discover content
+* discover_content
+  - content_form
+  - form{"name": "content_form"}
+  - form{"name":null}

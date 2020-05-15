@@ -20,18 +20,34 @@ intents:
   - login_issue
   - reset_password
   - vidyadaan_link
+  - discover_content
+  - medium
+  - grade
+  - board
 
 entities:
   - board
   - grade
   - medium
-  - subject
+
+slots:
+  board:
+    type: unfeaturized
+  grade:
+    type: unfeaturized
+  medium:
+    type: unfeaturized
+  feedback:
+    type: categorical
+    values:
+      - Yes
+      - No
 
 actions:
+- content_form
 - utter_greet
 - utter_bye
 - utter_iamabot
-- fallback_action
 - utter_out_of_scope
 - utter_well_being
 - utter_low_confidence
@@ -50,6 +66,10 @@ actions:
 - utter_login_issue
 - utter_reset_password
 - utter_vidyadaan_link
+- utter_content_suggestion
+- utter_ask_board
+- utter_ask_medium
+- utter_ask_grade
 
 responses:
   utter_greet:
@@ -84,7 +104,7 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>Bye, Happy learning! <br><br><hr><strong>**</strong>Press 0 to go to first menu or type your query directly</span>"
+       text: "<span>Great, That was nice talking you, Bye. Happy learning! <br><br><hr><strong>**</strong>Press 0 to go to first menu or type your query directly</span>"
        intent: "bye"
 
   utter_low_confidence:
@@ -207,6 +227,24 @@ responses:
      - type: "response"
        text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "vidyadaan_link"
+
+  utter_ask_board:
+  - text: "Which board you belongs to?"
+
+  utter_ask_medium:
+  - text: "In which medium you are studying"
+
+  utter_ask_grade:
+  - text: "Please tell me your class"
+
+  utter_submit:
+  - text: "Thank you for your inputs"
+
+  utter_content_suggestion:
+  - text: "Board : {board}, Grade : {grade}, Medium: {medium} Please visit: <a href='https://diksha.gov.in/{board}/'>DIKSHA {board}</a>"
+
+  utter_ask_feedback: 
+  - text: "Is this information usefull ?"
 
 session_config:
   session_expiration_time: 60
