@@ -122,7 +122,7 @@ class ActionContentForm(FormAction):
            "apex": "State (Andhra Pradesh)",
            "meghalaya": "State (Meghalaya)",
            "mg": "State (Meghalaya)",
-           "jharkhand": "State (Jharkhand)"
+           "jharkhand": "State (Jharkhand)",
            "jh": "State (Jharkhand)"
            "sikkim": "State (Sikkim)",
            "sk": "State (Sikkim)",
@@ -130,7 +130,7 @@ class ActionContentForm(FormAction):
            "ch": "State (Chandigarh)",
            "igot-health": "iGOT-Health",
            "igot": "iGOT-Health",
-           "igot health": "iGOT-Health",
+           "igot health": "iGOT-Health"
         }
         return boards_values[board]
 
