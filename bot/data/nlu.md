@@ -265,6 +265,7 @@ data/mediums.txt
 data/boards.txt
 
 ## intent: discover_content
+- I want to discover contents for [cbse](board) board
 - I want to discover contents for [CBSE](board) board
 - I want to discover contents for [Tamilnadu](board) board
 - I want to discover contents for [Karnataka](board) board

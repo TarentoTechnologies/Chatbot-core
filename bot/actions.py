@@ -10,7 +10,8 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 import spacy
-
+#
+#
 nlp      = spacy.load('en_core_web_sm')
 
 
@@ -29,6 +30,7 @@ class ActionSubjectCourses(Action):
          #dispatcher.utter_custom_message(*elements)
          #dispatcher.utter_custom_json(elements)
          return []
+
 
 class FallbackAction(Action):
    def name(self):
@@ -69,7 +71,7 @@ class ActionContentForm(FormAction):
         medium = tracker.get_slot('medium')
 
         board_url  = "?board=" + self.get_board_mapped(board.lower())
-        medium_url = "&medium=" + self.get_medium_mapped(medium)
+        medium_url = "&medium=" + self.get_medium_mapped(medium.lower())
         grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade) 
         url = base_url + board_url + medium_url + grade_url
         dispatcher.utter_message(text="Please visit <a href='" + url + "'> DIKSHA " + board + " Board</a>")
@@ -144,7 +146,10 @@ class ActionContentForm(FormAction):
      def get_grade_mapped(self, grade):
         grade_values =  {
            "first":"Class 1",
-           "1st"
-           "second":"Class 2"
+           "1st":"Class 1",
+           "1":"Class 1",
+           "second":"Class 2",
+           "2nd":"Class 2",
+           "2":"Class 2"
         }
         return grade_values[grade]

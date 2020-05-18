@@ -21,4 +21,8 @@ policies:
     max_history: 5
     epochs: 100
   - name: MappingPolicy
+  - name: FallbackPolicy
+    nlu_threshold: 0.7
+    core_threshold: 0.5
+    fallback_action_name: "fallback_action"
   - name: FormPolicy

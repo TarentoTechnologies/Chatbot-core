@@ -47,6 +47,7 @@ actions:
 - content_form
 - utter_greet
 - utter_bye
+- fallback_action
 - utter_iamabot
 - utter_out_of_scope
 - utter_well_being
