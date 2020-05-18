@@ -48,18 +48,68 @@ class ActionContentForm(FormAction):
         medium = tracker.get_slot('medium')
 
         board_url  = "?board=" + self.get_board_mapped(board.lower())
-        medium_url = "&medium=" + self.get_medium_mapped(medium.lower())
-        grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade.lower()) 
+        medium_url = "&medium=" + self.get_medium_mapped(medium)
+        grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade) 
         url = base_url + board_url + medium_url + grade_url
-        #dispatcher.utter_message(text= 'Hey Thanks')
         dispatcher.utter_message(text="Please visit <a href='" + url + "'> DIKSHA " + board + " Board</a>")
         return []
 
      def get_board_mapped(self, board):
         boards_values =  {
-           "cbse":"CBSE",
-           "tamilnadu":"State (Tamil Nadu)",
-           "karnataka":"State (Karnataka)"
+           "cbse": "CBSE",
+           "tamil nadu": "State (Tamil Nadu)",
+           "tamilnadu": "State (Tamil Nadu)",
+           "tn": "State (Tamil Nadu)",
+           "karnataka": "State (Karnataka)",
+           "ka": "State (Karnataka)",
+           "gujarat": "State (Gujarat)"
+           "gj": "State (Gujarat)"
+           "uttar pradesh": "State (Uttar Pradesh)",
+           "uttarpradesh": "State (Uttar Pradesh)",
+           "up": "State (Uttar Pradesh)",
+           "punjab": "State (Punjab)",
+           "pb": "State (Punjab)"
+           "rajasthan": "State (Rajasthan)"
+           "rj": "State (Rajasthan)",
+           "manipur": "State (Manipur)",
+           "mn": "State (Manipur)",
+           "chhattisgarh": "State (Chhattisgarh)",
+           "cg": "State (Chhattisgarh)",
+           "maharashtra": "State (Maharashtra)",
+           "mh": "State (Maharashtra)",
+           "mitra": "State (Maharashtra)",
+           "bihar": "State (Bihar)",
+           "br": "State (Bihar)",
+           "odisha": "State (Odisha)",
+           "od": "State (Odisha)",
+           "assam": "State (Assam)",
+           "as": "State (Assam)",
+           "madhya pradesh" : "State (Madhya Pradesh)",
+           "madhyapradesh" : "State (Madhya Pradesh)",
+           "mp" : "State (Madhya Pradesh)",
+           "haryana": "State (Haryana)",
+           "hr": "State (Haryana)",
+           "nagaland": "State (Nagaland)",
+           "ng": "State (Nagaland)",
+           "goa": "State (Goa)",
+           "ga": "State (Goa)",
+           "telangana": "State (Telagana),
+           "ts": "State (Telagana),
+           "andhra pradesh": "State (Andhra Pradesh)",
+           "andhrapradesh": "State (Andhra Pradesh)",
+           "ap": "State (Andhra Pradesh)",
+           "apex": "State (Andhra Pradesh)",
+           "meghalaya": "State (Meghalaya)",
+           "mg": "State (Meghalaya)",
+           "jharkhand": "State (Jharkhand)"
+           "jh": "State (Jharkhand)"
+           "sikkim": "State (Sikkim)",
+           "sk": "State (Sikkim)",
+           "chandigarh": "State (Chandigarh)",
+           "ch": "State (Chandigarh)",
+           "igot-health": "iGOT-Health",
+           "igot": "iGOT-Health",
+           "igot health": "iGOT-Health",
         }
         return boards_values[board]
 
@@ -73,6 +123,7 @@ class ActionContentForm(FormAction):
      def get_grade_mapped(self, grade):
         grade_values =  {
            "first":"Class 1",
+           "1st"
            "second":"Class 2"
         }
         return grade_values[grade]
