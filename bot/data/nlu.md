@@ -288,3 +288,11 @@ data/boards.txt
 - Do you have learning material for [Punjab](board)
 - Do you have learning material for [Maharashtra](board)
 - I want to study in lockdown , How can i study online
+
+## intent: confirm
+- yes I am [satisfied](feedback_response)
+- [satisfied](feedback_response)
+
+## intent: deny
+- no I am [unsatisfied](feedback_response)
+- [unsatisfied](feedback_response)

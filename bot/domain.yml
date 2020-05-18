@@ -24,6 +24,9 @@ intents:
   - medium
   - grade
   - board
+  - confirm
+  - deny
+  - feedback
 
 entities:
   - board
@@ -37,11 +40,12 @@ slots:
     type: unfeaturized
   medium:
     type: unfeaturized
-  feedback:
+  feedback_response:
     type: categorical
-    values:
-      - Yes
-      - No
+    values: 
+    - satisfied
+    - unsatisfied
+
 
 actions:
 - content_form
@@ -67,10 +71,13 @@ actions:
 - utter_login_issue
 - utter_reset_password
 - utter_vidyadaan_link
-- utter_content_suggestion
 - utter_ask_board
 - utter_ask_medium
 - utter_ask_grade
+- utter_get_feedback
+- utter_thank_you
+- utter_get_started
+- utter_modified_suggestion
 
 responses:
   utter_greet:
@@ -230,22 +237,49 @@ responses:
        intent: "vidyadaan_link"
 
   utter_ask_board:
-  - text: "Which board you belongs to?"
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>Which board you belongs to?</span>"
+       intent: "ask_board"
 
   utter_ask_medium:
-  - text: "In which medium you are studying"
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>In which medium you are studying</span>"
+       intent: "ask_medium"
 
   utter_ask_grade:
-  - text: "Please tell me your class"
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>Please tell me your class</span>"
+       intent: "ask_grade"
 
   utter_submit:
   - text: "Thank you for your inputs"
 
-  utter_content_suggestion:
-  - text: "Board : {board}, Grade : {grade}, Medium: {medium} Please visit: <a href='https://diksha.gov.in/{board}/'>DIKSHA {board}</a>"
+  utter_get_feedback:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "are you satisfied with the response. type satisfied or unsatisfied"
+       intent: "deny" 
 
-  utter_ask_feedback: 
-  - text: "Is this information usefull ?"
+  utter_thank_you:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "thank you. Happy learning."
+       intent: "confirm" 
+
+  utter_modified_suggestion:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "sorry for inconvenience. could you please reenter your query"
+       intent: "feedback"
 
 session_config:
   session_expiration_time: 60
