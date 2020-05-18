@@ -213,3 +213,11 @@ data/mediums.txt
 - I am a teacher and want to contribute content
 - Contribute content
 - Content Contribution
+
+## intent: confirm
+- yes I am [satisfied](feedback_response)
+- [satisfied](feedback_response)
+
+## intent: deny
+- no feedback_response I am not [unsatisfied](feedback_response)
+- [unsatisfied](feedback_response)

@@ -50,9 +50,21 @@
 * lockdown_study
   - utter_lockdown_study
 
-# covid or corona or covid 19 
+# covid or corona or covid 19 satisfied path
 * COVID19_queries
   - utter_COVID19_queries
+  - utter_get_feedback
+* confirm{"feedback_response" : "satisfied"}
+  - slot{"feedback_response" : "satisfied"}
+  - utter_thank_you
+
+# covid or corona or covid 19 unsatisfied path
+* COVID19_queries
+  - utter_COVID19_queries
+  - utter_get_feedback
+* confirm{"feedback_response" : "unsatisfied"}
+  - slot{"feedback_response" : "unsatisfied"}
+  - utter_modified_suggestion
 
 # creative and critical thinking
 * critical_practice

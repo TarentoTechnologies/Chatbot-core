@@ -20,12 +20,24 @@ intents:
   - login_issue
   - reset_password
   - vidyadaan_link
+  - confirm
+  - deny
+  - feedback
 
 entities:
   - board
   - grade
   - medium
   - subject
+  - feedback_response
+
+slots:
+  feedback_response:
+    type: categorical
+    values: 
+    - satisfied
+    - unsatisfied
+
 
 actions:
 - utter_greet
@@ -50,6 +62,10 @@ actions:
 - utter_login_issue
 - utter_reset_password
 - utter_vidyadaan_link
+- utter_get_feedback
+- utter_thank_you
+- utter_get_started
+- utter_modified_suggestion
 
 responses:
   utter_greet:
@@ -207,6 +223,27 @@ responses:
      - type: "response"
        text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "vidyadaan_link"
+
+  utter_get_feedback:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "are you satisfied with the response. type satisfied or unsatisfied"
+       intent: "deny" 
+
+  utter_thank_you:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "thank you. Happy learning."
+       intent: "confirm" 
+
+  utter_modified_suggestion:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "sorry for inconvinience. could you please reenter your query"
+       intent: "feedback"
 
 session_config:
   session_expiration_time: 60
