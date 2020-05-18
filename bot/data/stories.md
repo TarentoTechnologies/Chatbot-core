@@ -94,18 +94,4 @@
 * discover_content
   - content_form
   - form{"name": "content_form"}
-  - form{"name":null}
-# * confirm{"feedback_response" : "satisfied"}
-#  - slot{"feedback_response" : "satisfied"}
-#  - utter_thank_you
-
-# dicover content sad path 
-* discover_content
-  - content_form
-  - form{"name": "content_form"}
-  - form{"name":null}
-
-# * confirm{"feedback_response" : "unsatisfied"}
-#  - slot{"feedback_response" : "unsatisfied"}
-#  - utter_modified_suggestion
-
+  - form{"name": null}

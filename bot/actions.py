@@ -10,6 +10,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 import spacy
+import json
 #
 #
 nlp      = spacy.load('en_core_web_sm')
@@ -85,13 +86,12 @@ class ActionContentForm(FormAction):
         grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade) 
         url = base_url + board_url + medium_url + grade_url
         dispatcher.utter_message(text="Please visit <a href='" + url + "'> DIKSHA " + board + " Board</a>")
-        #dispatcher.utter_message(template="utter_get_feedback");
         return []
 
      def get_board_mapped(self, board):
-        import json
-         with open('boards.json') as boards_values:
-         data = json.load(boards_values)
+        data = ''
+        with open('boards.json') as boards_values:
+           data = json.load(boards_values)
         return data[board]
 
      def get_medium_mapped(self,medium):
