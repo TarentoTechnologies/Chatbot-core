@@ -123,7 +123,7 @@ class ActionContentForm(FormAction):
            "meghalaya": "State (Meghalaya)",
            "mg": "State (Meghalaya)",
            "jharkhand": "State (Jharkhand)",
-           "jh": "State (Jharkhand)"
+           "jh": "State (Jharkhand)",
            "sikkim": "State (Sikkim)",
            "sk": "State (Sikkim)",
            "chandigarh": "State (Chandigarh)",
