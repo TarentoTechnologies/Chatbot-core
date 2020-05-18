@@ -89,8 +89,8 @@ class ActionContentForm(FormAction):
            "uttarpradesh": "State (Uttar Pradesh)",
            "up": "State (Uttar Pradesh)",
            "punjab": "State (Punjab)",
-           "pb": "State (Punjab)"
-           "rajasthan": "State (Rajasthan)"
+           "pb": "State (Punjab)",
+           "rajasthan": "State (Rajasthan)",
            "rj": "State (Rajasthan)",
            "manipur": "State (Manipur)",
            "mn": "State (Manipur)",
