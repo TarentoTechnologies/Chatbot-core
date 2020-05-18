@@ -32,6 +32,7 @@ entities:
   - board
   - grade
   - medium
+  - feedback_response
 
 slots:
   board:
@@ -76,7 +77,6 @@ actions:
 - utter_ask_grade
 - utter_get_feedback
 - utter_thank_you
-- utter_get_started
 - utter_modified_suggestion
 
 responses:
