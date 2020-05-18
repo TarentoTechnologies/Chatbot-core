@@ -242,7 +242,7 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "sorry for inconvinience. could you please reenter your query"
+       text: "sorry for inconvenience. could you please reenter your query"
        intent: "feedback"
 
 session_config:

@@ -219,5 +219,5 @@ data/mediums.txt
 - [satisfied](feedback_response)
 
 ## intent: deny
-- no feedback_response I am not [unsatisfied](feedback_response)
+- no I am [unsatisfied](feedback_response)
 - [unsatisfied](feedback_response)
