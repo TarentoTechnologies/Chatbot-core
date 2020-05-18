@@ -72,17 +72,17 @@ message.KA_BOARD = `<span>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
 message.GJ_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/gj/explore'>DIKSHA GUJARAT</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/gj/explore'>DIKSHA GUJRAT</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
 message.UP_BOARD =`<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/up/explore'>DIKSHA UTTARPRADESH</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/up/explore'>DIKSHA UTTAR_PRADESH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>` 
 message.PB_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/pb/explore'>DIKSHA PUNJAB</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/pb/explore'>DIKSHA PANJAB</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
@@ -117,12 +117,12 @@ message.OD_BOARD = `<span>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
 message.AS_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/as/explore'>DIKSHA ASSAM</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/as/explore'>DIKSHA AASAM</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
 message.MP_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/mp/explore'>DIKSHA MADHYAPRADESH</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/mp/explore'>DIKSHA MADHYA_PRADESH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
@@ -147,7 +147,7 @@ message.TS_BOARD = `<span>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
 message.APEKX_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/apekx/explore'>DIKSHA ANDHRAPRADESH</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/apekx/explore'>DIKSHA ANDHRA_PRADESH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
