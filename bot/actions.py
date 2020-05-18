@@ -30,6 +30,27 @@ class ActionSubjectCourses(Action):
          #dispatcher.utter_custom_json(elements)
          return []
 
+class FallbackAction(Action):
+   def name(self):
+      return "fallback_action"
+
+   def run(self, dispatcher, tracker, domain):
+      intent_ranking = tracker.latest_message.get('intent_ranking', [])
+      doc = nlp(tracker.latest_message.get('text'))
+      nouns = []
+      adjs  = []
+      for token in doc:
+          if token.pos_ == 'NOUN':
+               nouns.append(token.text)
+          if token.pos_ == 'ADJ':
+               adjs.append(token.text)
+      if len(intent_ranking) > 0 :
+            elements = [{"type":"low_confidence","entities":nouns, "adj":adjs, "intent" : "low_confidence"}]
+            dispatcher.utter_message(json_message=elements)
+      else :
+         elements = [{"type":"low_confidence","entities":nouns, "adj":adjs, "intent" : "low_confidence"}]
+         dispatcher.utter_message(json_message=elements)
+
 class ActionContentForm(FormAction):
      def name(self) -> Text:
         return "content_form"
@@ -62,8 +83,8 @@ class ActionContentForm(FormAction):
            "tn": "State (Tamil Nadu)",
            "karnataka": "State (Karnataka)",
            "ka": "State (Karnataka)",
-           "gujarat": "State (Gujarat)"
-           "gj": "State (Gujarat)"
+           "gujarat": "State (Gujarat)",
+           "gj": "State (Gujarat)",
            "uttar pradesh": "State (Uttar Pradesh)",
            "uttarpradesh": "State (Uttar Pradesh)",
            "up": "State (Uttar Pradesh)",
@@ -93,8 +114,8 @@ class ActionContentForm(FormAction):
            "ng": "State (Nagaland)",
            "goa": "State (Goa)",
            "ga": "State (Goa)",
-           "telangana": "State (Telagana),
-           "ts": "State (Telagana),
+           "telangana": "State (Telagana)",
+           "ts": "State (Telagana)",
            "andhra pradesh": "State (Andhra Pradesh)",
            "andhrapradesh": "State (Andhra Pradesh)",
            "ap": "State (Andhra Pradesh)",
