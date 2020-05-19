@@ -290,9 +290,9 @@ data/boards.txt
 - I want to study in lockdown , How can i study online
 
 ## intent: confirm
-- yes I am [satisfied](feedback_response)
-- [satisfied](feedback_response)
+- [Yes](feedback_response) I am satisfied with the answer
+- [Yes](feedback_response)
 
 ## intent: deny
-- no I am [unsatisfied](feedback_response)
-- [unsatisfied](feedback_response)
+- [No](feedback_response) I am not unsatisfied with the answer
+- [No](feedback_response)

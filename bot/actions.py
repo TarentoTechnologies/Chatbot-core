@@ -15,17 +15,6 @@ import json
 #
 nlp      = spacy.load('en_core_web_sm')
 
-class ActionFeedbackResponse(Action):
-     def name(self) -> Text:
-         return "action_feedback_response"
-     def run(self, dispatcher: CollectingDispatcher,
-             tracker: Tracker,
-             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-         respone = tracker.get_slot('feedback_response')
-         print("feedback_response--",tracker.get_slot('feedback_response'))
-         dispatcher.utter_message("you are {} with response".format(respone))
-         return[]
-
 class ActionSubjectCourses(Action):
      def name(self) -> Text:
          return "action_subject_courses"
@@ -86,7 +75,7 @@ class ActionContentForm(FormAction):
         grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade) 
         url = base_url + board_url + medium_url + grade_url
         dispatcher.utter_message(text="Please visit <a href='" + url + "'> DIKSHA " + board + " Board</a>")
-        return []
+        return [SlotSet('board', None),SlotSet('grade', None), SlotSet('medium', None)]
 
      def get_board_mapped(self, board):
         data = ''

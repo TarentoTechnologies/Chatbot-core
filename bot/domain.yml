@@ -26,7 +26,6 @@ intents:
   - board
   - confirm
   - deny
-  - feedback
 
 entities:
   - board
@@ -44,8 +43,8 @@ slots:
   feedback_response:
     type: categorical
     values: 
-    - satisfied
-    - unsatisfied
+    - Yes
+    - No
 
 
 actions:
@@ -77,7 +76,7 @@ actions:
 - utter_ask_grade
 - utter_get_feedback
 - utter_thank_you
-- utter_modified_suggestion
+- utter_modify_query
 
 responses:
   utter_greet:
@@ -257,29 +256,23 @@ responses:
        text: "<span>Please tell me your class</span>"
        intent: "ask_grade"
 
-  utter_submit:
-  - text: "Thank you for your inputs"
-
   utter_get_feedback:
   - custom:
      blocks:
      - type: "response"
-       text: "are you satisfied with the response. type satisfied or unsatisfied"
-       intent: "deny" 
+       text: "Is this what you looking for ? Please type Yes/No"
 
   utter_thank_you:
   - custom:
      blocks:
      - type: "response"
-       text: "thank you. Happy learning."
-       intent: "confirm" 
+       text: "<span>Great, That was nice talking you, Explore more options by typing 0</span>"
 
-  utter_modified_suggestion:
+  utter_modify_query:
   - custom:
      blocks:
      - type: "response"
-       text: "sorry for inconvenience. could you please reenter your query"
-       intent: "feedback"
+       text: "Hey, Sorry for inconvenience. could you please re-enter your query?"
 
 session_config:
   session_expiration_time: 60
