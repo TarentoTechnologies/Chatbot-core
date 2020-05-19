@@ -17,7 +17,7 @@ function removeRedisKeyValue(client, key) {
             LOG.err(err)
         }
     })
-} 
+}
 
 function getRedisKeyValue(client, key) {
     client.get(key, (err, data) => {
