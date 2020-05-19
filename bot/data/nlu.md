@@ -151,11 +151,6 @@ data/mediums.txt
 - do you have study material for me in the curfew?
 - curfew studies
 - curfew
-- How do I study during the lockdown/curfew?
-- How can I study during the lockdown/curfew?
-- Is it possible for me to study during the lockdown/curfew?
-- do you have study material for me in the lockdown/curfew?
-- lockdown/curfew studies
 
 ## intent: online_class
 - Are online classes available on DIKSHA?
@@ -170,11 +165,6 @@ data/mediums.txt
 - Do you have live classes?"
 - online classes
 - live classes
-- Are live/online classes available on DIKSHA?
-- Does DIKSHA have live/online classes?
-- I want to start live/online classes
-- When will DIKSHA have live/online classes?
-- Do you have live/online classes?
 
 ## intent: COVID19_queries
 - What is COVID?
@@ -184,9 +174,8 @@ data/mediums.txt
 - COVID
 - COVID19
 - quarantine
-- What is COVID/COVID19?
-- How do I deal with COVID/COVID19?
-- COVID/COVID19 and quarantine
+- COVID and quarantine
+- COVID19 and quarantine
 
 ## intent: critical_practice
 - I want to practice Weekly Creative and Critical Thinking questions
@@ -254,4 +243,5 @@ data/mediums.txt
 - I want to download my training certificate 
 - I want to take my acknowledgement completion certificate 
 - How to get certificate for completed training
+- Download certificate
 
