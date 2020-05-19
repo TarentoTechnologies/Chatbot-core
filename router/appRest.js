@@ -99,10 +99,11 @@ function handler(req, res, channel, requestData) {
 								telemetryData.id = 'UNKNOWN_OPTION';
 								logData.botResponse =  responseKey;
 								response = literals.message[responseKey];
+								console.log('LOG : ' + JSON.stringify(logData))
 							}
 							
 							telemetryHelper.logInteraction(telemetryData)
-							LOG.info('LOG : ' + JSON.stringify(logData))
+							// LOG.info('LOG : ' + JSON.stringify(logData))
 							sendResponse(deviceID, res, response)
 						}
 					})
@@ -148,13 +149,14 @@ function handler(req, res, channel, requestData) {
 						telemetryData.id = currentFlowStep + '_UNKNOWN_OPTION';
 						telemetryData.subtype = 'intent_not_detected';
 						telemetryData.type = 'UNKNOWN_OPTION'
+						console.log('LOG : ' + JSON.stringify(logData))
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(deviceID, userData);
 					telemetryHelper.logInteraction(telemetryData)
 					logData.userInput = possibleFlow;
 					logData.botResponse = responseKey;
-					LOG.info('LOG : ' + JSON.stringify(logData))
+					// LOG.info('LOG : ' + JSON.stringify(logData))
 					sendChannelResponse(deviceID, res, responseKey, channel);
 				}
 			} else {
@@ -181,7 +183,7 @@ function handler(req, res, channel, requestData) {
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				logData.userInput = 'step1';
 				logData.botResponse= 'START';
-				LOG.info('LOG : '+ JSON.stringify(logData));
+				// LOG.info('LOG : '+ JSON.stringify(logData));
 				sendChannelResponse(deviceID, res, 'START', channel);
 			}
 		});
