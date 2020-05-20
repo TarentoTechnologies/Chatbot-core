@@ -99,10 +99,11 @@ function handler(req, res, channel, requestData) {
 								telemetryData.id = 'UNKNOWN_OPTION';
 								logData.botResponse =  responseKey;
 								response = literals.message[responseKey];
+								console.log('LOG : ' + logData.date +" , "+logData.userId+" , " + logData.deviceId+" , " + logData.botResponse)
 							}
 							
 							telemetryHelper.logInteraction(telemetryData)
-							LOG.info('LOG : ' + JSON.stringify(logData))
+							// LOG.info('LOG : ' + JSON.stringify(logData))
 							sendResponse(deviceID, res, response)
 						}
 					})
@@ -154,7 +155,7 @@ function handler(req, res, channel, requestData) {
 					telemetryHelper.logInteraction(telemetryData)
 					logData.userInput = possibleFlow;
 					logData.botResponse = responseKey;
-					LOG.info('LOG : ' + JSON.stringify(logData))
+					// LOG.info('LOG : ' + JSON.stringify(logData))
 					sendChannelResponse(deviceID, res, responseKey, channel);
 				}
 			} else {
@@ -181,7 +182,7 @@ function handler(req, res, channel, requestData) {
 				telemetryHelper.logInteraction(telemetryDataForInteraction)
 				logData.userInput = 'step1';
 				logData.botResponse= 'START';
-				LOG.info('LOG : '+ JSON.stringify(logData));
+				// LOG.info('LOG : '+ JSON.stringify(logData));
 				sendChannelResponse(deviceID, res, 'START', channel);
 			}
 		});
