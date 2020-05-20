@@ -220,7 +220,7 @@ var chatflow = {
         responseVariable: ""
     },
     step1_4: {
-        messageKey: "VIDYADAAN",
+        messageKey: "CONTRIBUTE_CONTENT",
         responseVariable: ""
     },
     step1_5: {

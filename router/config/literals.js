@@ -47,29 +47,29 @@ message.CHOOSE_STATE_BOARD = `
     Which state board do you belong to? <br>
     Type the number next to the State:<br>
     <ol>
-        <li> Tamilnadu</li>
-        <li> Karnataka</li>
-        <li> Gujarat</li>
-        <li> UttarPradesh</li>
-        <li> Punjab</li>
-        <li> Rajasthan</li>
-        <li> Manipur</li>
-        <li> Chhattisgarh</li>
-        <li> Maharashtra</li>
-        <li> Bihar</li>
-        <li> Odisha</li>
-        <li> Assam</li>
-        <li> Madhya Pradesh</li>
-        <li> Haryana</li>
-        <li> Nagaland</li>
-        <li> Goa</li>
-        <li> Telangana</li>
-        <li> Andhra Pradesh</li>
-        <li> Meghalaya</li>
-        <li> NCERT</li>
-        <li> Jharkhand</li>
-        <li> Sikkim</li>
-        <li> Chandigarh</li>
+        <li>Tamilnadu</li>
+        <li>Karnataka</li>
+        <li>Gujarat</li>
+        <li>UttarPradesh</li>
+        <li>Punjab</li>
+        <li>Rajasthan</li>
+        <li>Manipur</li>
+        <li>Chhattisgarh</li>
+        <li>Maharashtra</li>
+        <li>Bihar</li>
+        <li>Odisha</li>
+        <li>Assam</li>
+        <li>Madhya Pradesh</li>
+        <li>Haryana</li>
+        <li>Nagaland</li>
+        <li>Goa</li>
+        <li>Telangana</li>
+        <li>Andhra Pradesh</li>
+        <li>Meghalaya</li>
+        <li>NCERT</li>
+        <li>Jharkhand</li>
+        <li>Sikkim</li>
+        <li>Chandigarh</li>
     </ol>
     <hr>
     <strong>** </strong>Press 99 to go back to select CBSE board or press 0 to go to first menu
@@ -223,12 +223,6 @@ message.ACCESS_DIKSHA = `<span>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
 
-message.CONTRIBUTE_CONTENT = `<span>
-    Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>CONTRIBUTE CONTENT</a><br>
-    Use a desktop or laptop to start contributing content to be used by the nation<br>
-    <br><hr><strong>** </strong>Press 0 to go to first menu or type your query directly.
-</span>`
-
 message.CONSTITUTION_QUIZ = `<span>
     NCERT is live with a national quiz on the Indian Constitution.
     Choose your quiz language<br>
@@ -357,7 +351,7 @@ message.CHOOSE_IGOT_TRAINING_OPTION = `<span>
 message.IGOT_TRAINING = `<span>
     Please visit:
     <a target='_blank' href='https://igot.gov.in/igot/explore-course'>
-       IGOT TRAININGs
+        IGOT TRAININGs
     </a><br>
     Select the role to view relevant training on the website
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
@@ -380,22 +374,19 @@ message.PLAYSTORE = `<span>
     <br><hr><strong>** </strong>Press 0 to go to first menu or type your query directly
 </span>`
 
-message.VIDYADAAN = `<span>
-    Please visit:
-    <a target='_blank' href='https://vdn.diksha.gov.in/'>
-       VIDYADAAN
-    </a><br>
-    Use a desktop or laptop to start contributing content to be used by the nation
+message.CONTRIBUTE_CONTENT = `<span>
+    Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>VIDYADAAN</a><br>
+    Use a desktop or laptop to start contributing content to be used by the nation<br>
     <br><hr><strong>** </strong>Press 0 to go to first menu or type your query directly.
 </span>`
 
 message.OTHER_OPTIONS = `<span> 
     Type the number next to your query:
     <ol>
-        <li>I want to scan the QR code</li>
-        <li>I am unable to log in</li>
-        <li>I have forgotten my password or I want to reset my password</li>
-        <li>I have other queries</li>
+        <li>Scan QR code</li>
+        <li>Login issues</li>
+        <li>Reset password</li>
+        <li>Other queries</li>
     </ol>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
@@ -403,7 +394,7 @@ message.OTHER_OPTIONS = `<span>
 message.SCAN_QRCODE = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'>
-        QR CODE
+        Scan QR Code
     </a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
@@ -411,7 +402,7 @@ message.SCAN_QRCODE = `<span>
 message.UNABLE_LOGIN = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>
-        LOGIN ISSUES
+    Login issues
     ​</a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
@@ -419,7 +410,7 @@ message.UNABLE_LOGIN = `<span>
 message.FORGOT_PASSWORD = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/recover-password/index.html'>
-        RESET PASSWORD
+    Reset password
     </a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
@@ -427,7 +418,7 @@ message.FORGOT_PASSWORD = `<span>
 message.OTHERS = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/explore-diksha/index.html'>
-        OTHER ISSUES
+    Other issues
     </a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`

@@ -227,7 +227,7 @@ data/mediums.txt
 - Contribute content
 - Content Contribution
 
-## intent: IGOT
+## intent: igot
 - IGOT
 - I want the training as a Ncc cadet in English(language)
 - COVID 19 training for ncc cadets

@@ -20,7 +20,7 @@ intents:
   - login_issue
   - reset_password
   - vidyadaan_link
-  - IGOT
+  - igot
   - state_training
   - training_certificate
   - confirm
@@ -40,7 +40,6 @@ slots:
     values: 
     - satisfied
     - unsatisfied
-
 
 actions:
 - utter_greet
@@ -129,7 +128,6 @@ responses:
      - type: "response"
        text: "A set or questions or tasks put together to assess the understanding of any particular topic/unit/chapter. Worksheets can be created on DIKSHA using the inbuilt content editor."
        intent: "worksheet"
-
 
   utter_course_mentor:
   - custom:
@@ -235,14 +233,14 @@ responses:
      blocks:
      - type: "response"
        text: "<span>I understand you want to take IGOT Training-Please visit and select your Role to view relevant training: <a target='_blank' href='https://igot.gov.in/igot/explore-course'> DIKSHA IGOT</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "IGOT"  
+       intent: "igot"  
   
   utter_state_training:
   - custom:
      blocks:
      - type: "response"
        text: "<span>I understand you want to take a state training. Please visit and select the Topic, Medium, Class and Subject to view relevant training: <a target='_blank' href='https://diksha.gov.in/explore-course'> DIKSHA STATE_TRAINING </a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
-       intent: "IGOT" 
+       intent: "state_training" 
   
   utter_training_certificate:
   - custom:
