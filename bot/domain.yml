@@ -20,30 +20,39 @@ intents:
   - login_issue
   - reset_password
   - vidyadaan_link
+  - discover_content
+  - medium
+  - grade
+  - board
   - confirm
   - deny
-  - feedback
 
 entities:
   - board
   - grade
   - medium
-  - subject
   - feedback_response
 
 slots:
+  board:
+    type: unfeaturized
+  grade:
+    type: unfeaturized
+  medium:
+    type: unfeaturized
   feedback_response:
     type: categorical
     values: 
-    - satisfied
-    - unsatisfied
+    - Yes
+    - No
 
 
 actions:
+- content_form
 - utter_greet
 - utter_bye
-- utter_iamabot
 - fallback_action
+- utter_iamabot
 - utter_out_of_scope
 - utter_well_being
 - utter_low_confidence
@@ -62,10 +71,12 @@ actions:
 - utter_login_issue
 - utter_reset_password
 - utter_vidyadaan_link
+- utter_ask_board
+- utter_ask_medium
+- utter_ask_grade
 - utter_get_feedback
 - utter_thank_you
-- utter_get_started
-- utter_modified_suggestion
+- utter_modify_query
 
 responses:
   utter_greet:
@@ -100,7 +111,7 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>Bye, Happy learning! <br><br><hr><strong>**</strong>Press 0 to go to first menu or type your query directly</span>"
+       text: "<span>Bye. Happy learning! <br><br><hr><strong>**</strong>Press 0 to go to first menu or type your query directly</span>"
        intent: "bye"
 
   utter_low_confidence:
@@ -224,26 +235,44 @@ responses:
        text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "vidyadaan_link"
 
+  utter_ask_board:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>Which board you belongs to?</span>"
+       intent: "ask_board"
+
+  utter_ask_medium:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>In which medium you are studying</span>"
+       intent: "ask_medium"
+
+  utter_ask_grade:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>Please tell me your class</span>"
+       intent: "ask_grade"
+
   utter_get_feedback:
   - custom:
      blocks:
      - type: "response"
-       text: "are you satisfied with the response. type satisfied or unsatisfied"
-       intent: "deny" 
+       text: "Is this what you looking for ? Please type Yes/No"
 
   utter_thank_you:
   - custom:
      blocks:
      - type: "response"
-       text: "thank you. Happy learning."
-       intent: "confirm" 
+       text: "<span>Great, That was nice talking you, Explore more options by typing 0</span>"
 
-  utter_modified_suggestion:
+  utter_modify_query:
   - custom:
      blocks:
      - type: "response"
-       text: "sorry for inconvenience. could you please reenter your query"
-       intent: "feedback"
+       text: "Hey, Sorry for inconvenience. could you please re-enter your query?"
 
 session_config:
   session_expiration_time: 60

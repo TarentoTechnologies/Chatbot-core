@@ -53,18 +53,6 @@
 # covid or corona or covid 19 satisfied path
 * COVID19_queries
   - utter_COVID19_queries
-  - utter_get_feedback
-* confirm{"feedback_response" : "satisfied"}
-  - slot{"feedback_response" : "satisfied"}
-  - utter_thank_you
-
-# covid or corona or covid 19 unsatisfied path
-* COVID19_queries
-  - utter_COVID19_queries
-  - utter_get_feedback
-* confirm{"feedback_response" : "unsatisfied"}
-  - slot{"feedback_response" : "unsatisfied"}
-  - utter_modified_suggestion
 
 # creative and critical thinking
 * critical_practice
@@ -89,3 +77,16 @@
 # contribute content
 * vidyadaan_link
   - utter_vidyadaan_link
+
+# discover content happy path
+* discover_content
+  - content_form
+  - form{"name": "content_form"}
+  - form{"name": null}
+  - utter_get_feedback
+* confirm{"feedback_response" : "Yes"}
+  - slot{"feedback_response" : "Yes"}
+  - utter_thank_you
+* confirm{"feedback_response" : "No"}
+  - slot{"feedback_response" : "No"}
+  - utter_modify_query
