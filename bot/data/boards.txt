@@ -1,8 +1,119 @@
 CBSE
-ICSE
-Maharashtra
-Karnataka
+cbse
+TAMIL NADU
+TAMILNADU
+Tamilnadu
+Tamil nadu
 Tamil Nadu
-Punjab
+TN
+tn
+KARNATAKA
+Karnataka
+karnataka
+KA
+ka
+GUJARAT
 Gujarat
+gujarat
+GJ
+gj
+UTTAR PRADESH
+UTTARPRADESH
+Uttar Pradesh
+UttarPradesh
+uttarpradesh
+uttar pradesh
+UP
+up
+PUNJAB
+Punjab
+punjab
+pb
+RAJASTHAN
 Rajasthan
+rajasthan
+RJ
+rj
+MANIPUR
+Manipur
+manipur
+mn
+MN
+CHHATTISGARH
+Chhattisgarh
+chhattisgarh
+CG
+cg
+MAHARASHTRA
+Maharashtra
+maharashtra
+mh
+MH
+BIHAR
+Bihar
+BR
+br
+Odisha
+odisha
+od
+OD
+ASSAM
+Assam
+AS
+as
+MADHYAPRADESH
+madhyapradesh
+MADHYA PRADESH
+Madhya Pradesh
+MP
+mp
+HARYANA
+Haryana
+haryana
+hr
+HR
+NAGALAND
+Nagaland
+ng
+NG
+GOA
+Goa
+GA
+ga
+TELANGANA
+Telangana
+TS
+ts
+ANDHRA PRADESH
+ANDHRAPRADESH
+Andhra Pradesh
+andhra pradesh
+AP
+ap
+APEKX
+apekx
+MEGHALAYA
+Meghalaya
+meghalaya
+mg
+MG
+JHARKHAND
+Jharkhand
+jharkhand
+jh
+JH
+SIKKIM
+Sikkim
+sikkim
+sk
+SK
+CHANDIGARH
+Chandigarh
+chandigarh
+CH
+ch
+igot-health
+igot
+iGOT-health
+IGOT
+igot health

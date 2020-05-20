@@ -125,17 +125,8 @@
 - add author to material
 - add name in credit of content
 
-## lookup:board
-data/boards.txt
-
-## lookup:grade
-data/grades.txt
-
 ## lookup:subject
 data/subjects.txt
-
-## lookup:medium
-data/mediums.txt
 
 ## intent: lockdown_study
 - How do I study during the lockdown?
@@ -244,11 +235,94 @@ data/mediums.txt
 - I want to take my acknowledgement completion certificate 
 - How to get certificate for completed training
 - Download certificate
+## lookup:grade
+data/grades.txt
+
+## intent: grade
+- my grade is [1st](grade)
+- my grade is [first](grade)
+- my grade is [one](grade)
+- i study in [1st](grade)
+- i study in [first](grade)
+- i study in [one](grade)
+- I am in [1st](grade) standard
+- I am in [first](grade) standard
+- I am in [one](grade) standard
+- [1st](grade)
+- [first](grade)
+- [one](grade)
+- [1](board)
+- my grade is [2nd](grade)
+- my grade is [second](grade)
+- i study in [2nd](grade)
+- i study in [second](grade)
+- i am in [2nd](grade) standard
+- i am in [second](grade) standard
+- [2nd](grade)
+- [second](grade)
+- [2](board)
+- my grade is [3rd](grade)
+- my grade is [third](grade)
+- i study in [3rd](grade)
+- i study in [third](grade)
+- I am in [3rd](grade) standard
+- i am in [third](grade) standard
+- [3rd](grade)
+- [third](grade)
+- [3](board)
+
+## lookup:medium
+data/mediums.txt
+
+## intent: medium
+- [marathi](medium)
+- [hindi](medium)
+- [english](medium)
+- [tamil](medium)
+- [urdu](medium)
+- I want [marathi](medium) medium books
+- I want [hindi](medium) medium books
+- I want [english](medium) medium books
+- I want [tamil](medium) medium books
+- I want [urdu](medium) medium books
+- It's [marathi](medium)
+- It's [hindi](medium)
+- It's [english](medium)
+- It's [tamil](medium)
+- It's [urdu](medium)
+
+## lookup:board
+data/boards.txt
+
+## intent: discover_content
+- I want to discover contents for [cbse](board) board
+- I want to discover contents for [CBSE](board) board
+- I want to discover contents for [Tamilnadu](board) board
+- I want to discover contents for [Karnataka](board) board
+- I want to discover contents for [Gujarat](board) board
+- I want to discover contents for [UttarPradesh](board) board
+- I want to discover contents for [Punjab](board) board
+- I want to discover contents for [Maharashtra](board) board
+- I want see textbooks of [CBSE](board)
+- I want see textbooks of [Tamilnadu](board) board
+- I want see textbooks of [Karnataka](board) board
+- I want see textbooks of [Gujarat](board) board
+- I want see textbooks of [UttarPradesh](board) board
+- I want see textbooks of [Punjab](board) board
+- I want see textbooks of [Maharashtra](board) board
+- Do you have learning material for [cbse](board) board
+- Do you have learning material for [Tamilnadu](board) board
+- Do you have learning material for [Karnataka](board)
+- Do you have learning material for [Gujrat](board)
+- Do you have learning material for [UttarPradesh](board)
+- Do you have learning material for [Punjab](board)
+- Do you have learning material for [Maharashtra](board)
+- I want to study in lockdown , How can i study online
 
 ## intent: confirm
-- yes I am [satisfied](feedback_response)
-- [satisfied](feedback_response)
+- [Yes](feedback_response) I am satisfied with the answer
+- [Yes](feedback_response)
 
 ## intent: deny
-- no I am [unsatisfied](feedback_response)
-- [unsatisfied](feedback_response)
+- [No](feedback_response) I am not unsatisfied with the answer
+- [No](feedback_response)

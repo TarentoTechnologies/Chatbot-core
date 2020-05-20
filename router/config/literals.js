@@ -237,7 +237,7 @@ message.CONSTITUTION_QUIZ = `<span>
 message.WEEKLY_CRITICAL_THINKING =`<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook'>
-        CRITICAL THINKING QUESTIONS
+        Critical thinking questions
     </a><br><br>
     Select the Subject to view relevant content on the page<br>
     <br><hr><strong>** </strong>Press 0 to go to first menu.
@@ -295,7 +295,7 @@ Type the number next to the State:<br>
 message.TRAINING_CBSE_BOARD = `<span>
     Please visit:
     <a target='_blank' href='https://diksha.gov.in/explore-course?channel=01241974041332940818&appliedFilters=true'>
-       DIKSHA CBSE TRAINING
+        DIKSHA CBSE Training
     </a><br>
     Select the Topic, Medium, Class and Subject to view relevant training on the website.
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
@@ -304,7 +304,7 @@ message.TRAINING_CBSE_BOARD = `<span>
 message.TRAINING_UP_BOARD = `<span>
     Please visit:
     <a target='_blank' href='https://diksha.gov.in/explore-course?channel=01246376237871104093&appliedFilters=true'>
-       DIKSHA UP TRAINING
+       DIKSHA UP Training
     </a><br>
     Select the Topic, Medium, Class and Subject to view relevant training on the website.
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
@@ -313,7 +313,7 @@ message.TRAINING_UP_BOARD = `<span>
 message.TRAINING_MP_BOARD = `<span>
     Please visit:
     <a target='_blank' href='https://diksha.gov.in/explore-course?channel=012936530816278528135&appliedFilters=true'>
-       DIKSHA MP TRAINING
+       DIKSHA MP Training
     </a><br>
     Select the Topic, Medium, Class and Subject to view relevant training on the website.
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
@@ -322,7 +322,7 @@ message.TRAINING_MP_BOARD = `<span>
 message.TRAINING_GJ_BOARD = `<span>
     Please visit:
     <a target='_blank' href='https://diksha.gov.in/explore-course?channel=01260242422044262448&appliedFilters=true'>
-       DIKSHA GJ TRAINING
+       DIKSHA GJ Training
     </a><br>
     Select the Topic, Medium, Class and Subject to view relevant training on the website.
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
@@ -332,7 +332,7 @@ message.TRAINING_OTHERS_BOARD = `<span>
     Your board has not uploaded the relevant trainings yet but you can alway explore other trainings on DIKSHA
     Please visit:
     <a target='_blank' href='https://diksha.gov.in/explore-course'>
-       DIKSHA TRAINING
+       DIKSHA Training
     </a><br>
     Select the Topic, Medium, Class and Subject to view relevant training on the website.
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
@@ -351,7 +351,7 @@ message.CHOOSE_IGOT_TRAINING_OPTION = `<span>
 message.IGOT_TRAINING = `<span>
     Please visit:
     <a target='_blank' href='https://igot.gov.in/igot/explore-course'>
-        IGOT TRAININGs
+        IGOT Trainings
     </a><br>
     Select the role to view relevant training on the website
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
