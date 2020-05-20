@@ -82,6 +82,7 @@ actions:
 - utter_get_feedback
 - utter_thank_you
 - utter_modify_query
+- utter_get_started
 
 responses:
   utter_greet:
