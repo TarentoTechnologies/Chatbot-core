@@ -79,7 +79,7 @@ class ActionContentForm(FormAction):
 
      def get_board_mapped(self, board):
         data = ''
-        with open('boards.json') as boards_values:
+        with open('resources/boards.json') as boards_values:
            data = json.load(boards_values)
         return data[board]
 
