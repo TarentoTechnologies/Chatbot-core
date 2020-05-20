@@ -149,7 +149,6 @@ function handler(req, res, channel, requestData) {
 						telemetryData.id = currentFlowStep + '_UNKNOWN_OPTION';
 						telemetryData.subtype = 'intent_not_detected';
 						telemetryData.type = 'UNKNOWN_OPTION'
-						console.log('LOG : ' + logData.date +" , "+logData.userId+" , " + logData.deviceId+" , " + logData.botResponse)
 					}
 					userData['currentFlowStep'] = currentFlowStep;
 					setRedisKeyValue(deviceID, userData);
