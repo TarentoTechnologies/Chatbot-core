@@ -20,6 +20,9 @@ intents:
   - login_issue
   - reset_password
   - vidyadaan_link
+  - igot
+  - state_training
+  - training_certificate
   - discover_content
   - medium
   - grade
@@ -46,7 +49,6 @@ slots:
     - Yes
     - No
 
-
 actions:
 - content_form
 - utter_greet
@@ -71,6 +73,9 @@ actions:
 - utter_login_issue
 - utter_reset_password
 - utter_vidyadaan_link
+- utter_IGOT
+- utter_state_training
+- utter_training_certificate
 - utter_ask_board
 - utter_ask_medium
 - utter_ask_grade
@@ -125,7 +130,7 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "Sorry, I could not understand you. Please press 0 for menu."
+       text: "<span> Sorry, I do not understand what you’re asking. Press 0 to go to first menu or type your query directly, so I can help you better </span>"
        intent: "out_of_scope"
 
   utter_worksheet:
@@ -134,7 +139,6 @@ responses:
      - type: "response"
        text: "A set or questions or tasks put together to assess the understanding of any particular topic/unit/chapter. Worksheets can be created on DIKSHA using the inbuilt content editor."
        intent: "worksheet"
-
 
   utter_course_mentor:
   - custom:
@@ -197,44 +201,66 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>I understand you want to practice Weekly Creative and Critical Thinking questions. <br>Please visit : <a href='https://diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook'>diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook<a/><br>Select the Subject to view relevant content on the webpage.<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       text: "<span>I understand you want to practice Weekly Creative and Critical Thinking questions. <br>Please visit : <a href='https://diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook'>Critical thinking questions<a/><br>Select the Subject to view relevant content on the webpage.<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "critical_practice"
 
   utter_app_link:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>I understand you want to download DIKSHA app.<br> Please visit (<a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara</a>)<br><strong>Step 1.</strong> Download the DIKSHA mobile app from the link given above.<br><strong>Step 2.</strong> Install the DIKSHA app<br><strong>Step 3.</strong> Follow the instructions provided in the app<br><br>You are good to go!<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       text: "<span>I understand you want to download DIKSHA app.<br> Please visit (<a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>DIKSHA mobile app</a>)<br><strong>Step 1.</strong> Download the DIKSHA mobile app from the link given above.<br><strong>Step 2.</strong> Install the DIKSHA app<br><strong>Step 3.</strong> Follow the instructions provided in the app<br><br>You are good to go!<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "app_link"
 
   utter_scan_qr_code:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>I understand you want to see how to scan the QR code.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'>diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       text: "<span>I understand you want to see how to scan the QR code.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'>Scan QR code</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "scan_qr_code"
 
   utter_login_issue:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>I understand you want to know how to login/Register.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>diksha.gov.in/help/getting-started/sign-in/index.html</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       text: "<span>I understand you want to know how to login/Register.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>Login issues</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "login_issue"
 
   utter_reset_password:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>I understand you want to know how to reset password.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/recover-password/index.html'>diksha.gov.in/help/getting-started/recover-password/index.html</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       text: "<span>I understand you want to know how to reset password.<br>Please visit: <a target='_blank' href='https://diksha.gov.in/help/getting-started/recover-password/index.html'>Reset password</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "reset_password"
 
   utter_vidyadaan_link:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>https://vdn.diksha.gov.in</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       text: "<span>I understand you want to contribute content to DIKSHA <br>Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>VIDYADAAN</a><br><hr><strong>**</strong>Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "vidyadaan_link"
 
+  utter_IGOT:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to take IGOT Training-Please visit and select your Role to view relevant training: <a target='_blank' href='https://igot.gov.in/igot/explore-course'> DIKSHA IGOT</a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "igot"  
+  
+  utter_state_training:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>I understand you want to take a state training. Please visit and select the Topic, Medium, Class and Subject to view relevant training: <a target='_blank' href='https://diksha.gov.in/explore-course'> DIKSHA State training </a><br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "state_training" 
+  
+  utter_training_certificate:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "<span>You will be notified as soon as your certificate is issued to you. After the notification, you can download your certificate from your DIKSHA profile page<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
+       intent: "training_certificate"   
+
+  session_config:
   utter_ask_board:
   - custom:
      blocks:

@@ -5,13 +5,24 @@ message.START = `<span>
     Please select your preference from the options I provide or type your query directly<br>
     Type the number next to the option:
     <ol>
-        <li>I want to discover videos, tests & worksheets related to school textbooks</li>
-        <li>I want to access quizzes & questions on DIKSHA</li>
-        <li>I want to download DIKSHA mobile app</li>
-        <li>I want to contribute content to DIKSHA as a teacher</li>
-        <li>I have other DIKSHA queries</li>
+        <li> Digital content</li>
+        <li> Training</li>
+        <li> DIKSHA mobile app</li>
+        <li> Content contribution</li>
+        <li> Other DIKSHA queries</li>
     </ol>
 </span>`
+
+message.CHOOSE_DIGITAL_CONTENT = `<span> 
+    What content would you like to explore?<br>
+    <ol>
+        <li> Textbook videos & practice questions</li>
+        <li> Critical thinking questions
+        </li>
+    </ol>
+    <hr><strong>** </strong>Press 0 to go to first menu.
+</span>`
+
 message.CHOOSE_BOARD = `<span> 
     Tell me which board you belong to<br>
     Type the number next to the option:
@@ -21,14 +32,16 @@ message.CHOOSE_BOARD = `<span>
     </ol>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
+
 message.CBSE_MESSAGE = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/CBSE/explore'>
-        diksha.gov.in/CBSE/explore
+        DIKSHA CBSE
     </a><br>
     Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.CHOOSE_STATE_BOARD = `
 <span>
     Which state board do you belong to? <br>
@@ -61,121 +74,145 @@ message.CHOOSE_STATE_BOARD = `
     <hr>
     <strong>** </strong>Press 99 to go back to select CBSE board or press 0 to go to first menu
 </span>`
+
 message.TN_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/tn/explore'>diksha.gov.in/tn/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/tn/explore'>DIKSHA TAMILNADU</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.KA_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ka/explore'>diksha.gov.in/ka/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/ka/explore'>DIKSHA KARNATAKA</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.GJ_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/gj/explore'>diksha.gov.in/gj/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/gj/explore'>DIKSHA GUJARAT</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.UP_BOARD =`<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/up/explore'>diksha.gov.in/up/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/up/explore'>DIKSHA UTTARPRADESH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>` 
+
 message.PB_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/pb/explore'>diksha.gov.in/pb/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/pb/explore'>DIKSHA PUNJAB</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.RJ_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/rj/explore'>diksha.gov.in/rj/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/rj/explore'>DIKSHA RAJASTHAN</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.MN_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/mn/explore'>diksha.gov.in/mn/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/mn/explore'>DIKSHA MANIPUR</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.CG_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/cg/explore'>diksha.gov.in/cg/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/cg/explore'>DIKSHA CHHATTISGARH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.MITRA_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/mitra/explore'>diksha.gov.in/mitra/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/mitra/explore'>DIKSHA MAHARASHTRA</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.BR_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/br/explore'>diksha.gov.in/br/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/br/explore'>DIKSHA BIHAR</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.OD_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/od/explore'>diksha.gov.in/od/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/od/explore'>DIKSHA ODISHA</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.AS_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/as/explore'>diksha.gov.in/as/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/as/explore'>DIKSHA ASSAM</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.MP_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/mp/explore'>diksha.gov.in/mp/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/mp/explore'>DIKSHA MADHYAPRADESH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.HR_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/hr/explore'>diksha.gov.in/hr/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/hr/explore'>DIKSHA HARYANA</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.NL_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/nl/explore'>diksha.gov.in/nl/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/nl/explore'>DIKSHA NAGALAND</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.GA_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ga/explore'>diksha.gov.in/ga/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/ga/explore'>DIKSHA GOA</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.TS_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ts/explore'>diksha.gov.in/ts/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/ts/explore'>DIKSHA TELANGANA</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.APEKX_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/apekx/explore'>diksha.gov.in/apekx/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/apekx/explore'>DIKSHA ANDHRAPRADESH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.ML_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ml/explore'>diksha.gov.in/ml/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/ml/explore'>DIKSHA MEGHALAYA</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.NCERT_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ncert/explore'>diksha.gov.in/ncert/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/ncert/explore'>DIKSHA NCERT</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.JH_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/jh/explore'>diksha.gov.in/jh/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/jh/explore'>DIKSHA JHARKHAND</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.SK_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/sk/explore'>diksha.gov.in/sk/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/sk/explore'>DIKSHA SIKKIM</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.CH_BOARD = `<span>
-    Please visit <a target='_blank' href='https://diksha.gov.in/ch/explore'>diksha.gov.in/ch/explore</a>
+    Please visit <a target='_blank' href='https://diksha.gov.in/ch/explore'>DIKSHA CHANDIGARH</a>
     <br>Select the Medium and Class to view relevant subject textbook on the board website.<br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
 </span>`
+
 message.ACCESS_DIKSHA = `<span>
     Select what you want to access-<br>
     Type the number next to the option:
@@ -185,11 +222,7 @@ message.ACCESS_DIKSHA = `<span>
     </ol>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
-message.CONTRIBUTE_CONTENT = `<span>
-    Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>vdn.diksha.gov.in</a><br>
-    Use a desktop or laptop to start contributing content to be used by the nation<br>
-    <br><hr><strong>** </strong>Press 0 to go to first menu or type your query directly.
-</span>`
+
 message.CONSTITUTION_QUIZ = `<span>
     NCERT is live with a national quiz on the Indian Constitution.
     Choose your quiz language<br>
@@ -200,32 +233,139 @@ message.CONSTITUTION_QUIZ = `<span>
     </ol>
     <hr><strong>** </strong>Press 99 to go back or press 0 to go to first menu
 </span>`
+
 message.WEEKLY_CRITICAL_THINKING =`<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook'>
-        diksha.gov.in/play/collection/do_31290608850520473612338?contentType=TextBook
+        Critical thinking questions
     </a><br><br>
     Select the Subject to view relevant content on the page<br>
-    <br><hr><strong>** </strong>Press 99 to go back to choose another program or press 0 to go to first menu.
+    <br><hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
+
 message.CONSTITUTION_QUIZ_LANGUAGE_ENGLISH = `<span>
     Play the quiz by visting: 
     <a target='_blank' href='https://diksha.gov.in/play/quiz/do_312998713531351040138'>
-        diksha.gov.in/play/quiz/do_312998713531351040138
+        QUIZ IN ENGLISH
     </a><br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another language or press 0 to go to first menu.
 </span>`
+
 message.CONSTITUTION_QUIZ_LANGUAGE_HINDI = `<span>
     Play the quiz by visting:
     <a target='_blank' href='https://diksha.gov.in/play/quiz/do_3129987409840947201283'>
-        diksha.gov.in/play/quiz/do_3129987409840947201283
+        QUIZ IN HINDI
     </a><br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another language or press 0 to go to first menu.
 </span>`
+
+message.TRAINING = `<span>
+Select the training you would like to do?<br>
+Type the number next to the training<br>
+    <ol>
+        <li>State training</li>
+        <li>IGOT COVID training</li>
+    </ol>
+    <hr><strong>** </strong>Press 99 to go back or press 0 to go to first menu
+</span>`
+
+message.STATE_TRAINING = `<span>
+Which state board do you belong to?<br>
+Type the number next to the State:<br>
+    <ol>
+        <li>State training</li>
+        <li>IGOT COVID training</li>
+    </ol>
+    <hr><strong>** </strong>Press 99 to go back or press 0 to go to first menu
+</span>`
+
+message.CHOOSE_STATE_TRAINING_BOARD = `<span>
+Which state board do you belong to?<br>
+Type the number next to the State:<br>
+    <ol>
+        <li>CBSE</li>
+        <li>Uttar Pradesh</li>
+        <li>Madhya Pradesh</li>
+        <li>Gujarat</li>
+        <li>Others</li>
+    </ol>
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
+message.TRAINING_CBSE_BOARD = `<span>
+    Please visit:
+    <a target='_blank' href='https://diksha.gov.in/explore-course?channel=01241974041332940818&appliedFilters=true'>
+        DIKSHA CBSE Training
+    </a><br>
+    Select the Topic, Medium, Class and Subject to view relevant training on the website.
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
+message.TRAINING_UP_BOARD = `<span>
+    Please visit:
+    <a target='_blank' href='https://diksha.gov.in/explore-course?channel=01246376237871104093&appliedFilters=true'>
+       DIKSHA UP Training
+    </a><br>
+    Select the Topic, Medium, Class and Subject to view relevant training on the website.
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
+message.TRAINING_MP_BOARD = `<span>
+    Please visit:
+    <a target='_blank' href='https://diksha.gov.in/explore-course?channel=012936530816278528135&appliedFilters=true'>
+       DIKSHA MP Training
+    </a><br>
+    Select the Topic, Medium, Class and Subject to view relevant training on the website.
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
+message.TRAINING_GJ_BOARD = `<span>
+    Please visit:
+    <a target='_blank' href='https://diksha.gov.in/explore-course?channel=01260242422044262448&appliedFilters=true'>
+       DIKSHA GJ Training
+    </a><br>
+    Select the Topic, Medium, Class and Subject to view relevant training on the website.
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
+message.TRAINING_OTHERS_BOARD = `<span>
+    Your board has not uploaded the relevant trainings yet but you can alway explore other trainings on DIKSHA
+    Please visit:
+    <a target='_blank' href='https://diksha.gov.in/explore-course'>
+       DIKSHA Training
+    </a><br>
+    Select the Topic, Medium, Class and Subject to view relevant training on the website.
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
+message.CHOOSE_IGOT_TRAINING_OPTION = `<span>
+    Select what you are looking for<br>
+    Type the number next to the option:<br>
+    <ol>
+        <li>Take IGOT trianing</li>
+        <li>Issues with training/certificate</li>
+    </ol>
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
+message.IGOT_TRAINING = `<span>
+    Please visit:
+    <a target='_blank' href='https://igot.gov.in/igot/explore-course'>
+        IGOT Trainings
+    </a><br>
+    Select the role to view relevant training on the website
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+    </span>`
+
+message.CERTIFICATE_ISSUE = `<span>
+    Please write your concern to support@i-got.freshdesk.com
+    <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
+</span>`
+
 message.PLAYSTORE = `<span>
     Please visit 
     <a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>
-        (https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara)
+        DIKSHA mobile app
     </a><br><br>
     <strong>Step 1.</strong> Download the DIKSHA mobile app from the link given above<br>
     <strong>Step 2.</strong> Install the DIKSHA app<br>
@@ -233,44 +373,56 @@ message.PLAYSTORE = `<span>
     You are good to go!<br>
     <br><hr><strong>** </strong>Press 0 to go to first menu or type your query directly
 </span>`
+
+message.CONTRIBUTE_CONTENT = `<span>
+    Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>VIDYADAAN</a><br>
+    Use a desktop or laptop to start contributing content to be used by the nation<br>
+    <br><hr><strong>** </strong>Press 0 to go to first menu or type your query directly.
+</span>`
+
 message.OTHER_OPTIONS = `<span> 
     Type the number next to your query:
     <ol>
-        <li>I want to scan the QR code</li>
-        <li>I am unable to log in</li>
-        <li>I have forgotten my password or I want to reset my password</li>
-        <li>I have other queries</li>
+        <li>Scan QR code</li>
+        <li>Login issues</li>
+        <li>Reset password</li>
+        <li>Other queries</li>
     </ol>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
+
 message.SCAN_QRCODE = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html'>
-        https://diksha.gov.in/help/getting-started/diksha-mobile-app/understanding-qr-code.html
+        Scan QR Code
     </a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
+
 message.UNABLE_LOGIN = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/sign-in/index.html'>
-        https://diksha.gov.in/help/getting-started/sign-in/index.html
+    Login issues
     ​</a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
+
 message.FORGOT_PASSWORD = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/recover-password/index.html'>
-        https://diksha.gov.in/help/getting-started/recover-password/index.html
+    Reset password
     </a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
+
 message.OTHERS = `<span>
     Please visit: 
     <a target='_blank' href='https://diksha.gov.in/help/getting-started/explore-diksha/index.html'>
-        https://diksha.gov.in/help/getting-started/explore-diksha/index.html
+    Other issues
     </a>
     <br><br><hr><strong>** </strong>Press 99 to go back to choose another query or press 0 to go to first menu.
 </span>`
+
 message.UNKNOWN_OPTION = 
 `Sorry, I do not understand what you’re asking. Press 0 to go to first menu or type your query directly, so I can help you better`
 message.SORRY = "Sorry, can you come again please?"

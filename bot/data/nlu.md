@@ -165,6 +165,8 @@ data/subjects.txt
 - COVID
 - COVID19
 - quarantine
+- COVID and quarantine
+- COVID19 and quarantine
 
 ## intent: critical_practice
 - I want to practice Weekly Creative and Critical Thinking questions
@@ -179,6 +181,8 @@ data/subjects.txt
 - How to download the DIKSHA app
 - How to install the DIKSHA app
 - I want to install DIKSHA app
+- Install the DIKSHA app
+- I want DIKSHA app
 
 ## intent: scan_qr_code
 - I want to scan the QR code
@@ -193,10 +197,19 @@ data/subjects.txt
 - Don't know how to login
 - Help me to login
 - Help me to register
+- Login problem
+- I want to register on dikhsha app but I can't please help me
+- I want registration in Diksha app 
+- Registration problem
 
 ## intent: reset_password
 - I have forgotten my password
 - I want to reset my password
+- I want my current password
+- Password
+- Not accepting my password
+- Password wrong
+- How to create password
 
 ## intent: vidyadaan_link
 - I want to contribute content as a teacher
@@ -205,6 +218,23 @@ data/subjects.txt
 - Contribute content
 - Content Contribution
 
+## intent: igot
+- IGOT
+- I want the training as a Ncc cadet in English(language)
+- COVID 19 training for ncc cadets
+
+## intent: state_training
+- How to start my training 
+- Where I can join training
+
+## intent: training_certificate
+- I Am not able to download my certificate 
+- I want to download my certificate 
+- Certificate 
+- I want to download my training certificate 
+- I want to take my acknowledgement completion certificate 
+- How to get certificate for completed training
+- Download certificate
 ## lookup:grade
 data/grades.txt
 
