@@ -260,7 +260,6 @@ responses:
        text: "<span>You will be notified as soon as your certificate is issued to you. After the notification, you can download your certificate from your DIKSHA profile page<br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back or type your query directly</span>"
        intent: "training_certificate"   
 
-  session_config:
   utter_ask_board:
   - custom:
      blocks:
