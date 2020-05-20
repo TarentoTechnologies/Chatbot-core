@@ -245,3 +245,10 @@ data/mediums.txt
 - How to get certificate for completed training
 - Download certificate
 
+## intent: confirm
+- yes I am [satisfied](feedback_response)
+- [satisfied](feedback_response)
+
+## intent: deny
+- no I am [unsatisfied](feedback_response)
+- [unsatisfied](feedback_response)

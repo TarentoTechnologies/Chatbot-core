@@ -23,12 +23,24 @@ intents:
   - IGOT
   - state_training
   - training_certificate
+  - confirm
+  - deny
+  - feedback
 
 entities:
   - board
   - grade
   - medium
   - subject
+  - feedback_response
+
+slots:
+  feedback_response:
+    type: categorical
+    values: 
+    - satisfied
+    - unsatisfied
+
 
 actions:
 - utter_greet
@@ -56,6 +68,10 @@ actions:
 - utter_IGOT
 - utter_state_training
 - utter_training_certificate
+- utter_get_feedback
+- utter_thank_you
+- utter_get_started
+- utter_modified_suggestion
 
 responses:
   utter_greet:
@@ -236,5 +252,27 @@ responses:
        intent: "training_certificate"   
 
   session_config:
+  utter_get_feedback:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "are you satisfied with the response. type satisfied or unsatisfied"
+       intent: "deny" 
+
+  utter_thank_you:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "thank you. Happy learning."
+       intent: "confirm" 
+
+  utter_modified_suggestion:
+  - custom:
+     blocks:
+     - type: "response"
+       text: "sorry for inconvenience. could you please reenter your query"
+       intent: "feedback"
+
+session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
