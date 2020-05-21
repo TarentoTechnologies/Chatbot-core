@@ -161,29 +161,25 @@ var chatflow = {
         responseVariable: ""
     },
     step1_2_1: {
-        messageKey: "STATE_TRAINING",
-        responseVariable: ""
-    },
-    step1_2_1_1: {
         messageKey: "CHOOSE_STATE_TRAINING_BOARD",
         responseVariable: ""
-    }, step1_2_1_1_1: {
+    }, step1_2_1_1: {
         messageKey: "TRAINING_CBSE_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_2: {
+    step1_2_1_2: {
         messageKey: "TRAINING_UP_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_3: {
+    step1_2_1_3: {
         messageKey: "TRAINING_MP_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_4: {
+    step1_2_1_4: {
         messageKey: "TRAINING_GJ_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_5: {
+    step1_2_1_5: {
         messageKey: "TRAINING_OTHERS_BOARD",
         responseVariable: ""
     },
