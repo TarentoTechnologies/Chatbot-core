@@ -90,3 +90,15 @@
 * confirm{"feedback_response" : "No"}
   - slot{"feedback_response" : "No"}
   - utter_modify_query
+
+# igot training
+* igot
+  - utter_IGOT
+
+# state training
+* state_training
+  - utter_state_training
+
+# training certificate
+* training_certificate
+  - utter_training_certificate
