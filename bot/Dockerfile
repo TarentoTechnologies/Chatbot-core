@@ -5,4 +5,4 @@ RUN rasa train
 FROM rasa/rasa:1.9.4-full
 COPY --from=trainer /app .
 EXPOSE 5005
-CMD ["run", "--enable-api"]
+CMD ["sh" , "-c", "run actions & run -enable-api"]
