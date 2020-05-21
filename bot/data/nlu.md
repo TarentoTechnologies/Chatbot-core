@@ -30,6 +30,7 @@
 - See you around
 - See you later
 - See you
+- OK bye thanks a lot
 
 ## intent:bot_challenge
 - are you a bot?
@@ -42,6 +43,8 @@
 - tell me your name
 - who is this?
 - tell me about yourself
+- whats your name?
+- What are you?
 
 ## intent:worksheet
 - about worksheet
@@ -156,6 +159,7 @@ data/subjects.txt
 - Do you have live classes?"
 - online classes
 - live classes
+- how to get a online class
 
 ## intent: COVID19_queries
 - What is COVID?
@@ -167,6 +171,8 @@ data/subjects.txt
 - quarantine
 - COVID and quarantine
 - COVID19 and quarantine
+- Infection in covid19
+- what is novel coronavirus
 
 ## intent: critical_practice
 - I want to practice Weekly Creative and Critical Thinking questions
@@ -174,6 +180,8 @@ data/subjects.txt
 - I want to access critical thinking questions
 - Show me critical thinking questions
 - Take me to critical questions
+- I want to access questions on DIKSHA
+- I want multiple choice questions
 
 ## intent: app_link
 - I want to downlaod DIKSHA App
