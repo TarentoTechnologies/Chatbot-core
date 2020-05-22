@@ -74,7 +74,9 @@ class ActionContentForm(FormAction):
         medium_url = "&medium=" + self.get_medium_mapped(medium.lower())
         grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade) 
         url = base_url + board_url + medium_url + grade_url
-        dispatcher.utter_message(text="<span>Please visit: <a target='_blank' href='" + url + "'> DIKSHA " + board + " Board</a></span>")
+
+        dispatcher.utter_message(text="<span>Great! I understand that you are looking for content of"+ board +"board, class" +grade + medium +"medium .<br>" 
+         "Please visit: <a target='_blank' href='" + url + "'> DIKSHA " + board + " Board</a></span>")
         return [SlotSet('board', None),SlotSet('grade', None), SlotSet('medium', None)]
 
      def get_board_mapped(self, board):
