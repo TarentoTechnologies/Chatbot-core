@@ -15,12 +15,11 @@ config.HTTPS_PATH_CA                 = env.HTTPS_PATH_CA || ''
 
 config.REDIS_PORT					 = 6379
 config.REDIS_HOST					 = env.REDIS_HOST || 'localhost'
-
-
 config.TELEMETRY_ENDPOINT          = env.telemetry_endpoint || 'v1/telemetry'
 config.TELEMETRY_SYNC_BATCH_SIZE   = env.telemetry_sync_batch_size || 1
 config.PORTAL_API_AUTH_TOKEN       = env.sunbird_api_auth_token || ''
 config.TELEMETRY_SERVICE_LOCAL_URL = env.telemetry_service_url || ''
+config.TELEMETRY_DATA_VERSION      = env.telemetry_version || '1.1'
 
 config.ELASTIC_HOST                  = 'http://<user>:<password><IP>:<Port>'
 config.ELASTIC_INDEX_NAME            = 'indx_name'
