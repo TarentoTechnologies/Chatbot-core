@@ -17,8 +17,8 @@ message.CHOOSE_DIGITAL_CONTENT = `<span>
     What content would you like to explore?<br>
     <ol>
         <li> Textbook videos & practice questions</li>
-        <li> Critical thinking questions
-        </li>
+        <li> Critical thinking questions</li>
+        <li> Constitution quiz</li>
     </ol>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
@@ -223,7 +223,7 @@ message.ACCESS_DIKSHA = `<span>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
 
-message.CONSTITUTION_QUIZ = `<span>
+message.CONSTITUTION_QUIZ = `<span> 
     NCERT is live with a national quiz on the Indian Constitution.
     Choose your quiz language -<br>
     Type the number next to the option:
