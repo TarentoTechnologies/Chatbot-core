@@ -125,31 +125,27 @@ var chatflow = {
     },
 
     step1_1_2: {
-        messageKey: "ACCESS_DIKSHA",
-        responseVariable: "access_diksha"
+        messageKey: "WEEKLY_CRITICAL_THINKING",
+        responseVariable: ""
     },
     step1_1_2_error: {
         messageKey: "WRONG_INPUT_AT_FIRST_LEVEL",
         responseVariable: ""
     },
-    step1_1_2_1: {
+    step1_1_3: {
         messageKey: "CONSTITUTION_QUIZ",
         responseVariable: "constitution_quiz"
     },
-    step1_1_2_1_error: {
+    step1_1_3_error: {
         messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
         responseVariable: ""
     },
-    step1_1_2_1_1: {
+    step1_1_3_1: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_ENGLISH",
         responseVariable: ""
     },
-    step1_1_2_1_2: {
+    step1_1_3_2: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_HINDI",
-        responseVariable: ""
-    },
-    step1_1_2_2: {
-        messageKey: "WEEKLY_CRITICAL_THINKING",
         responseVariable: ""
     },
     step1_2: {
