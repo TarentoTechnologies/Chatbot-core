@@ -496,9 +496,9 @@ data/boards.txt
 - I want to learn [Karnataka](board) content for class [six](grade) [Hindi] (Medium) Medium
 - I want to learn [Karnataka](board) content for class [six](grade) [English] (Medium) Medium
 - I'm a class [five](grade) student from [Maharashtra](board) and want to learn from home in [Marathi](medium)
-I'm a class [six](grade) student from [Maharashtra](board) and want to learn from home in [Marathi](medium)
-I'm a class [five](grade) student from [Gujarat](board) and want to learn from home in [Gujarati](medium)
-I'm a class [six](grade) student from [Gujrat](board) and want to learn from home in [Gujarati](medium)
+- I'm a class [six](grade) student from [Maharashtra](board) and want to learn from home in [Marathi](medium)
+- I'm a class [five](grade) student from [Gujarat](board) and want to learn from home in [Gujarati](medium)
+- I'm a class [six](grade) student from [Gujrat](board) and want to learn from home in [Gujarati](medium)
 - Do you have any content for class [eight](grade) [Kannada](medium) from [Karnataka](board) state board
 - Do you have any content for class [nine](grade) [Kannada](medium) from [Karnataka](board) state board
 - Show me class [one](grade) [tamil](medium) content from [Tamil Nadu](board)
