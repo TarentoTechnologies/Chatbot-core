@@ -495,3 +495,10 @@ data/boards.txt
 ## intent: deny
 - [No](feedback_response) I am not unsatisfied with the answer
 - [No](feedback_response)
+
+## intent: board_medium_class_discovery
+- I want to learn [CBSE](board) content for class [seven](grade) [Hindi] (Medium) Medium
+- I'm a class [one](grade) student from [Maharashtra](board) and want to learn from home in [Marathi](medium)
+- Do you have any content for class [eight](grade) [Kannada](medium) from [Karnataka](board) state board
+- Show me class [one](grade) [tamil](medium) content from [Tamil Nadu](board)
+- Please show [second](grade) standard [english](medium) content for [CBSE](board)
