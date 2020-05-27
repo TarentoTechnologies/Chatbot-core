@@ -29,6 +29,7 @@ intents:
   - board
   - confirm
   - deny
+  - board_medium_class_discovery
 
 entities:
   - board
@@ -265,21 +266,21 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>Which board you belongs to?</span>"
+       text: "<span>In which medium you are studying <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
        intent: "ask_board"
 
   utter_ask_medium:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>In which medium you are studying</span>"
+       text: "<span>In which medium you are studying <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
        intent: "ask_medium"
 
   utter_ask_grade:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>Please tell me your class</span>"
+       text: "<span>In which medium you are studying <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
        intent: "ask_grade"
 
   utter_get_feedback:

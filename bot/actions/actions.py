@@ -72,9 +72,11 @@ class ActionContentForm(FormAction):
 
         board_url  = "?board=" + self.get_board_mapped(board.lower())
         medium_url = "&medium=" + self.get_medium_mapped(medium.lower())
-        grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade) 
+        grade_url  = "&gradeLevel=" + self.get_grade_mapped(medium.lower(grade)) 
         url = base_url + board_url + medium_url + grade_url
-        dispatcher.utter_message(text="<span>Please visit: <a target='_blank' href='" + url + "'> DIKSHA " + board + " Board</a></span>")
+
+        dispatcher.utter_message(text="<span>Great! I understand that you are looking for content of"+ board +"board, class" +grade + medium +"medium .<br>" 
+         "Please visit: <a target='_blank' href='" + url + "'> DIKSHA " + board + "</a></span>")
         return [SlotSet('board', None),SlotSet('grade', None), SlotSet('medium', None)]
 
      def get_board_mapped(self, board):
@@ -84,19 +86,13 @@ class ActionContentForm(FormAction):
         return data[board]
 
      def get_medium_mapped(self,medium):
-        medium_values =  {
-           "hindi":"Hindi",
-           "sanskrit":"Sanskrit"
-        }
-        return medium_values[medium]
+         data = ''
+         with open('resources/mediums.json') as mediums_values:
+           data = json.load(mediums_values)
+        return data[medium]
 
      def get_grade_mapped(self, grade):
-        grade_values =  {
-           "first":"Class 1",
-           "1st":"Class 1",
-           "1":"Class 1",
-           "second":"Class 2",
-           "2nd":"Class 2",
-           "2":"Class 2"
-        }
-        return grade_values[grade]
+         data = ''
+         with open('resources/grades.json') as grades_values:
+           data = json.load(grades_values)
+        return data[grade]

@@ -79,17 +79,10 @@
   - utter_vidyadaan_link
 
 # discover content happy path
-* discover_content
+* board_medium_class_discovery
   - content_form
   - form{"name": "content_form"}
   - form{"name": null}
-  - utter_get_feedback
-* confirm{"feedback_response" : "Yes"}
-  - slot{"feedback_response" : "Yes"}
-  - utter_thank_you
-* confirm{"feedback_response" : "No"}
-  - slot{"feedback_response" : "No"}
-  - utter_modify_query
 
 # igot training
 * igot

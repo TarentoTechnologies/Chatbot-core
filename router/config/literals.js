@@ -2,7 +2,7 @@ var message                       = {}
 message.START = `<span>
     Hello, I am Tara!<br>
     I am your DIKSHA guide<br>
-    Please select your preference from the options I provide or type your query directly<br>
+    Please select your preference from the options I provide or type your query directly.<br>
     Type the number next to the option:
     <ol>
         <li> Digital content</li>
@@ -17,8 +17,8 @@ message.CHOOSE_DIGITAL_CONTENT = `<span>
     What content would you like to explore?<br>
     <ol>
         <li> Textbook videos & practice questions</li>
-        <li> Critical thinking questions
-        </li>
+        <li> Critical thinking questions</li>
+        <li> Constitution quiz</li>
     </ol>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
@@ -214,18 +214,18 @@ message.CH_BOARD = `<span>
 </span>`
 
 message.ACCESS_DIKSHA = `<span>
-    Select what you want to access-<br>
+    Select what you want to access -<br>
     Type the number next to the option:
     <ol>
-        <li>I want to take Constitution quiz</li>
-        <li>I want to practice Weekly Creative and Critical Thinking questions</li>
+        <li>Take Constitution quiz</li>
+        <li>Practice Weekly Creative and Critical Thinking questions</li>
     </ol>
     <hr><strong>** </strong>Press 0 to go to first menu.
 </span>`
 
-message.CONSTITUTION_QUIZ = `<span>
+message.CONSTITUTION_QUIZ = `<span> 
     NCERT is live with a national quiz on the Indian Constitution.
-    Choose your quiz language<br>
+    Choose your quiz language -<br>
     Type the number next to the option:
     <ol>
         <li>English</li>
@@ -246,7 +246,7 @@ message.WEEKLY_CRITICAL_THINKING =`<span>
 message.CONSTITUTION_QUIZ_LANGUAGE_ENGLISH = `<span>
     Play the quiz by visting: 
     <a target='_blank' href='https://diksha.gov.in/play/quiz/do_312998713531351040138'>
-        QUIZ IN ENGLISH
+        Quiz in English
     </a><br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another language or press 0 to go to first menu.
 </span>`
@@ -254,24 +254,14 @@ message.CONSTITUTION_QUIZ_LANGUAGE_ENGLISH = `<span>
 message.CONSTITUTION_QUIZ_LANGUAGE_HINDI = `<span>
     Play the quiz by visting:
     <a target='_blank' href='https://diksha.gov.in/play/quiz/do_3129987409840947201283'>
-        QUIZ IN HINDI
+        Quiz in Hindi
     </a><br>
     <br><hr><strong>** </strong>Press 99 to go back to choose another language or press 0 to go to first menu.
 </span>`
 
 message.TRAINING = `<span>
-Select the training you would like to do?<br>
+Select the training you would like to do<br>
 Type the number next to the training<br>
-    <ol>
-        <li>State training</li>
-        <li>IGOT COVID training</li>
-    </ol>
-    <hr><strong>** </strong>Press 99 to go back or press 0 to go to first menu
-</span>`
-
-message.STATE_TRAINING = `<span>
-Which state board do you belong to?<br>
-Type the number next to the State:<br>
     <ol>
         <li>State training</li>
         <li>IGOT COVID training</li>
@@ -329,7 +319,7 @@ message.TRAINING_GJ_BOARD = `<span>
 </span>`
 
 message.TRAINING_OTHERS_BOARD = `<span>
-    Your board has not uploaded the relevant trainings yet but you can alway explore other trainings on DIKSHA
+    Your board has not uploaded the relevant trainings yet but you can alway explore other trainings on DIKSHA<br>
     Please visit:
     <a target='_blank' href='https://diksha.gov.in/explore-course'>
        DIKSHA Training
@@ -353,7 +343,7 @@ message.IGOT_TRAINING = `<span>
     <a target='_blank' href='https://igot.gov.in/igot/explore-course'>
         IGOT Trainings
     </a><br>
-    Select the role to view relevant training on the website
+    Select the role to view relevant training on the website.
     <br><hr><strong>** </strong>Press 99 to go back to choose another board or press 0 to go to first menu.
     </span>`
 
@@ -363,7 +353,7 @@ message.CERTIFICATE_ISSUE = `<span>
 </span>`
 
 message.PLAYSTORE = `<span>
-    Please visit 
+    Please visit: 
     <a target='_blank' href='https://play.google.com/store/apps/details?id=in.gov.diksha.app&referrer=utm_source%3Dtara'>
         DIKSHA mobile app
     </a><br><br>
@@ -376,7 +366,7 @@ message.PLAYSTORE = `<span>
 
 message.CONTRIBUTE_CONTENT = `<span>
     Please visit: <a target='_blank' href='https://vdn.diksha.gov.in/'>VIDYADAAN</a><br>
-    Use a desktop or laptop to start contributing content to be used by the nation<br>
+    Use a desktop or laptop to start contributing content to be used by the nation.<br>
     <br><hr><strong>** </strong>Press 0 to go to first menu or type your query directly.
 </span>`
 
@@ -424,7 +414,7 @@ message.OTHERS = `<span>
 </span>`
 
 message.UNKNOWN_OPTION = 
-`Sorry, I do not understand what you’re asking. Press 0 to go to first menu or type your query directly, so I can help you better`
+`Sorry, I do not understand what you’re asking. Press 0 to go to first menu or type your query directly, so I can help you better.`
 message.SORRY = "Sorry, can you come again please?"
 message.WRONG_INPUT_AT_FIRST_LEVEL = "<span>Sorry, I do not understand what you’re asking. Press 99 to go back or press 0 to go to first menu, so I can help you better.</span>"
 message.WRONG_INPUT_AT_SECOND_LEVEL = "<span>Sorry, I do not understand what you're asking. Press 0 to go to first menu or type your query directly, so I can help you better.</span>"

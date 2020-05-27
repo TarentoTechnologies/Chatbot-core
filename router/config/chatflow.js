@@ -125,31 +125,27 @@ var chatflow = {
     },
 
     step1_1_2: {
-        messageKey: "ACCESS_DIKSHA",
-        responseVariable: "access_diksha"
+        messageKey: "WEEKLY_CRITICAL_THINKING",
+        responseVariable: ""
     },
     step1_1_2_error: {
         messageKey: "WRONG_INPUT_AT_FIRST_LEVEL",
         responseVariable: ""
     },
-    step1_1_2_1: {
+    step1_1_3: {
         messageKey: "CONSTITUTION_QUIZ",
         responseVariable: "constitution_quiz"
     },
-    step1_1_2_1_error: {
+    step1_1_3_error: {
         messageKey: "WRONG_INPUT_AT_SECOND_LEVEL",
         responseVariable: ""
     },
-    step1_1_2_1_1: {
+    step1_1_3_1: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_ENGLISH",
         responseVariable: ""
     },
-    step1_1_2_1_2: {
+    step1_1_3_2: {
         messageKey: "CONSTITUTION_QUIZ_LANGUAGE_HINDI",
-        responseVariable: ""
-    },
-    step1_1_2_2: {
-        messageKey: "WEEKLY_CRITICAL_THINKING",
         responseVariable: ""
     },
     step1_2: {
@@ -161,29 +157,25 @@ var chatflow = {
         responseVariable: ""
     },
     step1_2_1: {
-        messageKey: "STATE_TRAINING",
-        responseVariable: ""
-    },
-    step1_2_1_1: {
         messageKey: "CHOOSE_STATE_TRAINING_BOARD",
         responseVariable: ""
-    }, step1_2_1_1_1: {
+    }, step1_2_1_1: {
         messageKey: "TRAINING_CBSE_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_2: {
+    step1_2_1_2: {
         messageKey: "TRAINING_UP_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_3: {
+    step1_2_1_3: {
         messageKey: "TRAINING_MP_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_4: {
+    step1_2_1_4: {
         messageKey: "TRAINING_GJ_BOARD",
         responseVariable: ""
     },
-    step1_2_1_1_5: {
+    step1_2_1_5: {
         messageKey: "TRAINING_OTHERS_BOARD",
         responseVariable: ""
     },
