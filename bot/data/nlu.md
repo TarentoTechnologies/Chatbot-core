@@ -463,7 +463,7 @@ data/mediums.txt
 ## lookup:board
 data/boards.txt
 
-## intent: discover_content
+## intent: board_medium_class_discovery
 - I want to discover contents for [cbse](board) board
 - I want to discover contents for [CBSE](board) board
 - I want to discover contents for [Tamilnadu](board) board
@@ -482,11 +482,30 @@ data/boards.txt
 - Do you have learning material for [cbse](board) board
 - Do you have learning material for [Tamilnadu](board) board
 - Do you have learning material for [Karnataka](board)
-- Do you have learning material for [Gujrat](board)
+- Do you have learning material for [Gujarat](board)
 - Do you have learning material for [UttarPradesh](board)
 - Do you have learning material for [Punjab](board)
 - Do you have learning material for [Maharashtra](board)
 - I want to study in lockdown , How can i study online
+- I want to learn [CBSE](board) content for class [seven](grade) [Hindi] (Medium) Medium
+- I want to learn [CBSE](board) content for class [seven](grade) [English] (Medium) Medium
+- I want to learn [CBSE](board) content for class [six](grade) [Hindi] (Medium) Medium
+- I want to learn [CBSE](board) content for class [six](grade) [English] (Medium) Medium
+- I want to learn [Karnataka](board) content for class [seven](grade) [Hindi] (Medium) Medium
+- I want to learn [Karnataka](board) content for class [seven](grade) [English] (Medium) Medium
+- I want to learn [Karnataka](board) content for class [six](grade) [Hindi] (Medium) Medium
+- I want to learn [Karnataka](board) content for class [six](grade) [English] (Medium) Medium
+- I'm a class [five](grade) student from [Maharashtra](board) and want to learn from home in [Marathi](medium)
+- I'm a class [six](grade) student from [Maharashtra](board) and want to learn from home in [Marathi](medium)
+- I'm a class [five](grade) student from [Gujarat](board) and want to learn from home in [Gujarati](medium)
+- I'm a class [six](grade) student from [Gujrat](board) and want to learn from home in [Gujarati](medium)
+- Do you have any content for class [eight](grade) [Kannada](medium) from [Karnataka](board) state board
+- Do you have any content for class [nine](grade) [Kannada](medium) from [Karnataka](board) state board
+- Show me class [one](grade) [tamil](medium) content from [Tamil Nadu](board)
+- Show me class [second](grade) [tamil](medium) content from [Tamil Nadu](board)
+- Please show [second](grade) standard [english](medium) content for [CBSE](board)
+- Please show [first](grade) standard [english](medium) content for [CBSE](board)
+
 
 ## intent: confirm
 - [Yes](feedback_response) I am satisfied with the answer
@@ -495,10 +514,3 @@ data/boards.txt
 ## intent: deny
 - [No](feedback_response) I am not unsatisfied with the answer
 - [No](feedback_response)
-
-## intent: board_medium_class_discovery
-- I want to learn [CBSE](board) content for class [seven](grade) [Hindi] (Medium) Medium
-- I'm a class [one](grade) student from [Maharashtra](board) and want to learn from home in [Marathi](medium)
-- Do you have any content for class [eight](grade) [Kannada](medium) from [Karnataka](board) state board
-- Show me class [one](grade) [tamil](medium) content from [Tamil Nadu](board)
-- Please show [second](grade) standard [english](medium) content for [CBSE](board)
