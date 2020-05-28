@@ -266,21 +266,21 @@ responses:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>In which medium you are studying <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
+       text: "<span>Type your board <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
        intent: "ask_board"
 
   utter_ask_medium:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>In which medium you are studying <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
+       text: "<span>Type your medium <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
        intent: "ask_medium"
 
   utter_ask_grade:
   - custom:
      blocks:
      - type: "response"
-       text: "<span>In which medium you are studying <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
+       text: "<span>Type your class <br><hr><strong>**</strong> Press 0 to go to first menu or press 99 to go back</span>"
        intent: "ask_grade"
 
   utter_get_feedback:
