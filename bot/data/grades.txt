@@ -46,28 +46,3 @@ twelveth
 10
 11
 12
-Doctors
-doctors
-Nurses
-nurses
-Volunteers
-Hygiene Workers
-hygiene workers
-hygieneworker
-Police
-police
-Civil Defence Officials
-defence officials
-Civil Defence
-civil defence
-ANMs
-Other State Officials
-state officials
-Civil Defence Officials
-paramedics
-Paramedics
-other technicians
-Other Technicians
-ayush doctors
-Ayush Doctors
-ayush

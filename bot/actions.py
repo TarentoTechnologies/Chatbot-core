@@ -69,14 +69,16 @@ class ActionContentForm(FormAction):
         board  = tracker.get_slot('board')
         grade  = tracker.get_slot('grade')
         medium = tracker.get_slot('medium')
-
+        print('Grad', grade)
+        print('Medium', medium)
+        print('Board', board)
         board_url  = "?board=" + self.get_board_mapped(board.lower())
         medium_url = "&medium=" + self.get_medium_mapped(medium.lower())
-        grade_url  = "&gradeLevel=" + self.get_grade_mapped(medium.lower(grade)) 
+        grade_url  = "&gradeLevel=" + self.get_grade_mapped(grade.lower()) 
         url = base_url + board_url + medium_url + grade_url
 
-        dispatcher.utter_message(text="<span>Great! I understand that you are looking for content of"+ board +"board, class" +grade + medium +"medium .<br>" 
-         "Please visit: <a target='_blank' href='" + url + "'> DIKSHA " + board + "</a></span>")
+        dispatcher.utter_message(text="<span> Great! I understand that you are looking for content of "+ board + " board, class " + grade + ", " + medium + " medium .<br>" 
+         "Please visit: <a target='_blank' href='" + url + "'> DIKSHA " + board + " Board</a></span>")
         return [SlotSet('board', None),SlotSet('grade', None), SlotSet('medium', None)]
 
      def get_board_mapped(self, board):
@@ -86,13 +88,13 @@ class ActionContentForm(FormAction):
         return data[board]
 
      def get_medium_mapped(self,medium):
-         data = ''
-         with open('resources/mediums.json') as mediums_values:
+        data = ''
+        with open('resources/mediums.json') as mediums_values:
            data = json.load(mediums_values)
         return data[medium]
 
      def get_grade_mapped(self, grade):
-         data = ''
-         with open('resources/grades.json') as grades_values:
+        data = ''
+        with open('resources/grades.json') as grades_values:
            data = json.load(grades_values)
         return data[grade]
