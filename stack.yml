@@ -3,7 +3,7 @@ services:
   redis:
     image: "redis:alpine"
     ports:
-      - "6379:6379"
+      - "6380:6380"
   bot:    
     build: ./bot/.
     ports:
@@ -11,9 +11,9 @@ services:
     environment:
       - TMP=TMP
   action:
-      build:
-        dockerfile: Dockerfile
-        context: ./bot/action/.
+    build:
+      dockerfile: Dockerfile
+      context: ./bot/actions/.
   router:    
     build: ./router/.
     ports:
