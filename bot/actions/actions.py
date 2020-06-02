@@ -11,7 +11,7 @@ from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 import spacy
 import json
-import os.path 
+import os.path
 #
 #
 nlp      = spacy.load('en_core_web_sm')
