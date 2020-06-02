@@ -1,7 +1,9 @@
-FROM rasa/rasa:1.9.4-full as trainer
-COPY . /app
-RUN python -m spacy link en_core_web_sm en
-
 FROM rasa/rasa:1.9.4-full
-COPY --from=trainer /app .
+WORKDIR /app
+USER root
+RUN python3 -m spacy download en_core_web_sm
+RUN python3 -m spacy link -f en_core_web_sm  en_core_web_sm
+
+COPY ./ /app/actions
+EXPOSE 5056
 CMD ["run", "actions"]

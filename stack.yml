@@ -14,6 +14,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./bot/actions/.
+    ports:
+      - "5056:5056"
   router:    
     build: ./router/.
     ports:
