@@ -11,6 +11,7 @@ from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 import spacy
 import json
+import os.path
 #
 #
 nlp      = spacy.load('en_core_web_sm')
@@ -83,18 +84,24 @@ class ActionContentForm(FormAction):
 
      def get_board_mapped(self, board):
         data = ''
-        with open('resources/boards.json') as boards_values:
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, 'resources/boards.json')
+        with open(filename) as boards_values:
            data = json.load(boards_values)
         return data[board]
 
      def get_medium_mapped(self,medium):
         data = ''
-        with open('resources/mediums.json') as mediums_values:
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, 'resources/mediums.json')
+        with open(filename) as mediums_values:
            data = json.load(mediums_values)
         return data[medium]
 
      def get_grade_mapped(self, grade):
         data = ''
-        with open('resources/grades.json') as grades_values:
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, 'resources/grades.json')
+        with open(filename) as grades_values:
            data = json.load(grades_values)
         return data[grade]
