@@ -9,7 +9,7 @@
   "author": "waibhav",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dateformat": "^3.0.3",
     "elasticsearch": "^16.6.0",
